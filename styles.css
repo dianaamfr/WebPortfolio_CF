@@ -36,14 +36,36 @@
 
 body {
     background-color:var(--black);
-    border-right: 1px solid var(--outter_border_color);
-    border-left: 1px solid var(--outter_border_color);
     margin: auto;
+}
+
+h1 {
+    font-family: tacite;
+    font-weight: 200;
+    font-size: 16px;
+    color: var(--grey);
+    text-transform: uppercase;
+}
+
+p {
+    font-family: haas_grot_disp;
+    font-weight: 200;
+    font-size: 16px;
+    color: var(--grey);
+    text-decoration:none;
+}
+
+a {
+    text-decoration: none;
+    font-family: haas_grot_disp;
+    font-weight: 200;
+    color: var(--grey);
+    font-size: 16px;
 }
 
 header {
     background-color:var(--black);
-    border-bottom: 2pt solid var(--stroke_grey);
+    border-bottom: 1.5pt solid var(--stroke_grey);
 }
 
 .sticky_header {
@@ -71,20 +93,10 @@ header {
   }
 
 #page_title{
-    font-family: haas_grot_disp;
-    font-weight: 200;
-    font-size: 16px;
-    color: var(--grey);
-    text-decoration:none;
     flex: 1;
 }
 
 #page_description {
-    font-family: tacite;
-    font-weight: 200;
-    font-size: 16px;
-    color: var(--grey);
-    text-transform: uppercase;
     flex: 2;
 }
 
@@ -102,7 +114,6 @@ header {
     width: 100%;
 }
 
-
 #menu_desktop li {
     list-style-type: none;
     display: inline-block;
@@ -110,11 +121,6 @@ header {
 
 #menu_desktop li a {
     display: block;
-    text-decoration: none;
-    font-family: haas_grot_disp;
-    font-weight: 200;
-    color: var(--grey);
-    font-size: 16px;
     /*transition: 0.2s;
     cursor: pointer;*/
 }
@@ -123,8 +129,8 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    border-left: 2pt solid var(--stroke_grey);
-    border-right: 2pt solid var(--stroke_grey);
+    border-left: 1.5pt solid var(--stroke_grey);
+    border-right: 1.5pt solid var(--stroke_grey);
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -138,7 +144,7 @@ header {
     width: 100%;
     position: relative;
     overflow: hidden;
-    outline: 2pt solid var(--stroke_grey);
+    outline: 1.5pt solid var(--stroke_grey);
 }
 
 .project_image_container:before {
@@ -161,7 +167,7 @@ header {
 .description {
     padding: 15px;
     background-color:var(--black);
-    outline: 2pt solid var(--stroke_grey);
+    outline: 1.5pt solid var(--stroke_grey);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -178,11 +184,34 @@ header {
 }
   
 .description p {
-    font-family: haas_grot_disp;
-    font-weight: 200;
-    font-size: 16px;
-    color: var(--grey);
     text-transform: uppercase;
     max-width: 500px;
 }
+
+footer {
+    border-top: 1.5pt solid var(--stroke_grey);
+    position:fixed;
+    bottom:0px;
+    background-color: var(--black);
+    width: 100%;
+}
+
+#footer_content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.social_media {
+    display: flex;
+    justify-content: space-between;
+}
+
+.social_media h1 {
+    margin-right: 20px;
+}
+
 
