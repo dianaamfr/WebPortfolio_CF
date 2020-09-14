@@ -161,6 +161,15 @@ header {
     margin-left: 1.5%;
 }
 
+#left .project:first-of-type .project_slider{
+    border-top: unset;
+}
+
+#right .project:first-of-type .project_slider{
+    border-top: unset;
+}
+
+
 .line {
     width: 100%;
     border-top: 1.5pt solid var(--stroke_grey);
@@ -204,7 +213,6 @@ header {
   
 .description p {
     text-transform: uppercase;
-    max-width: 500px;
 }
 
 footer {
