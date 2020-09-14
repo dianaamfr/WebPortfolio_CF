@@ -11,7 +11,7 @@ function stickyHeader() {
 // Project Sliders
 
 let activeSlide;
-const sliders = Array.from(document.querySelectorAll('.project_image_container'));
+const sliders = Array.from(document.querySelectorAll('.project_slider'));
 
 activeSlide = new Array(sliders.length);
 activeSlide.fill(0);
