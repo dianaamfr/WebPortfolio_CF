@@ -150,43 +150,21 @@ header {
 }
 
 .description {
-    padding: 13px;
+    padding: 15px;
     background-color:var(--black);
     outline: 2pt solid var(--stroke_grey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .icon_plus {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    top:0;
-    left:0;
+    padding-right: 20px;
 }
 
-.icon-plus:after {
-    background-color: #fff;
-    width: 8px;
-    height: 2px;
-    border-radius: 1px;
-    -webkit-border-radius: 1px;
-    -moz-border-radius: 1px;
-    position: absolute;
-    top:7px;
-    left: 4px;
-      content:"";
-    }
-    .icon-plus:before {
-    background-color: #fff;
-    width: 2px;
-    height: 8px;
-    border-radius: 1px;
-    -webkit-border-radius: 1px;
-    -moz-border-radius: 1px;
-    position: absolute;
-    top:4px;
-    left: 7px;
-      content:"";
-    }
+.icon_plus img{
+    width: 40px;
+}
   
 .description p {
     font-family: haas_grot_disp;
@@ -194,5 +172,6 @@ header {
     font-size: 16px;
     color: var(--grey);
     text-transform: uppercase;
+    max-width: 500px;
 }
 
