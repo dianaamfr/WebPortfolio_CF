@@ -1,3 +1,15 @@
+// Fixed Header On Scroll
+window.onscroll = function() {stickyHeader()};
+let header = document.querySelector('header');
+let sticky = header.offsetTop;
+
+function stickyHeader() {
+    (window.pageYOffset > sticky) ? header.classList.add("sticky_header") : header.classList.remove("sticky_header");
+}
+
+
+// Project Sliders
+
 let activeSlide;
 const sliders = Array.from(document.querySelectorAll('.project_image_container'));
 

@@ -46,6 +46,12 @@ header {
     border-bottom: 2pt solid var(--stroke_grey);
 }
 
+.sticky_header {
+    position: fixed;
+    top: 0;
+    width: 100%
+}  
+
 #header_text {
     max-width: 1400px;
     width: 100%;
@@ -146,10 +152,10 @@ header {
     top: 0;
     height: 100%;
     opacity: 0;
-    -webkit-transition: opacity 1.5s linear;
-    -moz-transition: opacity 1.5s linear;
-    -o-transition: opacity 1.5s linear;
-    transition: opacity 1.5s linear;
+    -webkit-transition: opacity 2s linear;
+    -moz-transition: opacity 2s linear;
+    -o-transition: opacity 2s linear;
+    transition: opacity 2s linear;
 }
 
 .description {
