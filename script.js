@@ -1,5 +1,6 @@
 // Canvas
 let canvas = document.querySelector('canvas');
+let wrap = document.querySelector('#wrapper');
 let dpi = window.devicePixelRatio;
 let ctx = canvas.getContext('2d');
 let rect = canvas.getBoundingClientRect();
@@ -12,7 +13,7 @@ let yellowShape = new Image();
 // to load, then performs the operations. 
 // This is considered best practice. 
 window.addEventListener('load', ()=>{
-    canvas.addEventListener('mousemove', eraseShapes);
+    wrapper.addEventListener('mousemove', eraseShapes);
     fix_dpi();
     loadShapes();
 });
