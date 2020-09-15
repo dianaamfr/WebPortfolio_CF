@@ -1,3 +1,27 @@
+// Canvas
+let canvas = document.querySelector('canvas');
+let ctx = canvas.getContext('2d');
+
+let redShape = new Image();
+let blueShape = new Image()
+let yellowShape = new Image();
+redShape.src = 'icons/redShape.svg';
+yellowShape.src = 'icons/yellowShape.svg';
+blueShape.src = 'icons/blueShape.svg';
+
+/*redShape.onload = function () {
+    ctx.drawImage(redShape, 0, 0);
+};
+
+blueShape.onload = function () {
+    ctx.drawImage(blueShape, 0, 0);
+};
+
+yellowShape.onload = function () {
+    ctx.drawImage(yellowShape, 0, 0);
+};*/
+
+
 // Sticky Header and Divs On Scroll
 let header = document.querySelector('header');
 let headerOffsetTop = header.offsetTop;
@@ -63,9 +87,9 @@ function nextSlide(slider){
 }
 
 function hideSlide(slide){
-    slide.style.opacity = 0;
+    slide.display = "none";
 }
 
 function showSlide(slide){
-    slide.style.opacity = 1;
+    slide.display = "block";
 }

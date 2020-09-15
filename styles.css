@@ -63,6 +63,27 @@ a {
     font-size: 16px;
 }
 
+#canvas {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+}
+
+canvas {
+  display: none;  
+}
+
+canvas img {
+    display: none;
+}
+
+.redShape {
+    width: 200px;
+}
+
 header {
     background-color:var(--black);
     border-bottom: 1.5pt solid var(--stroke_grey);
@@ -163,7 +184,7 @@ header {
 .project_slider {
     position: relative;
     width: 83%;
-    height: 75vh;
+    max-height: 75vh;
     display: inline-block;
     border: 1.5pt solid var(--stroke_grey);
     overflow: hidden;
@@ -187,15 +208,7 @@ header {
 }
 
 .project_slide{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    opacity: 0;
-    -webkit-transition: opacity 2s linear;
-    -moz-transition: opacity 2s linear;
-    -o-transition: opacity 2s linear;
-    transition: opacity 2s linear;
+    width: 100%;
 }
 
 .description {
