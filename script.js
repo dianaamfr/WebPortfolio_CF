@@ -1,26 +1,53 @@
 // Canvas
 let canvas = document.querySelector('canvas');
+let dpi = window.devicePixelRatio;
 let ctx = canvas.getContext('2d');
 
 let redShape = new Image();
 let blueShape = new Image()
 let yellowShape = new Image();
-redShape.src = 'icons/redShape.svg';
-yellowShape.src = 'icons/yellowShape.svg';
-blueShape.src = 'icons/blueShape.svg';
+redShape.src = 'icons/redShape.png';
+yellowShape.src = 'icons/yellowShape.png';
+blueShape.src = 'icons/blueShape.png';
 
-/*redShape.onload = function () {
-    ctx.drawImage(redShape, 0, 0);
-};
+fix_dpi();
+redShape.onload = function(){
+    let ratio = redShape.height/redShape.width;
+    let newWidth = canvas.width*0.7;
+    let newHeight = newWidth * ratio;
 
-blueShape.onload = function () {
-    ctx.drawImage(blueShape, 0, 0);
-};
+    drawImageWithSize(redShape, canvas.width/2 - newWidth/2 , 0, newWidth, newHeight);
+}
+yellowShape.onload = function(){
+    let ratio = yellowShape.height/yellowShape.width;
+    let newWidth = canvas.width*0.35;
+    let newHeight = newWidth * ratio;
 
-yellowShape.onload = function () {
-    ctx.drawImage(yellowShape, 0, 0);
-};*/
+    let x = screen.width/2 - newWidth;
 
+    drawImageWithSize(yellowShape, x, canvas.height - newHeight, newWidth, newHeight);
+}
+blueShape.onload = function(){
+    let ratio = blueShape.height/blueShape.width;
+    let newWidth = canvas.width*0.35;
+    let newHeight = newWidth * ratio;
+
+    let x = screen.width/2 + newWidth/2;
+    
+    drawImageWithSize(blueShape, x , canvas.height - newHeight, newWidth, newHeight);
+}
+
+function drawImageWithSize(img, x, y, width, height) {
+  ctx.drawImage(img, x, y, width, height);
+}
+
+function fix_dpi() {
+    let style_height = +getComputedStyle(canvas).getPropertyValue("height").slice(0, -2);
+    let style_width = +getComputedStyle(canvas).getPropertyValue("width").slice(0, -2);
+   
+    canvas.setAttribute('height', style_height * dpi);
+    canvas.setAttribute('width', style_width * dpi);
+    }
 
 // Sticky Header and Divs On Scroll
 let header = document.querySelector('header');

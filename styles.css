@@ -67,21 +67,12 @@ a {
     position: fixed;
     left: 0;
     top: 0;
-    width: 100vw;
-    height: 100vh;
     z-index: 2;
 }
 
 canvas {
-  display: none;  
-}
-
-canvas img {
-    display: none;
-}
-
-.redShape {
-    width: 200px;
+  width: 100vw;
+  height: 100vh;
 }
 
 header {
@@ -106,7 +97,7 @@ header {
     position: relative;
     left: -85%;
     animation-name: slide_from_right;
-    animation-duration: 12s;
+    animation-duration: 15s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
@@ -201,7 +192,6 @@ header {
     border-top: unset;
 }
 
-
 .line {
     width: 100%;
     border-top: 1.5pt solid var(--stroke_grey);
@@ -242,6 +232,7 @@ header {
 footer {
     border-top: 1.5pt solid var(--stroke_grey);
     position:fixed;
+    z-index: 1;
     bottom:0px;
     background-color: var(--black);
     width: 100%;
@@ -256,7 +247,7 @@ footer {
     left: 100%;
     position: relative;
     animation-name: slide_from_left;
-    animation-duration: 12s;
+    animation-duration: 15s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
