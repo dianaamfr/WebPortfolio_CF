@@ -1,10 +1,38 @@
-// Fixed Header On Scroll
-window.onscroll = function() {stickyHeader()};
+// Sticky Header and Divs On Scroll
 let header = document.querySelector('header');
-let sticky = header.offsetTop;
+let headerOffsetTop = header.offsetTop;
+
+/*
+let projectDivs = Array.from(document.querySelectorAll('.project'));
+let divTopOffsets = new Array(projectDivs.length);
+projectDivs.forEach(calculateTopOffset);*/
+
+window.onscroll = function() {
+    stickyHeader()
+    /*projectDivs.forEach(stickyDivs);*/
+};
+
+function calculateTopOffset(projectDiv) {
+    divTopOffsets[projectDivs.indexOf(projectDiv)] = projectDiv.offsetTop - projectDiv.offsetHeight/2;
+    const divIdx = projectDivs.indexOf(projectDiv);
+
+    if(divIdx <= 1 ){
+        divTopOffsets[projectDivs.indexOf(projectDiv)] = projectDiv.offsetTop;
+    }
+}
 
 function stickyHeader() {
-    (window.pageYOffset > sticky) ? header.classList.add("sticky_header") : header.classList.remove("sticky_header");
+    (window.pageYOffset >= headerOffsetTop) ? header.classList.add("sticky_header") : header.classList.remove("sticky_header");
+}
+
+function stickyDivs(projectDiv) {
+    const divIdx = projectDivs.indexOf(projectDiv);
+    const divTopOffset = divTopOffsets[divIdx];
+
+    if(window.pageYOffset >= divTopOffset && window.pageYOffset < projectDiv.offsetTop) {
+        console.log("divIdx" + divIdx);
+        window.scrollTo(0,projectDiv.offsetTop);
+    } 
 }
 
 
