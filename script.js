@@ -140,9 +140,9 @@ function nextSlide(slider){
 }
 
 function hideSlide(slide){
-    slide.display = "none";
+    slide.style.display = "none";
 }
 
 function showSlide(slide){
-    slide.display = "block";
+    slide.style.display = "block";
 }
