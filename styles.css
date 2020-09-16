@@ -111,7 +111,8 @@ canvas {
 header {
     background-color:var(--black);
     border-bottom: 1.5pt solid var(--stroke_grey);
-    display: flex;
+    display: block;
+    overflow: hidden;
 }
 
 .sticky_header {
@@ -121,25 +122,36 @@ header {
     width: 100%
 }  
 
+#header_slider {
+    overflow:hidden;
+	position: relative;
+}
+
+#header_slide_track {
+    animation: scroll_to_left 17.14s linear infinite;
+    animation-delay: 6s;
+    display: flex;
+    width: 300%;
+}
+
+.header_slide {
+    width: 33.33%;
+}
+
 .header_text {
     width: 85%;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 16px;
     padding-bottom: 16px;
-    position: relative;
-    left: 100%;
-    animation-name: slide_from_left;
-    animation-duration: 15s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
 }
 
-@keyframes slide_from_left {
-    0%{ left: 100%;}
-    26%, 74% { left: 7.5%;}
-    100% { left: -85%;}
+@keyframes scroll_to_left {
+	0% { transform: translateX(0); }
+	15%, 50% { transform: translateX(-33.33%)}
+	65%, 100% { transform: translateX(-66.66%)}
 }
 
 .sticky_header {
@@ -272,24 +284,37 @@ footer {
     width: 100%;
 }
 
+
+#footer_slider {
+    overflow:hidden;
+	position: relative;
+}
+
+#footer_slide_track {
+    animation: scroll_to_right 17.14s linear infinite;
+    animation-delay: 6s;
+    display: flex;
+    width: 300%;
+    transform: translateX(-66.66%);
+}
+
+.footer_slide {
+    width: 33.33%;
+}
+
+@keyframes scroll_to_right {
+	0% { transform: translateX(-66.66%); }
+	15%, 50% { transform: translateX(-33.33%)}
+	65%, 100% { transform: translateX(0%)}
+}
+
 #footer_content {
     width: 85%;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     padding-top: 16px;
     padding-bottom: 16px;
-    left: -85%;
-    position: relative;
-    animation-name: slide_from_right;
-    animation-duration: 15s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
-
-@keyframes slide_from_right {
-    0%  {left: -85%;}
-    26%, 74% {left: 7.5%;}
-    100% {left: 100%;}
 }
 
 .social_media {
