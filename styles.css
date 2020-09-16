@@ -189,8 +189,6 @@ header {
 
 #menu_desktop li a {
     display: block;
-    /*transition: 0.2s;
-    cursor: pointer;*/
 }
 
 #projects {
@@ -200,16 +198,34 @@ header {
     margin-bottom: 60px;
 }
 
-#left {
+#projects.open_about {
+    display: block;
     width: 50%;
 }
 
-#right {
+#about {
+    display: none;
+    width: 50%;
+    background-color: lightcyan;
+    height: 1000px;
+    padding-left: 1.5%;
+    border: 1.5pt solid var(--stroke_grey);
+}
+
+#left, #right {
     width: 50%;
 }
 
 #left .project {
     align-items: flex-end;
+}
+
+#right.open_about .project {
+    align-items: flex-end;
+}
+
+#left.open_about, #right.open_about {
+    width: 100%;
 }
 
 .project {
@@ -241,6 +257,13 @@ header {
 .line {
     width: 100%;
     border-top: 1.5pt solid var(--stroke_grey);
+}
+
+.line.open_about {
+    width: 103.5%;
+    border-top: 1.5pt solid var(--stroke_grey);
+    position: relative;
+    right: -3.5%;
 }
 
 .project_slide{

@@ -1,25 +1,39 @@
-// Canvas
+// Canvas shapes
 let canvas = document.querySelector('canvas');
 let wrap = document.querySelector('#wrapper');
 let dpi = window.devicePixelRatio;
 let ctx = canvas.getContext('2d');
 let rect = canvas.getBoundingClientRect();
 
-let redShape = new Image();
-let blueShape = new Image()
-let yellowShape = new Image();
+let redShape = new Image(), blueShape = new Image(), yellowShape = new Image();
 
 // wait for the content of the window element 
 // to load, then performs the operations. 
-// This is considered best practice. 
 window.addEventListener('load', ()=>{
-    wrapper.addEventListener('mousemove', eraseShapes);
-    fix_dpi();
-    loadShapes();
+    checkLocalStorage();
 });
+
+function eraseShapes(e) {
+    let x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
+    let y = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
+    let radius = 160;
+    ctx.globalCompositeOperation = 'destination-out';
+
+    ctx.beginPath();    
+    ctx.arc(x, y, radius, 0, 2 * Math.PI);  
+    ctx.fill();
+}
 
 function drawImageWithSize(img, x, y, width, height) {
   ctx.drawImage(img, x, y, width, height);
+}
+
+function fix_dpi() {
+    let style_height = +getComputedStyle(canvas).getPropertyValue('height').slice(0, -2);
+    let style_width = +getComputedStyle(canvas).getPropertyValue('width').slice(0, -2);
+   
+    canvas.setAttribute('height', style_height * dpi);
+    canvas.setAttribute('width', style_width * dpi);
 }
 
 function loadShapes(){
@@ -56,23 +70,15 @@ function loadShapes(){
     }
 }
 
-function fix_dpi() {
-    let style_height = +getComputedStyle(canvas).getPropertyValue("height").slice(0, -2);
-    let style_width = +getComputedStyle(canvas).getPropertyValue("width").slice(0, -2);
-   
-    canvas.setAttribute('height', style_height * dpi);
-    canvas.setAttribute('width', style_width * dpi);
-}
-
-function eraseShapes(e){
-    let x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
-    let y = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
-    let radius = 160;
-    ctx.globalCompositeOperation = 'destination-out';
-
-    ctx.beginPath();    
-    ctx.arc(x, y, radius, 0, 2 * Math.PI);  
-    ctx.fill();
+function checkLocalStorage() {
+    if (window.sessionStorage.getItem('isNewSession')) {
+        return;
+    } else {
+        window.sessionStorage.setItem('isNewSession', 'true');
+        wrapper.addEventListener('mousemove', eraseShapes);
+        fix_dpi();
+        loadShapes();
+    }
 }
 
 // Sticky Header and Divs On Scroll
@@ -99,7 +105,7 @@ function calculateTopOffset(projectDiv) {
 }
 
 function stickyHeader() {
-    (window.pageYOffset >= headerOffsetTop) ? header.classList.add("sticky_header") : header.classList.remove("sticky_header");
+    (window.pageYOffset >= headerOffsetTop) ? header.classList.add('sticky_header') : header.classList.remove('sticky_header');
 }
 
 function stickyDivs(projectDiv) {
@@ -107,7 +113,7 @@ function stickyDivs(projectDiv) {
     const divTopOffset = divTopOffsets[divIdx];
 
     if(window.pageYOffset >= divTopOffset && window.pageYOffset < projectDiv.offsetTop) {
-        console.log("divIdx" + divIdx);
+        console.log('divIdx' + divIdx);
         window.scrollTo(0,projectDiv.offsetTop);
     } 
 }
@@ -127,8 +133,8 @@ function nextSlide(slider){
     const slides = slider.querySelectorAll('.project_slide');
     const sliderIdx = sliders.indexOf(slider);
     
-    slides.forEach(hideSlide);
-    showSlide(slides[activeSlide[sliderIdx]]);
+    slides.forEach(hideElement);
+    showElement(slides[activeSlide[sliderIdx]]);
 
     if(slides.length !== 1){
         activeSlide[sliderIdx]++;
@@ -139,10 +145,49 @@ function nextSlide(slider){
     }
 }
 
-function hideSlide(slide){
-    slide.style.display = "none";
+
+// About column
+
+const aboutCol = document.querySelector('#about');
+const aboutButtons = document.querySelectorAll('.about_btn');
+const homeButtons = document.querySelectorAll('.home_btn');
+const projectsCol = document.querySelector('#projects');
+const right = document.querySelector('#right');
+const left = document.querySelector('#left');
+const lines = document.querySelectorAll('.line');
+
+aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',openAbout));
+homeButtons.forEach(homeBtn => homeBtn.addEventListener('click',closeAbout));
+
+function openAbout(){
+    // About column is opened already
+    if( getComputedStyle(aboutCol, null).display !== 'none') return;
+
+    left.classList.add('open_about');
+    right.classList.add('open_about');
+    projectsCol.classList.add('open_about');
+    lines.forEach(line => line.classList.add('open_about'));
+    showElement(aboutCol);
+
 }
 
-function showSlide(slide){
-    slide.style.display = "block";
+function closeAbout(){
+    // About column is closed already
+    if( getComputedStyle(aboutCol, null).display === 'none') return;
+
+    left.classList.remove('open_about');
+    right.classList.remove('open_about');
+    projectsCol.classList.remove('open_about');
+    lines.forEach(line => line.classList.remove('open_about'));
+    hideElement(aboutCol);
+}
+
+// Hide/Show elements
+
+function hideElement(e){
+    e.style.display = 'none';
+}
+
+function showElement(e){
+    e.style.display = 'block';
 }
