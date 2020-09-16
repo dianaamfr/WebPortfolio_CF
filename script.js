@@ -7,11 +7,8 @@ let rect = canvas.getBoundingClientRect();
 
 let redShape = new Image(), blueShape = new Image(), yellowShape = new Image();
 
-// wait for the content of the window element 
-// to load, then performs the operations. 
-window.addEventListener('load', ()=>{
-    checkLocalStorage();
-});
+stickyHeader();
+checkLocalStorage();
 
 function eraseShapes(e) {
     let x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
@@ -42,29 +39,33 @@ function loadShapes(){
     blueShape.src = 'icons/blueShape.png';
 
     redShape.onload = function(){
-        let ratio = redShape.height/redShape.width;
-        let newWidth = canvas.width*0.7;
-        let newHeight = newWidth * ratio;
+        const ratio = redShape.height/redShape.width;
+        const newWidth = canvas.width*0.6;
+        const newHeight = newWidth * ratio;
     
         drawImageWithSize(redShape, canvas.width/2 - newWidth/2 , 0, newWidth, newHeight);
     }
 
     yellowShape.onload = function(){
-        let ratio = yellowShape.height/yellowShape.width;
-        let newWidth = canvas.width*0.35;
-        let newHeight = newWidth * ratio;
-    
-        let x = screen.width/2 - newWidth;
+        const ratio = yellowShape.height/yellowShape.width;
+        const newWidth = canvas.width*0.30;
+        const newHeight = newWidth * ratio;
+        
+        const c = canvas.width/2;
+        const c1 = c/2;
+        const x = c1 - newWidth/2;
     
         drawImageWithSize(yellowShape, x, canvas.height - newHeight, newWidth, newHeight);
     }
     
     blueShape.onload = function(){
-        let ratio = blueShape.height/blueShape.width;
-        let newWidth = canvas.width*0.35;
-        let newHeight = newWidth * ratio;
+        const ratio = blueShape.height/blueShape.width;
+        const newWidth = canvas.width*0.30;
+        const newHeight = newWidth * ratio;
     
-        let x = screen.width/2 + newWidth/2;
+        const c = canvas.width/2;
+        const c2 = c + c/2;
+        const x = c2 - newWidth/2;
         
         drawImageWithSize(blueShape, x , canvas.height - newHeight, newWidth, newHeight);
     }
@@ -90,11 +91,6 @@ let projectDivs = Array.from(document.querySelectorAll('.project'));
 let divTopOffsets = new Array(projectDivs.length);
 projectDivs.forEach(calculateTopOffset);*/
 
-window.onscroll = function() {
-    stickyHeader()
-    /*projectDivs.forEach(stickyDivs);*/
-};
-
 function calculateTopOffset(projectDiv) {
     divTopOffsets[projectDivs.indexOf(projectDiv)] = projectDiv.offsetTop - projectDiv.offsetHeight/2;
     const divIdx = projectDivs.indexOf(projectDiv);
@@ -105,7 +101,10 @@ function calculateTopOffset(projectDiv) {
 }
 
 function stickyHeader() {
-    (window.pageYOffset >= headerOffsetTop) ? header.classList.add('sticky_header') : header.classList.remove('sticky_header');
+    const headerHeight = document.querySelector('header').offsetHeight;
+    let contentDiv = document.querySelector('#content');
+
+    contentDiv.style.top = headerHeight + 'px';
 }
 
 function stickyDivs(projectDiv) {

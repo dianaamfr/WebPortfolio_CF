@@ -101,6 +101,10 @@ a:hover {
     top: 0;
     z-index: 2;
     pointer-events: none;
+    max-width: 1920px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1.5pt solid var(--stroke_grey);
 }
 
 canvas {
@@ -109,18 +113,19 @@ canvas {
 }
 
 header {
+    max-height: 11vh;
     background-color:var(--black);
     border-bottom: 1.5pt solid var(--stroke_grey);
     display: block;
     overflow: hidden;
-}
-
-.sticky_header {
     position: fixed;
     top: 0;
     z-index: 1;
-    width: 100%
-}  
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1920px;
+}
 
 #header_slider {
     overflow:hidden;
@@ -139,7 +144,7 @@ header {
 }
 
 .header_text {
-    width: 85%;
+    width: 96%;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -153,12 +158,6 @@ header {
 	15%, 50% { transform: translateX(-33.33%)}
 	65%, 100% { transform: translateX(-66.66%)}
 }
-
-.sticky_header {
-    position: fixed;
-    top: 0;
-    width: 100%
-  }
 
 #page_title{
     flex: 1;
@@ -189,6 +188,14 @@ header {
 
 #menu_desktop li a {
     display: block;
+}
+
+#content {
+    position: absolute;
+    max-width: 1920px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
 }
 
 #projects {
@@ -236,14 +243,23 @@ header {
 
 .project_slider {
     position: relative;
-    width: 83%;
-    max-height: 75vh;
+    width: 94%;
+    max-height: 78vh;
     display: inline-block;
     border: 1.5pt solid var(--stroke_grey);
     overflow: hidden;
     border-bottom: none;
-    margin-right: 1.5%;
-    margin-left: 1.5%;
+}
+
+#left .project_slider, #left .description {
+    margin-right: 2%;
+    margin-left: 4%;
+}
+
+
+#right .project_slider, #right .description {
+    margin-left: 2%;
+    margin-right: 4%;
 }
 
 #left .project:first-of-type .project_slider{
@@ -271,7 +287,7 @@ header {
 }
 
 .description {
-    width: 80%;
+    width: 91%;
     padding: 1.5%;
     background-color: var(--black);
     border: 1.5pt solid var(--stroke_grey);
@@ -280,8 +296,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 1.5%;
-    margin-left: 1.5%;
 }
 
 .icon_plus {
@@ -299,6 +313,7 @@ header {
 }
 
 footer {
+    max-height: 11vh;
     border-top: 1.5pt solid var(--stroke_grey);
     position:fixed;
     z-index: 1;
@@ -332,7 +347,7 @@ footer {
 }
 
 #footer_content {
-    width: 85%;
+    width: 96%;
     margin: auto;
     display: flex;
     justify-content: space-between;
