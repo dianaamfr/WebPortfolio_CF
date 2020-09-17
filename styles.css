@@ -133,8 +133,8 @@ header {
 }
 
 #header_slide_track {
-    animation: scroll_to_left 17.14s linear infinite;
-    animation-delay: 6s;
+    animation: scroll_to_left 25s linear infinite;
+    animation-delay: 8.75s;
     display: flex;
     width: 300%;
 }
@@ -147,10 +147,18 @@ header {
     width: 96%;
     margin: auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     padding-top: 16px;
     padding-bottom: 16px;
+}
+
+#page_title {
+    margin-right: 65px;
+}
+
+#page_description {
+    flex: 1;
+    margin-top: 0.2em;
 }
 
 @keyframes scroll_to_left {
@@ -159,31 +167,20 @@ header {
 	65%, 100% { transform: translateX(-66.66%)}
 }
 
-#page_title{
-    flex: 1;
-}
-
-#page_description {
-    flex: 2;
-}
-
 #menu_desktop{
-    display: flex;
-    align-items: center;
-    flex: 2;
-    max-width: 140px;
+    float: right;
 }
 
 #menu_desktop ul {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
 }
 
 #menu_desktop li {
     list-style-type: none;
     display: inline-block;
+    margin-left: 35px;
 }
 
 #menu_desktop li a {
@@ -201,7 +198,6 @@ header {
 #projects {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin-bottom: 60px;
 }
 
@@ -329,8 +325,8 @@ footer {
 }
 
 #footer_slide_track {
-    animation: scroll_to_right 17.14s linear infinite;
-    animation-delay: 6s;
+    animation: scroll_to_right 25s linear infinite;
+    animation-delay: 8.75s;
     display: flex;
     width: 300%;
     transform: translateX(-66.66%);
