@@ -7,7 +7,7 @@ let rect = canvas.getBoundingClientRect();
 
 let redShape = new Image(), blueShape = new Image(), yellowShape = new Image();
 
-stickyHeader();
+stickyHeaderFooter();
 checkLocalStorage();
 
 function eraseShapes(e) {
@@ -100,11 +100,19 @@ function calculateTopOffset(projectDiv) {
     }
 }
 
-function stickyHeader() {
+function stickyHeaderFooter() {
     const headerHeight = document.querySelector('header').offsetHeight;
-    let contentDiv = document.querySelector('#content');
+    const footerHeight = document.querySelector('footer').offsetHeight;
+    const contentDiv = document.querySelector('#content');
+    const aboutDivs = document.querySelectorAll('#details > div');
+    const right = document.querySelector('#right');
+    const left = document.querySelector('#left');
 
     contentDiv.style.top = headerHeight + 'px';
+
+    right.style.margin = '0px 0px ' + footerHeight + 'px 0px';
+    left.style.margin = '0px 0px ' + footerHeight + 'px 0px';
+    aboutDivs.forEach(aboutDiv => aboutDiv.style.margin = '0px 20px ' + footerHeight + 'px 20px');
 }
 
 function stickyDivs(projectDiv) {
@@ -151,6 +159,7 @@ const body = document.querySelector('body');
 const aboutCol = document.querySelector('#about');
 const aboutButtons = document.querySelectorAll('.about_btn');
 const homeButtons = document.querySelectorAll('.home_btn');
+const projectButtons = document.querySelectorAll('.project_btn');
 const projectsCol = document.querySelector('#projects');
 const content = document.querySelector('#content');
 const right = document.querySelector('#right');
@@ -174,6 +183,7 @@ function openAbout(){
     lines.forEach(line => line.classList.add('open_about'));
 
     aboutButtons.forEach(aboutBtn => aboutBtn.classList.add('active_page'));
+    projectButtons.forEach(projectBtn => projectBtn.classList.remove('active_page'));
     showElement(aboutCol);
 
 }
@@ -192,6 +202,7 @@ function closeAbout(){
     lines.forEach(line => line.classList.remove('open_about'));
 
     aboutButtons.forEach(aboutBtn => aboutBtn.classList.remove('active_page'));
+    projectButtons.forEach(projectBtn => projectBtn.classList.add('active_page'));
     hideElement(aboutCol);
 }
 

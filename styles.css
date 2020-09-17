@@ -55,6 +55,16 @@ h1 {
     text-transform: uppercase;
 }
 
+h2 {
+    font-family: haas_grot_disp;
+    font-weight: 200;
+    font-size: 16px;
+    color: var(--grey);
+    text-decoration: underline;
+    text-underline-position: under;
+    margin-bottom: 3px;
+}
+
 p {
     font-family: haas_grot_disp;
     font-weight: 200;
@@ -103,6 +113,10 @@ a:hover {
 .highlight {
     font-family: tacite;
     font-weight: 200;
+}
+
+.italic {
+    font-weight: 300;
 }
 
 @-webkit-keyframes shine {
@@ -171,11 +185,11 @@ header {
     padding-bottom: 16px;
 }
 
-#page_title {
+.page_title {
     margin-right: 65px;
 }
 
-#page_description {
+.page_description {
     flex: 1;
     margin-top: 0.2em;
 }
@@ -186,23 +200,23 @@ header {
 	65%, 100% { transform: translateX(-66.66%)}
 }
 
-#menu_desktop{
+.menu_desktop{
     float: right;
 }
 
-#menu_desktop ul {
+.menu_desktop ul {
     display: flex;
     align-items: center;
     width: 100%;
 }
 
-#menu_desktop li {
+.menu_desktop li {
     list-style-type: none;
     display: inline-block;
     margin-left: 35px;
 }
 
-#menu_desktop li a {
+.menu_desktop li a {
     display: block;
 }
 
@@ -357,16 +371,13 @@ header {
     display: none;
 }
 
-#about div {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 #work_areas {
     display: flex;
     justify-content: space-between;
-    margin-top: 15px;
+    margin-top: 20px;
     margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #work_areas p {
@@ -376,10 +387,34 @@ header {
 #catarina_description p {
     line-height: 20px;
     margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #about img {
     width: 100%;
+}
+
+#details {
+    display: flex;
+}
+
+#details>div {
+    width: 33.3333%;
+    border-right: 1.5pt solid var(--stroke_grey);
+    padding-top: 20px;
+}
+
+#details div:last-of-type {
+    border: unset;
+}
+
+#details>div>h1:first-of-type {
+    margin-bottom: 16px;
+}
+
+.details_block {
+    margin-bottom: 16px;
 }
 
 /* Footer */
@@ -392,6 +427,7 @@ footer {
     bottom:0px;
     background-color: var(--black);
     width: 100%;
+    max-width: 1920px;
 }
 
 
@@ -418,7 +454,7 @@ footer {
 	65%, 100% { transform: translateX(0%)}
 }
 
-#footer_content {
+.footer_content {
     width: 96%;
     margin: auto;
     display: flex;
@@ -430,6 +466,7 @@ footer {
 .social_media {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .social_media h1 {
