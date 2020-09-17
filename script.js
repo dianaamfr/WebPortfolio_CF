@@ -1,24 +1,30 @@
-// Canvas shapes
-let canvas = document.querySelector('canvas');
-let wrap = document.querySelector('#wrapper');
-let dpi = window.devicePixelRatio;
-let ctx = canvas.getContext('2d');
-let rect = canvas.getBoundingClientRect();
 
-let redShape = new Image(), blueShape = new Image(), yellowShape = new Image();
+window.onload = function() {
+    existsLocalStorage() === true ? null : drawShapes();
+ };
 
-stickyHeaderFooter();
-checkLocalStorage();
+ // Canvas shapes
+ const canvas = document.querySelector('canvas');
+ const wrap = document.querySelector('#wrapper');
+ const dpi = window.devicePixelRatio;
+ const ctx = canvas.getContext('2d');
+ const rect = canvas.getBoundingClientRect();
+ const redShape = new Image(), blueShape = new Image(), yellowShape = new Image();
 
-function eraseShapes(e) {
-    let x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
-    let y = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
-    let radius = 160;
-    ctx.globalCompositeOperation = 'destination-out';
+function existsLocalStorage() {
+    if (window.sessionStorage.getItem('isNewSession')) {
+        return true;
+    } else {
+        window.sessionStorage.setItem('isNewSession', 'true');
+        return false;
+    }
+}
 
-    ctx.beginPath();    
-    ctx.arc(x, y, radius, 0, 2 * Math.PI);  
-    ctx.fill();
+function drawShapes(){
+
+    fix_dpi();
+    loadShapes();
+    wrapper.addEventListener('mousemove', eraseShapes);
 }
 
 function drawImageWithSize(img, x, y, width, height) {
@@ -71,60 +77,16 @@ function loadShapes(){
     }
 }
 
-function checkLocalStorage() {
-    if (window.sessionStorage.getItem('isNewSession')) {
-        return;
-    } else {
-        window.sessionStorage.setItem('isNewSession', 'true');
-        wrapper.addEventListener('mousemove', eraseShapes);
-        fix_dpi();
-        loadShapes();
-    }
+function eraseShapes(e) {
+    let x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
+    let y = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
+    let radius = 160;
+    ctx.globalCompositeOperation = 'destination-out';
+
+    ctx.beginPath();    
+    ctx.arc(x, y, radius, 0, 2 * Math.PI);  
+    ctx.fill();
 }
-
-// Sticky Header and Divs On Scroll
-let header = document.querySelector('header');
-let headerOffsetTop = header.offsetTop;
-
-/*
-let projectDivs = Array.from(document.querySelectorAll('.project'));
-let divTopOffsets = new Array(projectDivs.length);
-projectDivs.forEach(calculateTopOffset);*/
-
-function calculateTopOffset(projectDiv) {
-    divTopOffsets[projectDivs.indexOf(projectDiv)] = projectDiv.offsetTop - projectDiv.offsetHeight/2;
-    const divIdx = projectDivs.indexOf(projectDiv);
-
-    if(divIdx <= 1 ){
-        divTopOffsets[projectDivs.indexOf(projectDiv)] = projectDiv.offsetTop;
-    }
-}
-
-function stickyHeaderFooter() {
-    const headerHeight = document.querySelector('header').offsetHeight;
-    const footerHeight = document.querySelector('footer').offsetHeight;
-    const contentDiv = document.querySelector('#content');
-    const aboutDivs = document.querySelectorAll('#details > div');
-    const right = document.querySelector('#right');
-    const left = document.querySelector('#left');
-
-    contentDiv.style.top = headerHeight + 'px';
-
-    right.style.margin = '0px 0px ' + footerHeight + 'px 0px';
-    left.style.margin = '0px 0px ' + footerHeight + 'px 0px';
-    aboutDivs.forEach(aboutDiv => aboutDiv.style.margin = '0px 20px ' + footerHeight + 'px 20px');
-}
-
-function stickyDivs(projectDiv) {
-    const divIdx = projectDivs.indexOf(projectDiv);
-    const divTopOffset = divTopOffsets[divIdx];
-
-    if(window.pageYOffset >= divTopOffset && window.pageYOffset < projectDiv.offsetTop) {
-        console.log('divIdx' + divIdx);
-        window.scrollTo(0,projectDiv.offsetTop);
-    } 
-}
-
 
 // Project Sliders
 
@@ -185,7 +147,6 @@ function openAbout(){
     aboutButtons.forEach(aboutBtn => aboutBtn.classList.add('active_page'));
     projectButtons.forEach(projectBtn => projectBtn.classList.remove('active_page'));
     showElement(aboutCol);
-
 }
 
 function closeAbout(){
