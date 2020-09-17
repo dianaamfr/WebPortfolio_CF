@@ -195,6 +195,10 @@ header {
     width: 100%;
 }
 
+#content.open_about {
+    display: flex;
+}
+
 #projects {
     display: flex;
     flex-wrap: wrap;
@@ -208,10 +212,10 @@ header {
 
 #about {
     display: none;
-    width: 50%;
-    background-color: lightcyan;
+    width: 46%;
     height: 1000px;
-    padding-left: 1.5%;
+    margin-left: 1%;
+    margin-right: 2%;
     border: 1.5pt solid var(--stroke_grey);
 }
 
@@ -258,6 +262,11 @@ header {
     margin-right: 4%;
 }
 
+#right.open_about .project_slider {
+    margin-left: 4%;
+    margin-right: 2%;
+}
+
 #left .project:first-of-type .project_slider{
     border-top: unset;
 }
@@ -272,10 +281,10 @@ header {
 }
 
 .line.open_about {
-    width: 103.5%;
+    width: 104%;
     border-top: 1.5pt solid var(--stroke_grey);
     position: relative;
-    right: -3.5%;
+    right: -2%;
 }
 
 .project_slide{

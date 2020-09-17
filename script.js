@@ -151,6 +151,7 @@ const aboutCol = document.querySelector('#about');
 const aboutButtons = document.querySelectorAll('.about_btn');
 const homeButtons = document.querySelectorAll('.home_btn');
 const projectsCol = document.querySelector('#projects');
+const content = document.querySelector('#content');
 const right = document.querySelector('#right');
 const left = document.querySelector('#left');
 const lines = document.querySelectorAll('.line');
@@ -165,6 +166,7 @@ function openAbout(){
     left.classList.add('open_about');
     right.classList.add('open_about');
     projectsCol.classList.add('open_about');
+    content.classList.add('open_about');
     lines.forEach(line => line.classList.add('open_about'));
     showElement(aboutCol);
 
@@ -177,6 +179,7 @@ function closeAbout(){
     left.classList.remove('open_about');
     right.classList.remove('open_about');
     projectsCol.classList.remove('open_about');
+    content.classList.remove('open_about');
     lines.forEach(line => line.classList.remove('open_about'));
     hideElement(aboutCol);
 }
