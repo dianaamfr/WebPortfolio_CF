@@ -167,23 +167,31 @@ function openAbout(){
     body.style.overflow = 'hidden';
     left.classList.add('open_about');
     right.classList.add('open_about');
+
     projectsCol.classList.add('open_about');
     content.classList.add('open_about');
+
     lines.forEach(line => line.classList.add('open_about'));
+
+    aboutButtons.forEach(aboutBtn => aboutBtn.classList.add('active_page'));
     showElement(aboutCol);
 
 }
 
 function closeAbout(){
     // About column is closed already
-    if( getComputedStyle(aboutCol, null).display === 'none') return;
+    if( getComputedStyle(aboutCol, null).display === 'none'){ return;}
 
     body.style.overflow = '';
     left.classList.remove('open_about');
     right.classList.remove('open_about');
+
     projectsCol.classList.remove('open_about');
     content.classList.remove('open_about');
+
     lines.forEach(line => line.classList.remove('open_about'));
+
+    aboutButtons.forEach(aboutBtn => aboutBtn.classList.remove('active_page'));
     hideElement(aboutCol);
 }
 

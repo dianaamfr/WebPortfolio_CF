@@ -36,6 +36,10 @@
     border: 0;
 }
 
+html::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     background-color:var(--black);
     margin: auto;
@@ -81,6 +85,14 @@ a:after {
 
 a:hover {
     cursor: pointer;
+    text-decoration: underline;
+    text-underline-position: under;
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    -webkit-mask-size: 200%;
+    animation: shine 2s infinite;
+}
+
+.active_page {
     text-decoration: underline;
     text-underline-position: under;
     -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
@@ -216,7 +228,7 @@ header {
 
 #projects.open_about {
     display: block;
-    width: 50%;
+    width: 51%;
     height: 100vh;
     overflow-y: scroll;
 }
@@ -268,9 +280,14 @@ header {
     margin-right: 4%;
 }
 
+#left.open_about .project_slider {
+    margin-right: 4%;
+    width: 92%;
+}
+
 #right.open_about .project_slider {
     margin-left: 4%;
-    margin-right: 2%;
+    width: 92%;
 }
 
 #left .project:first-of-type .project_slider{
@@ -284,13 +301,6 @@ header {
 .line {
     width: 100%;
     border-top: 1.5pt solid var(--stroke_grey);
-}
-
-.line.open_about {
-    width: 104%;
-    border-top: 1.5pt solid var(--stroke_grey);
-    position: relative;
-    right: -2%;
 }
 
 .project_slide{
@@ -307,6 +317,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#left.open_about .description {
+    margin-right: 4%;
+    width: 89%;
+}
+
+#right.open_about .description {
+    margin-left: 4%;
+    width: 89%;
 }
 
 .icon_plus {
@@ -327,11 +347,9 @@ header {
 
 #about {
     display: none;
-    width: 46%;
+    width: 47%;
     height: 100vh;
-    overflow-y: scroll
-    margin-left: 1%;
-    margin-right: 2%;
+    overflow-y: scroll;
     border: 1.5pt solid var(--stroke_grey);
 }
 
@@ -347,7 +365,8 @@ header {
 #work_areas {
     display: flex;
     justify-content: space-between;
-    margin: 15px;
+    margin-top: 15px;
+    margin-bottom: 30px;
 }
 
 #work_areas p {
@@ -357,6 +376,10 @@ header {
 #catarina_description p {
     line-height: 20px;
     margin-bottom: 15px;
+}
+
+#about img {
+    width: 100%;
 }
 
 /* Footer */
