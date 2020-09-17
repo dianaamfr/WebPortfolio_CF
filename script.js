@@ -147,6 +147,7 @@ function nextSlide(slider){
 
 // About column
 
+const body = document.querySelector('body');
 const aboutCol = document.querySelector('#about');
 const aboutButtons = document.querySelectorAll('.about_btn');
 const homeButtons = document.querySelectorAll('.home_btn');
@@ -163,6 +164,7 @@ function openAbout(){
     // About column is opened already
     if( getComputedStyle(aboutCol, null).display !== 'none') return;
 
+    body.style.overflow = 'hidden';
     left.classList.add('open_about');
     right.classList.add('open_about');
     projectsCol.classList.add('open_about');
@@ -176,6 +178,7 @@ function closeAbout(){
     // About column is closed already
     if( getComputedStyle(aboutCol, null).display === 'none') return;
 
+    body.style.overflow = '';
     left.classList.remove('open_about');
     right.classList.remove('open_about');
     projectsCol.classList.remove('open_about');

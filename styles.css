@@ -4,6 +4,8 @@
     --stroke_grey:rgb(204,204,204);
 }
 
+/* Fonts */
+
 @font-face {
     font-family: haas_grot_disp;
     src: url(fonts/NeueHaasGrotDisp_55Roman.otf);
@@ -38,6 +40,8 @@ body {
     background-color:var(--black);
     margin: auto;
 }
+
+/* Text and Links */
 
 h1 {
     font-family: tacite;
@@ -75,7 +79,6 @@ a:after {
 	transform: scale(1);
 }
 
-
 a:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -85,15 +88,17 @@ a:hover {
     animation: shine 2s infinite;
 }
 
-@-webkit-keyframes shine {
-  from {
-    -webkit-mask-position: 150%;
-  }
-  
-  to {
-    -webkit-mask-position: -50%;
-  }
+.highlight {
+    font-family: tacite;
+    font-weight: 200;
 }
+
+@-webkit-keyframes shine {
+  from {-webkit-mask-position: 150%;}
+  to { -webkit-mask-position: -50%;}
+}
+
+/* Shapes */
 
 #canvas {
     position: fixed;
@@ -111,6 +116,8 @@ canvas {
   width: 100vw;
   height: 100vh;
 }
+
+/* Header */
 
 header {
     max-height: 11vh;
@@ -187,6 +194,8 @@ header {
     display: block;
 }
 
+/* Projects content */
+
 #content {
     position: absolute;
     max-width: 1920px;
@@ -208,15 +217,12 @@ header {
 #projects.open_about {
     display: block;
     width: 50%;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
-#about {
+#projects.open_about::-webkit-scrollbar {
     display: none;
-    width: 46%;
-    height: 1000px;
-    margin-left: 1%;
-    margin-right: 2%;
-    border: 1.5pt solid var(--stroke_grey);
 }
 
 #left, #right {
@@ -316,6 +322,44 @@ header {
 .description p {
     text-transform: uppercase;
 }
+
+/* About section */
+
+#about {
+    display: none;
+    width: 46%;
+    height: 100vh;
+    overflow-y: scroll
+    margin-left: 1%;
+    margin-right: 2%;
+    border: 1.5pt solid var(--stroke_grey);
+}
+
+#about::-webkit-scrollbar {
+    display: none;
+}
+
+#about div {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#work_areas {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+#work_areas p {
+    display: inline-block;
+}
+
+#catarina_description p {
+    line-height: 20px;
+    margin-bottom: 15px;
+}
+
+/* Footer */
 
 footer {
     max-height: 11vh;
