@@ -114,7 +114,7 @@ const aboutCol = document.querySelector('#about');
 const aboutButtons = document.querySelectorAll('.about_btn');
 const homeButtons = document.querySelectorAll('.home_btn');
 const projectButtons = document.querySelectorAll('.project_btn');
-const content = document.querySelector('#content');
+const projects = document.querySelector('#projects');
 const right = document.querySelector('#right');
 const left = document.querySelector('#left');
 const lines = document.querySelectorAll('.line');
@@ -127,7 +127,7 @@ function openAbout() {
     if(aboutPage === true) return;
     aboutPage = true;
 
-    content.scrollTop = 0;
+    projects.scrollTop = 0;
 
     // Change selected menu button
     aboutButtons.forEach(aboutBtn => aboutBtn.classList.add('active_page'));
@@ -198,11 +198,11 @@ function disableYScroll(el){
 // Content height
 
 function projectsHeight() {
-    const headerHeight = document.querySelector('header').offsetHeight;
-    const footerHeight = document.querySelector('footer').offsetHeight;
-    const projects = document.querySelectorAll('.project');
+    const projectSliders = document.querySelectorAll('.project_slider');
+    const projectDescription = document.querySelector('.description');
+    const content = document.querySelector('#content');
 
-    projects.forEach(project => project.style.maxHeight = (window.innerHeight - headerHeight - footerHeight + 3) + 'px');
+    projectSliders.forEach(projectSlider => projectSlider.style.maxHeight = (content.offsetHeight - projectDescription.offsetHeight) + 'px');
 }
 
 window.onload = function() {

@@ -233,7 +233,7 @@ header {
     max-width: 1920px;
     width: 100%;
     flex: 1;
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 #content::-webkit-scrollbar {
@@ -242,99 +242,61 @@ header {
     scrollbar-width: none;  /* Firefox */
 }
 
-#projects {
-    display: flex;
-    flex-wrap: wrap;
-}
 
+#projects {
+    max-width: 1920px;
+    width: 100%;
+}
 
 #projects::-webkit-scrollbar {
-    display: none;
-}
-
-#left, #right {
-    width: 50%;
-}
-
-#left::-webkit-scrollbar {
     display: none;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
 
-#right {
-    position: relative;
+.pair {
+    border-top: 1.5pt solid var(--stroke_grey);
+    border-bottom: 1.5pt solid var(--stroke_grey);
+    margin-bottom: 40px;
 }
 
-#right_to_left {
-    display: none;
+.pair:first-of-type{
+    border-top: none;
 }
 
-#left .project {
-    align-items: flex-end;
-}
-
-.project {
-    margin-bottom: 25px;
+.projects_pair {
     display: flex;
-    flex-direction: column;
-    max-height: 78vh;
+    justify-content: space-evenly;
+}
+
+.pair:first-of-type .projects_pair .project_slider{
+    border-top: none;
 }
 
 .project_slider {
-    position: relative;
-    display: inline-block;
+    width: calc(50% - 45px);
     border: 1.5pt solid var(--stroke_grey);
-    overflow: hidden;
     border-bottom: none;
-}
-
-#left .project_slider, #left .description {
-    margin-right: 2%;
-    margin-left: 4%;
-    width: 94%;
-}
-
-
-#right .project_slider, #right .description {
-    margin-left: 2%;
-    margin-right: 4%;
-    width: 94%;
-}
-
-#left > .project:first-of-type > .project_slider{
-    border-top: unset;
-}
-
-#right > #right_projects > .project:first-of-type > .project_slider{
-    border-top: unset;
-}
-
-.line {
-    width: 100%;
-    border-top: 1.5pt solid var(--stroke_grey);
-    position: relative;
+    border-top: none;
+    overflow: hidden;
 }
 
 .open_about {
     transition: 2s;
 }
 
-#left .line.open_about {
-    width: 94%;
-    left: -2%;
-}
-
-#right .line.open_about {
-    left: 2%;
-    width: 94%;
-}
-
 .project_slide{
     width: 100%;
 }
 
+.descriptions_pair {
+    border-top: 1.5pt solid var(--stroke_grey);
+    justify-content: space-evenly;
+    display: flex;
+}
+
 .description {
+    width: calc(50% - 45px);
     background-color: var(--black);
     border: 1.5pt solid var(--stroke_grey);
     border-top: none;
@@ -355,13 +317,15 @@ header {
 }
   
 .description p {
-    margin: 20px;
+    margin: 16px;
     text-transform: uppercase;
 }
 
 /* About section */
 
 #about {
+    display: none;
+    width: 50%;
     top: 0%;
     left: 100%;
     position: absolute;
