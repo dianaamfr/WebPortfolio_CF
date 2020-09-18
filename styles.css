@@ -173,7 +173,7 @@ header {
 }
 
 #header_slide_track {
-    animation: scroll_to_left 25s linear infinite;
+    animation: slide_to_left 25s linear infinite;
     animation-delay: 8.75s;
     display: flex;
     width: 300%;
@@ -201,10 +201,10 @@ header {
     margin-top: 0.2em;
 }
 
-@keyframes scroll_to_left {
+@keyframes slide_to_left {
 	0% { transform: translateX(0); }
-	15%, 50% { transform: translateX(-33.33%)}
-	65%, 100% { transform: translateX(-66.66%)}
+	15%, 50% { transform: translateX(-33.33%);}
+	65%, 100% { transform: translateX(-66.66%);}
 }
 
 .menu_desktop{
@@ -242,23 +242,13 @@ header {
     scrollbar-width: none;  /* Firefox */
 }
 
-#content.open_about {
-    display: flex;
-    overflow: hidden;
-}
-
 #projects {
     display: flex;
     flex-wrap: wrap;
 }
 
-#projects.open_about {
-    display: block;
-    width: 51%;
-    overflow-y: scroll;
-}
 
-#projects.open_about::-webkit-scrollbar {
+#projects::-webkit-scrollbar {
     display: none;
 }
 
@@ -266,20 +256,22 @@ header {
     width: 50%;
 }
 
-#left.open_about {
-    padding-bottom: 0px!important;
+#left::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#right {
+    position: relative;
+}
+
+#right_to_left {
+    display: none;
 }
 
 #left .project {
     align-items: flex-end;
-}
-
-#right.open_about .project {
-    align-items: flex-end;
-}
-
-#left.open_about, #right.open_about {
-    width: 100%;
 }
 
 .project {
@@ -291,7 +283,6 @@ header {
 
 .project_slider {
     position: relative;
-    width: 94%;
     display: inline-block;
     border: 1.5pt solid var(--stroke_grey);
     overflow: hidden;
@@ -301,35 +292,42 @@ header {
 #left .project_slider, #left .description {
     margin-right: 2%;
     margin-left: 4%;
+    width: 94%;
 }
 
 
 #right .project_slider, #right .description {
     margin-left: 2%;
     margin-right: 4%;
+    width: 94%;
 }
 
-#left.open_about .project_slider {
-    margin-right: 4%;
-    width: 92%;
-}
-
-#right.open_about .project_slider {
-    margin-left: 4%;
-    width: 92%;
-}
-
-#left .project:first-of-type .project_slider{
+#left > .project:first-of-type > .project_slider{
     border-top: unset;
 }
 
-#right .project:first-of-type .project_slider{
+#right > #right_projects > .project:first-of-type > .project_slider{
     border-top: unset;
 }
 
 .line {
     width: 100%;
     border-top: 1.5pt solid var(--stroke_grey);
+    position: relative;
+}
+
+.open_about {
+    transition: 2s;
+}
+
+#left .line.open_about {
+    width: 94%;
+    left: -2%;
+}
+
+#right .line.open_about {
+    left: 2%;
+    width: 94%;
 }
 
 .project_slide{
@@ -337,8 +335,6 @@ header {
 }
 
 .description {
-    width: 91%;
-    padding: 1.5%;
     background-color: var(--black);
     border: 1.5pt solid var(--stroke_grey);
     border-top: none;
@@ -346,16 +342,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-#left.open_about .description {
-    margin-right: 4%;
-    width: 89%;
-}
-
-#right.open_about .description {
-    margin-left: 4%;
-    width: 89%;
 }
 
 .icon_plus {
@@ -369,25 +355,38 @@ header {
 }
   
 .description p {
+    margin: 20px;
     text-transform: uppercase;
 }
 
 /* About section */
 
-.footer_limit {
+#about {
+    top: 0%;
+    left: 100%;
+    position: absolute;
     width: 100%;
+    transition: 2s ease-in-out;
 }
 
-#about {
-    display: none;
-    width: 47%;
-    overflow-y: scroll;
+#about_content {
+    margin-left: 2%;
+    margin-right: 4%;
+    width: 94%;
     border: 1.5pt solid var(--stroke_grey);
+    background-color: var(--black);
     border-top: none;
     border-bottom: none;
+    float: left;
+    height: 100vh;
+    overflow: scroll;
 }
 
-#about::-webkit-scrollbar {
+.slide_in {
+	left: 0%!important;
+}
+
+#about_content::-webkit-scrollbar {
     display: none;
 }
 
@@ -469,7 +468,7 @@ footer {
 }
 
 #footer_slide_track {
-    animation: scroll_to_right 25s linear infinite;
+    animation: slide_to_right 25s linear infinite;
     animation-delay: 8.75s;
     display: flex;
     width: 300%;
@@ -480,10 +479,10 @@ footer {
     width: 33.33%;
 }
 
-@keyframes scroll_to_right {
+@keyframes slide_to_right {
 	0% { transform: translateX(-66.66%); }
-	15%, 50% { transform: translateX(-33.33%)}
-	65%, 100% { transform: translateX(0%)}
+	15%, 50% { transform: translateX(-33.33%); }
+	65%, 100% { transform: translateX(0%); }
 }
 
 .footer_content {

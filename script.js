@@ -110,72 +110,99 @@ function eraseShapes(e) {
 
 // About column
 
-const body = document.querySelector('body');
 const aboutCol = document.querySelector('#about');
 const aboutButtons = document.querySelectorAll('.about_btn');
 const homeButtons = document.querySelectorAll('.home_btn');
 const projectButtons = document.querySelectorAll('.project_btn');
-const projectsCol = document.querySelector('#projects');
 const content = document.querySelector('#content');
 const right = document.querySelector('#right');
 const left = document.querySelector('#left');
 const lines = document.querySelectorAll('.line');
 
+let aboutPage = false;
+const rightOnLeftProjects = document.querySelector('#right_to_left');
+
 function openAbout() {
     // About column is opened already
-    if( getComputedStyle(aboutCol, null).display !== 'none') return;
+    if(aboutPage === true) return;
+    aboutPage = true;
 
-    body.style.overflow = 'hidden';
-    left.classList.add('open_about');
-    right.classList.add('open_about');
+    content.scrollTop = 0;
 
-    projectsCol.classList.add('open_about');
-    content.classList.add('open_about');
-
-    lines.forEach(line => line.classList.add('open_about'));
-
+    // Change selected menu button
     aboutButtons.forEach(aboutBtn => aboutBtn.classList.add('active_page'));
     projectButtons.forEach(projectBtn => projectBtn.classList.remove('active_page'));
-    showElement(aboutCol);
+
+    // Change right projects to left
+    showElement(rightOnLeftProjects);
+
+    // Slide about column in
+    aboutCol.classList.add('slide_in');
+
+    // Change lines
+    lines.forEach(line => line.classList.add('open_about'));
+
+    // Control scroll
+    disableYScroll(content);
+    enableYScroll(left);
 }
 
 function closeAbout() {
     // About column is closed already
-    if( getComputedStyle(aboutCol, null).display === 'none'){ return;}
+    if(aboutPage === false) return;
+    aboutPage = false;
 
-    body.style.overflow = '';
-    left.classList.remove('open_about');
-    right.classList.remove('open_about');
+    content.scrollTop = 0;
 
-    projectsCol.classList.remove('open_about');
-    content.classList.remove('open_about');
-
-    lines.forEach(line => line.classList.remove('open_about'));
-
+     // Change selected menu button
     aboutButtons.forEach(aboutBtn => aboutBtn.classList.remove('active_page'));
     projectButtons.forEach(projectBtn => projectBtn.classList.add('active_page'));
-    hideElement(aboutCol);
+
+    // Hide right projects from left
+    hideElement(rightOnLeftProjects);
+
+    // Slide about column out
+    aboutCol.classList.remove('slide_in'); 
+
+    // Change lines
+    lines.forEach(line => line.classList.remove('open_about'));
+
+    // Control scroll
+    enableYScroll(content);
+    autoYScroll(left);
 }
 
 // Hide/Show elements
 
-function hideElement(e) {
-    e.style.display = 'none';
+function hideElement(el) {
+    el.style.display = 'none';
 }
 
-function showElement(e) {
-    e.style.display = 'block';
+function showElement(el) {
+    el.style.display = 'block';
 }
 
+function enableYScroll(el){
+    el.style.height = '100vh';
+    el.style.overflowY = 'scroll';
+}
 
-// Contetn height
+function autoYScroll(el) {
+    el.style.overflowY = 'auto';
+}
+
+function disableYScroll(el){
+    el.style.overflowY = 'hidden';
+}
+
+// Content height
 
 function projectsHeight() {
     const headerHeight = document.querySelector('header').offsetHeight;
     const footerHeight = document.querySelector('footer').offsetHeight;
     const projects = document.querySelectorAll('.project');
 
-    projects.forEach(project => project.style.maxHeight = (window.innerHeight - headerHeight - footerHeight + 2) + 'px');
+    projects.forEach(project => project.style.maxHeight = (window.innerHeight - headerHeight - footerHeight + 3) + 'px');
 }
 
 window.onload = function() {
