@@ -425,7 +425,11 @@ header {
     padding-top: 20px;
 }
 
-#details div:last-of-type {
+#details>div:first-of-type {
+    position: relative;
+}
+
+#details>div:last-of-type {
     border: unset;
 }
 
@@ -442,6 +446,11 @@ header {
     margin-bottom: 16px;
     padding-right: 20px;
     padding-left: 20px;
+}
+
+#languages {
+    position: absolute;
+    bottom: 0;
 }
 
 /* Footer */
