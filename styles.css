@@ -255,7 +255,6 @@ header {
 #projects.open_about {
     display: block;
     width: 51%;
-    height: 100vh;
     overflow-y: scroll;
 }
 
@@ -382,10 +381,10 @@ header {
 #about {
     display: none;
     width: 47%;
-    height: 100vh;
     overflow-y: scroll;
     border: 1.5pt solid var(--stroke_grey);
     border-top: none;
+    border-bottom: none;
 }
 
 #about::-webkit-scrollbar {
