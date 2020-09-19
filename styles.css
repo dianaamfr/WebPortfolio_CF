@@ -232,8 +232,11 @@ header {
 #content {
     max-width: 1920px;
     width: 100%;
-    flex: 1;
-    overflow: auto;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 #content::-webkit-scrollbar {
@@ -242,10 +245,11 @@ header {
     scrollbar-width: none;  /* Firefox */
 }
 
-
 #projects {
     max-width: 1920px;
     width: 100%;
+    flex: 1;
+    overflow: auto;
 }
 
 #projects::-webkit-scrollbar {
@@ -274,15 +278,11 @@ header {
 }
 
 .project_slider {
-    width: calc(50% - 45px);
+    width: calc(50% - 46px);
     border: 1.5pt solid var(--stroke_grey);
     border-bottom: none;
     border-top: none;
     overflow: hidden;
-}
-
-.open_about {
-    transition: 2s;
 }
 
 .project_slide{
@@ -296,7 +296,7 @@ header {
 }
 
 .description {
-    width: calc(50% - 45px);
+    width: calc(50% - 46px);
     background-color: var(--black);
     border: 1.5pt solid var(--stroke_grey);
     border-top: none;
@@ -324,30 +324,35 @@ header {
 /* About section */
 
 #about {
-    display: none;
-    width: 50%;
-    top: 0%;
-    left: 100%;
     position: absolute;
     width: 100%;
-    transition: 2s ease-in-out;
+    top: 0%;
+    left: 100%;
+    transition: transform 2s ease-in-out;
+    margin-left: 14px;
+    background-color: var(--black);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 #about_content {
-    margin-left: 2%;
-    margin-right: 4%;
-    width: 94%;
+    width: calc(50% - 46px);
     border: 1.5pt solid var(--stroke_grey);
-    background-color: var(--black);
     border-top: none;
     border-bottom: none;
     float: left;
-    height: 100vh;
-    overflow: scroll;
+    flex: 1;
+    overflow: auto;
+}
+
+.unscrollable {
+    overflow: hidden!important;
 }
 
 .slide_in {
-	left: 0%!important;
+	transform: translateX(-50%);
 }
 
 #about_content::-webkit-scrollbar {
