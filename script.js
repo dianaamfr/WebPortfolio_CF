@@ -111,6 +111,25 @@ function eraseShapes(e) {
    ctx.fill();
 }
 
+
+// Menu buttons
+
+const menus = Array.from(document.querySelectorAll('.menu_desktop ul'));
+const menuButtons = Array.from(document.querySelectorAll('.menu_desktop ul li a'));
+const menuLinks = Array.from(menus[0].querySelectorAll('li a')).length - 1;
+
+function activeMenuButtons(event){
+    const linkIdx = menuButtons.indexOf(event.target) % menuLinks;
+
+    menuButtons.forEach(btn => btn.classList.remove('active_page'));
+    menus.forEach(menu => activateButton(menu, linkIdx));
+}
+
+function activateButton(menu, linkIdx){
+    const relativeButtons = Array.from(menu.querySelectorAll('li a'));
+    relativeButtons[linkIdx].classList.add('active_page');
+}
+
 // About column
 
 const aboutCol = document.querySelector('#about');
@@ -127,23 +146,14 @@ function openAbout() {
     if(aboutPage === true) return;
     aboutPage = true;
 
-    // Change selected menu button
-    aboutButtons.forEach(aboutBtn => aboutBtn.classList.add('active_page'));
-    projectButtons.forEach(projectBtn => projectBtn.classList.remove('active_page'));
-
     // Slide about column in
-    aboutCol.classList.add('slide_in');
-    
+    aboutCol.classList.add('slide_in');   
 }
 
 function closeAbout() {
     // About column is closed already
     if(aboutPage === false) return;
     aboutPage = false;
-
-     // Change selected menu button
-    aboutButtons.forEach(aboutBtn => aboutBtn.classList.remove('active_page'));
-    projectButtons.forEach(projectBtn => projectBtn.classList.add('active_page'));
 
     // Lock scroll on projects and about
     projects.scrollTop = 0;
@@ -152,15 +162,6 @@ function closeAbout() {
     aboutCol.classList.remove('slide_in'); 
     
 }
-
-function allowScroll(el) {
-    el.style.overflow = 'auto';
-}
-
-function disableScroll(el) {
-    el.style.overflow = 'hidden';
-}
-
 
 // Hide/Show elements
 
@@ -182,13 +183,11 @@ function projectsHeight() {
 }
 
 function enableScroll() {
-    console.log("enable");
     projects.classList.remove('unscrollable');
     about_content.classList.remove('unscrollable');
 }
 
 function disableScroll() {
-    console.log("disable");
     projects.classList.add('unscrollable');
     about_content.classList.add('unscrollable');
 }
@@ -196,6 +195,8 @@ function disableScroll() {
 window.onload = function() {
     existsLocalStorage() === true ? null : drawShapes();
     sliders.forEach(nextSlide);
+
+    menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
 
     about.addEventListener('transitionstart',disableScroll);
     about.addEventListener('transitionend',enableScroll);

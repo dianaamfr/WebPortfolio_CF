@@ -426,6 +426,32 @@ header {
     bottom: 0;
 }
 
+
+/* Education */
+
+#education_wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#education_content {
+    max-width: 1920px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+
+#credits_part1, #education {
+    width: calc(50% - 46px);
+    border: 1.5pt solid var(--stroke_grey);
+    border-top: none;
+    border-bottom: none;
+    height: 700px;
+}
+
+
 /* Footer */
 
 footer {
@@ -477,5 +503,4 @@ footer {
 .social_media h1 {
     margin-right: 20px;
 }
-
 
