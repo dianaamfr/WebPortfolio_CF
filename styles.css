@@ -199,6 +199,7 @@ header {
 .page_description {
     flex: 1;
     margin-top: 0.2em;
+    font-size: 14px;
 }
 
 @keyframes slide_to_left {
