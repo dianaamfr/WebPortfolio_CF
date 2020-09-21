@@ -408,11 +408,11 @@ header {
     border: unset;
 }
 
-#details>div>h1:first-of-type {
+#details>div>h2:first-of-type {
     margin-bottom: 16px;
 }
 
-#details>div>h1 {
+#details>div>h2 {
     padding-right: 20px;
     padding-left: 20px;
 }   
@@ -452,6 +452,29 @@ header {
     border-bottom: none;
     padding: 20px;
     overflow: auto;
+    position: relative;
+}
+
+#credits_part1 > div {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+#credits_part1 > div > div{ 
+    display: table-row;
+}
+
+#credits_part1 p {
+    display: table-cell;
+}
+
+#credits_part1 h2 {
+    margin-bottom: 16px;
+}
+
+#credits_part1 p:nth-child(even){
+    padding-left: 80px;
 }
 
 #education::-webkit-scrollbar {
@@ -527,7 +550,7 @@ footer {
     flex-wrap: wrap;
 }
 
-.social_media h1 {
+.social_media h2 {
     margin-right: 20px;
 }
 
