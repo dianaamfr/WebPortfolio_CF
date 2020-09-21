@@ -48,7 +48,7 @@ body {
 
 /* Text and Links */
 
-h1 {
+h2 {
     font-family: tacite;
     font-weight: 200;
     font-size: 16px;
@@ -56,7 +56,7 @@ h1 {
     text-transform: uppercase;
 }
 
-h2 {
+h3 {
     font-family: haas_grot_disp;
     font-weight: 200;
     font-size: 16px;
@@ -72,6 +72,7 @@ p {
     font-size: 16px;
     color: var(--grey);
     text-decoration:none;
+    margin-bottom: 16px;
 }
 
 a {
@@ -162,7 +163,6 @@ header {
     background-color:var(--black);
     border-bottom: 1.5pt solid var(--stroke_grey);
     display: block;
-    overflow: hidden;
     width: 100%;
     max-width: 1920px;
 }
@@ -362,6 +362,8 @@ header {
 
 #about_content::-webkit-scrollbar {
     display: none;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 #work_areas {
@@ -378,7 +380,7 @@ header {
 }
 
 #catarina_description p {
-    line-height: 20px;
+    line-height: 19px;
     margin-bottom: 15px;
     margin-left: 20px;
     margin-right: 20px;
@@ -444,11 +446,36 @@ header {
 }
 
 #credits_part1, #education {
-    width: calc(50% - 46px);
+    width: calc(50% - 86px);
     border: 1.5pt solid var(--stroke_grey);
     border-top: none;
     border-bottom: none;
-    height: 700px;
+    padding: 20px;
+    overflow: auto;
+}
+
+#education::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.quote {
+    font-family: tacite;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 19px;
+    margin-bottom: 6px;
+}
+
+.author {
+    font-family: atlas;
+    font-weight: 200;
+    font-size: 12px;
+}
+
+.in_text {
+    margin-left: 20px;
 }
 
 
