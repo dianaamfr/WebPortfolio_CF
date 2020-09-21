@@ -34,7 +34,7 @@ const ctx = canvas.getContext('2d');
 const rect = canvas.getBoundingClientRect();
 const redShape = new Image(), blueShape = new Image(), yellowShape = new Image();
 
-function existsLocalStorage() {
+function isNewSession() {
    if (window.sessionStorage.getItem('isNewSession')) {
        return true;
    } else {
@@ -193,7 +193,8 @@ function disableScroll() {
 }
 
 window.onload = function() {
-    existsLocalStorage() === true ? null : drawShapes();
+
+    isNewSession() === true ? null : drawShapes();
     sliders.forEach(nextSlide);
 
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
@@ -205,4 +206,12 @@ window.onload = function() {
     homeButtons.forEach(homeBtn => homeBtn.addEventListener('click',closeAbout));
 
     projectsHeight();
+
+    const activeAbout = window.localStorage.getItem('aboutPage');
+    
+    if(activeAbout === 'active') {
+        window.localStorage.setItem('aboutPage', false);
+        console.log(aboutButtons[0]);
+        aboutButtons[0].click();
+    }
  };
