@@ -443,9 +443,14 @@ header {
     justify-content: space-evenly;
     overflow: hidden;
     position: relative;
+    height: 100%;
 }
 
-#credits_part1, #education {
+.slide_out {
+	transform: translateX(-50%);
+}
+
+#credits_part1, #credits_part2 {
     width: calc(50% - 86px);
     border: 1.5pt solid var(--stroke_grey);
     border-top: none;
@@ -477,7 +482,7 @@ header {
     padding-left: 80px;
 }
 
-#education::-webkit-scrollbar {
+#education > div::-webkit-scrollbar {
     display: none;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -501,35 +506,36 @@ header {
     margin-left: 20px;
 }
 
-#credits_part2 {
+#education{
     position: absolute;
     width: 100%;
     top: 0%;
-    left: 100%;
+    left: 50%;
     transition: transform 2s ease-in-out;
     height: 100%;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     background-color: var(--black);
     margin-left: 14px;
 }
 
-#credits_part2 > div {
-    width: calc(50% - 46px);
+#education > div {
+    width: calc(50% - 86px);
     border: 1.5pt solid var(--stroke_grey);
     border-top: none;
     border-bottom: none;
     height: 100%;
+    padding: 20px;
+    overflow: auto;
 }
 
-#credits_part2 > div > div {
+#credits_part2 > div {
     position: absolute;
     bottom: 20px;
     left: 20px;
 }
 
-#credits_part2 > div > div > div{ 
+#credits_part2 > div > div{ 
     display: table-row;
 }
 
@@ -543,6 +549,10 @@ header {
 
 #credits_part2 p:nth-child(even){
     padding-left: 80px;
+}
+
+.slide_out {
+	transform: translateX(50%);
 }
 
 

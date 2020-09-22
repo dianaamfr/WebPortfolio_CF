@@ -51,8 +51,8 @@ function openCredits() {
     if(creditsPage === true) return;
     creditsPage = true;
 
-    // Slide credits column in
-    credits.classList.add('slide_in');   
+    // Slide education column out
+    education.classList.add('slide_out');   
 }
 
 function closeCredits() {
@@ -60,8 +60,8 @@ function closeCredits() {
     if(creditsPage === false) return;
     creditsPage = false;
 
-    // Slide credits column out
-    credits.classList.remove('slide_in'); 
+    // Slide education column in
+    education.classList.remove('slide_out'); 
 }
 
 function enableScroll() {
