@@ -115,7 +115,7 @@ function positionMenu(event){
 
 function checkClickedElement(event) {
     
-    if(event.target.matches('.menu_desktop > ul > li > a')){
+    if(event.target.matches('.menu_desktop > ul > li > a')|| event.target.matches('.page_title')){
         event.preventDefault();
         hideElement(contextMenu); 
         customContextMenu(event);
