@@ -347,7 +347,6 @@ header {
     border: 1.5pt solid var(--stroke_grey);
     border-top: none;
     border-bottom: none;
-    float: left;
     flex: 1;
     overflow: auto;
 }
@@ -443,6 +442,7 @@ header {
     display: flex;
     justify-content: space-evenly;
     overflow: hidden;
+    position: relative;
 }
 
 #credits_part1, #education {
@@ -499,6 +499,50 @@ header {
 
 .in_text {
     margin-left: 20px;
+}
+
+#credits_part2 {
+    position: absolute;
+    width: 100%;
+    top: 0%;
+    left: 100%;
+    transition: transform 2s ease-in-out;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--black);
+    margin-left: 14px;
+}
+
+#credits_part2 > div {
+    width: calc(50% - 46px);
+    border: 1.5pt solid var(--stroke_grey);
+    border-top: none;
+    border-bottom: none;
+    height: 100%;
+}
+
+#credits_part2 > div > div {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+#credits_part2 > div > div > div{ 
+    display: table-row;
+}
+
+#credits_part2 p {
+    display: table-cell;
+}
+
+#credits_part2 h2 {
+    margin-bottom: 16px;
+}
+
+#credits_part2 p:nth-child(even){
+    padding-left: 80px;
 }
 
 
