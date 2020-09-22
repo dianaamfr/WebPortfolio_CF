@@ -138,7 +138,6 @@ const aboutButtons = document.querySelectorAll('.about_btn');
 const homeButtons = document.querySelectorAll('.home_btn');
 const projectButtons = document.querySelectorAll('.project_btn');
 const projects = document.querySelector('#projects');
-
 let aboutPage = false;
 
 function openAbout() {
@@ -163,6 +162,16 @@ function closeAbout() {
     
 }
 
+function enableScroll() {
+    projects.classList.remove('unscrollable');
+    about_content.classList.remove('unscrollable');
+}
+
+function disableScroll() {
+    projects.classList.add('unscrollable');
+    about_content.classList.add('unscrollable');
+}
+
 // Hide/Show elements
 
 function hideElement(el) {
@@ -180,16 +189,6 @@ function projectsHeight() {
     const content = document.querySelector('#content');
 
     sliders.forEach(projectSlider => projectSlider.style.maxHeight = (content.offsetHeight - projectDescription.offsetHeight) + 'px');
-}
-
-function enableScroll() {
-    projects.classList.remove('unscrollable');
-    about_content.classList.remove('unscrollable');
-}
-
-function disableScroll() {
-    projects.classList.add('unscrollable');
-    about_content.classList.add('unscrollable');
 }
 
 window.onload = function() {

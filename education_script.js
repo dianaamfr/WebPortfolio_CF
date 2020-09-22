@@ -1,8 +1,6 @@
 const educationButtons = document.querySelectorAll('.education_btn');
 const creditsButtons = document.querySelectorAll('.credits_btn');
 const aboutButtons = document.querySelectorAll('.about_btn');
-const credits = document.querySelector('#credits_part2');
-let creditsPage = false;
 
 // Menu buttons
 
@@ -22,10 +20,19 @@ function activateButton(menu, linkIdx){
     relativeButtons[linkIdx].classList.add('active_page');
 }
 
+// About Page
+
 function openAbout() {
     window.localStorage.setItem('aboutPage', 'active');
     console.log(window.localStorage.getItem('aboutPage'));
 }
+
+
+// Credits Page
+
+let creditsPage = false;
+const credits = document.querySelector('#credits_part2');
+const education = document.querySelector('#education');
 
 function openCredits() {
     // Credits column is opened already
@@ -45,9 +52,22 @@ function closeCredits() {
     credits.classList.remove('slide_in'); 
 }
 
+function enableScroll() {
+    education.classList.remove('unscrollable');
+}
+
+function disableScroll() {
+    education.classList.add('unscrollable');
+}
+
 window.onload = function() {
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
+
     aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',openAbout));
+
+    credits.addEventListener('transitionstart',disableScroll);
+    credits.addEventListener('transitionend',enableScroll);
+
     creditsButtons.forEach(creditsBtn => creditsBtn.addEventListener('click',openCredits));
     educationButtons.forEach(educationBtn => educationBtn.addEventListener('click',closeCredits));
 }
