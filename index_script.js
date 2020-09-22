@@ -151,6 +151,10 @@ function checkActiveAbout() {
     }
 }
 
+function activateAbout() {
+    window.localStorage.setItem('aboutPage', 'active');
+}
+
 function openAbout() {
     // About column is opened already
     if(aboutPage === true) return;
@@ -186,7 +190,7 @@ function disableScroll() {
 
 // Credits Page
 
-function openCredits() {
+function activateCredits() {
     window.localStorage.setItem('creditsPage', 'active');
 }
 
@@ -214,11 +218,16 @@ function projectsHeight() {
 // Context Menu
 
 const contextMenu = document.querySelector('#context_menu');
+const newTabLink = document.querySelector('#context_menu_link');
 const contextMenuWidth = parseInt(window.getComputedStyle(contextMenu).width.slice(0, -2));
 
 function customContextMenu(event) {
 
     positionMenu(event);
+
+    const url = event.target.href;
+    setNewTabHref(url);
+    openSectionsOnNewPage(event.target);
 
     showElement(contextMenu);
 }
@@ -226,7 +235,7 @@ function customContextMenu(event) {
 function positionMenu(event){
 
     if(event.clientX + contextMenuWidth > window.innerWidth) {
-        contextMenu.style.left = window.innerWidth - contextMenuWidth + 'px';
+        contextMenu.style.left = window.innerWidth - contextMenuWidth - 5 + 'px';
     }
     else {
         contextMenu.style.left = event.clientX + "px";
@@ -247,6 +256,23 @@ function checkClickedElement(event) {
     }
 }
 
+function setNewTabHref(url){
+    if(url !== 'javascript:void(0)'){
+        newTabLink.href = url;
+    }
+    else {
+        newTabLink.href = window.location.href;
+    }
+}
+
+function openSectionsOnNewPage(el) {
+    if(el.matches('.about_btn')){
+        activateAbout();
+    }
+    else if (el.matches('.credits_btn')) {
+        activateCredits();
+    }
+}
 
 // Function calls on load
 
@@ -262,7 +288,7 @@ window.onload = function() {
 
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
     homeButtons.forEach(homeBtn => homeBtn.addEventListener('click', function () {projectButtons[0].click()}));
-    creditsButtons.forEach(creditsBtn => creditsBtn.addEventListener('click',openCredits));
+    creditsButtons.forEach(creditsBtn => creditsBtn.addEventListener('click',activateCredits));
 
     about.addEventListener('transitionstart',disableScroll);
     about.addEventListener('transitionend',enableScroll);
