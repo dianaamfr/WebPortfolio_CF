@@ -26,6 +26,7 @@ function nextSlide(slider) {
     
 }
 
+
 // Canvas shapes
 const canvas = document.querySelector('canvas');
 const wrap = document.querySelector('#wrapper');
@@ -130,7 +131,8 @@ function activateButton(menu, linkIdx){
     relativeButtons[linkIdx].classList.add('active_page');
 }
 
-// About column
+
+// About Page
 
 const aboutCol = document.querySelector('#about');
 const aboutContent = document.querySelector('#about_content');
@@ -139,6 +141,15 @@ const homeButtons = document.querySelectorAll('.home_btn');
 const projectButtons = document.querySelectorAll('.project_btn');
 const projects = document.querySelector('#projects');
 let aboutPage = false;
+
+function checkActiveAbout() {
+    const activeAbout = window.localStorage.getItem('aboutPage');
+    
+    if(activeAbout === 'active') {
+        window.localStorage.setItem('aboutPage', 'notActive');
+        aboutButtons[0].click();
+    }
+}
 
 function openAbout() {
     // About column is opened already
@@ -172,6 +183,14 @@ function disableScroll() {
     about_content.classList.add('unscrollable');
 }
 
+
+// Credits Page
+
+function openCredits() {
+    window.localStorage.setItem('creditsPage', 'active');
+}
+
+
 // Hide/Show elements
 
 function hideElement(el) {
@@ -191,6 +210,9 @@ function projectsHeight() {
     sliders.forEach(projectSlider => projectSlider.style.maxHeight = (content.offsetHeight - projectDescription.offsetHeight) + 'px');
 }
 
+
+const creditsButtons = document.querySelectorAll('.credits_btn');
+
 window.onload = function() {
 
     isNewSession() === true ? null : drawShapes();
@@ -198,6 +220,7 @@ window.onload = function() {
 
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
     homeButtons.forEach(homeBtn => homeBtn.addEventListener('click', function () {projectButtons[0].click()}));
+    creditsButtons.forEach(creditsBtn => creditsBtn.addEventListener('click',openCredits));
 
     about.addEventListener('transitionstart',disableScroll);
     about.addEventListener('transitionend',enableScroll);
@@ -207,11 +230,5 @@ window.onload = function() {
 
     projectsHeight();
 
-    const activeAbout = window.localStorage.getItem('aboutPage');
-    
-    if(activeAbout === 'active') {
-        window.localStorage.setItem('aboutPage', false);
-        console.log(aboutButtons[0]);
-        aboutButtons[0].click();
-    }
+    checkActiveAbout();
  };

@@ -24,7 +24,6 @@ function activateButton(menu, linkIdx){
 
 function openAbout() {
     window.localStorage.setItem('aboutPage', 'active');
-    console.log(window.localStorage.getItem('aboutPage'));
 }
 
 
@@ -33,6 +32,15 @@ function openAbout() {
 let creditsPage = false;
 const credits = document.querySelector('#credits_part2');
 const education = document.querySelector('#education');
+
+function checkActiveCredits() {
+    const activeCredits = window.localStorage.getItem('creditsPage');
+    
+    if(activeCredits === 'active') {
+        window.localStorage.setItem('creditsPage', 'notActive');
+        creditsButtons[0].click();
+    }
+}
 
 function openCredits() {
     // Credits column is opened already
@@ -70,4 +78,6 @@ window.onload = function() {
 
     creditsButtons.forEach(creditsBtn => creditsBtn.addEventListener('click',openCredits));
     educationButtons.forEach(educationBtn => educationBtn.addEventListener('click',closeCredits));
+
+    checkActiveCredits();
 }
