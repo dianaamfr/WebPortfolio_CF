@@ -68,9 +68,52 @@ function disableScroll() {
     education.classList.add('unscrollable');
 }
 
+
+// Context Menu
+
+const contextMenu = document.querySelector('#context_menu');
+const contextMenuWidth = parseInt(window.getComputedStyle(contextMenu).width.slice(0, -2));
+
+function customContextMenu(event) {
+
+    positionMenu(event);
+
+    showElement(contextMenu);
+}
+
+function positionMenu(event){
+
+    if(event.clientX + contextMenuWidth > window.innerWidth) {
+        contextMenu.style.left = window.innerWidth - contextMenuWidth + 'px';
+    }
+    else {
+        contextMenu.style.left = event.clientX + "px";
+    }
+
+    contextMenu.style.top = event.clientY + "px";
+}
+
+function checkClickedElement(event) {
+    
+    if(event.target.matches('.menu_desktop > ul > li > a')){
+        event.preventDefault();
+        hideElement(contextMenu); 
+        customContextMenu(event);
+    }
+    else {
+      hideElement(contextMenu);  
+    }
+}
+
+
+// Function calls on load
+
 window.onload = function() {
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
 
+    document.addEventListener('click', function() { hideElement(contextMenu);});
+    document.addEventListener('contextmenu', checkClickedElement);
+    
     aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',openAbout));
 
     credits.addEventListener('transitionstart',disableScroll);

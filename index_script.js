@@ -211,12 +211,54 @@ function projectsHeight() {
 }
 
 
+// Context Menu
+
+const contextMenu = document.querySelector('#context_menu');
+const contextMenuWidth = parseInt(window.getComputedStyle(contextMenu).width.slice(0, -2));
+
+function customContextMenu(event) {
+
+    positionMenu(event);
+
+    showElement(contextMenu);
+}
+
+function positionMenu(event){
+
+    if(event.clientX + contextMenuWidth > window.innerWidth) {
+        contextMenu.style.left = window.innerWidth - contextMenuWidth + 'px';
+    }
+    else {
+        contextMenu.style.left = event.clientX + "px";
+    }
+
+    contextMenu.style.top = event.clientY + "px";
+}
+
+function checkClickedElement(event) {
+    
+    if(event.target.matches('.menu_desktop > ul > li > a')){
+        event.preventDefault();
+        hideElement(contextMenu); 
+        customContextMenu(event);
+    }
+    else {
+      hideElement(contextMenu);  
+    }
+}
+
+
+// Function calls on load
+
 const creditsButtons = document.querySelectorAll('.credits_btn');
 
 window.onload = function() {
 
     isNewSession() === true ? null : drawShapes();
     sliders.forEach(nextSlide);
+
+    document.addEventListener('click', function() { hideElement(contextMenu);});
+    document.addEventListener('contextmenu', checkClickedElement);
 
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
     homeButtons.forEach(homeBtn => homeBtn.addEventListener('click', function () {projectButtons[0].click()}));
