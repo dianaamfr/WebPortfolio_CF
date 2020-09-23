@@ -165,6 +165,7 @@ header {
     display: block;
     width: 100%;
     max-width: 1920px;
+    margin: 0 auto;
 }
 
 #header_slider {
@@ -238,6 +239,7 @@ header {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 #content::-webkit-scrollbar {
@@ -314,7 +316,7 @@ header {
 .icon_plus {
     padding-right: 20px;
     width: 2vw;
-    min-width: 10px;
+    min-width: 30px;
 }
 
 .icon_plus img{
@@ -444,6 +446,7 @@ header {
     overflow: hidden;
     position: relative;
     height: 100%;
+    margin: 0 auto;
 }
 
 .slide_out {
@@ -563,6 +566,7 @@ footer {
     background-color: var(--black);
     width: 100%;
     max-width: 1920px;
+    margin: 0 auto;
 }
 
 
@@ -647,4 +651,79 @@ footer {
     -webkit-mask-image: none;
     -webkit-mask-size: 0;
     animation: none;
+}
+
+
+/*Project page styles go here*/
+
+
+
+@media only screen and (max-width: 1300px) {
+    .social_media h2 {
+        margin-right: 7px;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    .social_media{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    #work_areas {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .page_title {
+        margin-right: 50px;
+    }
+
+    .menu_desktop li {
+        margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .header_text {
+        justify-content: space-between;
+    }
+
+    .page_title {
+        margin-right: 0px;
+    }
+
+    .page_description {
+        flex: none;
+    }
+
+    /* change to hamburguer menu? */
+    .menu_desktop {
+        display: none;
+    }
+
+    /* change to icons? */
+    .social_media {
+        height: 30px;
+    }
+
+    .social_media a {
+        display: none;
+    }
+
+    .social_media h2 {
+        display: none;
+    }
+
+    /* Education and About take all screen */
+}
+
+@media only screen and (max-width: 750px) {
+
+    /* Smaller structure lines */
+    .description, .project_slider {
+        width: calc(50% - 30px);
+    }
 }
