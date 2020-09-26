@@ -255,6 +255,10 @@ header {
     overflow: auto;
 }
 
+#projects_1col {
+    display: none;
+}
+
 #projects::-webkit-scrollbar {
     display: none;
     -ms-overflow-style: none;  /* IE and Edge */
