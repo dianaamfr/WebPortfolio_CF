@@ -211,7 +211,7 @@ function projectsHeight() {
     const projectDescription = document.querySelector('.description');
     const content = document.querySelector('#content');
 
-    sliders.forEach(projectSlider => projectSlider.style.maxHeight = (content.offsetHeight - projectDescription.offsetHeight) + 'px');
+    sliders.forEach(projectSlider => projectSlider.style.height = (content.offsetHeight - projectDescription.offsetHeight) + 'px');
 }
 
 

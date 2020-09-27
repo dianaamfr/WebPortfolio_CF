@@ -140,10 +140,9 @@ a:hover {
     top: 0;
     z-index: 2;
     pointer-events: none;
-    max-width: 1920px;
     left: 50%;
     transform: translateX(-50%);
-    border: 1.5pt solid var(--stroke_grey);
+    border: 2px solid var(--stroke_grey);
 }
 
 #canvas_under {
@@ -161,10 +160,9 @@ canvas {
 
 header {
     background-color:var(--black);
-    border-bottom: 1.5pt solid var(--stroke_grey);
+    border-bottom: 2px solid var(--stroke_grey);
     display: block;
     width: 100%;
-    max-width: 1920px;
     margin: 0 auto;
 }
 
@@ -185,7 +183,7 @@ header {
 }
 
 .header_text {
-    width: 96%;
+    width: calc(100vw - 40px);
     margin: auto;
     display: flex;
     align-items: baseline;
@@ -232,12 +230,9 @@ header {
 /* Projects content */
 
 #content {
-    max-width: 1920px;
     width: 100%;
     position: relative;
     height: 100%;
-    display: flex;
-    flex-direction: column;
     overflow: hidden;
     margin: 0 auto;
 }
@@ -249,14 +244,8 @@ header {
 }
 
 #projects {
-    max-width: 1920px;
     width: 100%;
-    flex: 1;
     overflow: auto;
-}
-
-#projects_1col {
-    display: none;
 }
 
 #projects::-webkit-scrollbar {
@@ -266,50 +255,52 @@ header {
 }
 
 .pair {
-    border-top: 1.5pt solid var(--stroke_grey);
-    border-bottom: 1.5pt solid var(--stroke_grey);
+    border-top: 2px solid var(--stroke_grey);
+    border-bottom: 2px solid var(--stroke_grey);
     margin-bottom: 40px;
-}
-
-.pair:first-of-type{
-    border-top: none;
-}
-
-.pair:last-of-type{
-    margin-bottom: unset;
-}
-
-.projects_pair {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
-.pair:first-of-type .projects_pair .project_slider{
-    border-top: none;
+.pair:first-of-type {
+    border-top: unset;
+}
+
+.pair_left, .pair_right {
+    width: 50vw;
 }
 
 .project_slider {
-    width: calc(50% - 46px);
-    border: 1.5pt solid var(--stroke_grey);
+    width: calc(50vw - 34px);
+    border: 2px solid var(--stroke_grey);
     border-bottom: none;
     border-top: none;
     overflow: hidden;
 }
 
-.project_slide{
-    width: 100%;
+.pair_left > .project_slider, .pair_left > .description {
+    margin-left: 20px;
 }
 
-.descriptions_pair {
-    border-top: 1.5pt solid var(--stroke_grey);
-    justify-content: space-evenly;
-    display: flex;
+.pair_right > .project_slider, .pair_right > .description {
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.project_slide{
+    width: 100%;
+    height: 100%;
+}
+
+.line {
+    width: 100%;
+    border-top: 2px solid var(--stroke_grey);
 }
 
 .description {
-    width: calc(50% - 46px);
+    width: calc(50vw - 34px);
     background-color: var(--black);
-    border: 1.5pt solid var(--stroke_grey);
+    border: 2px solid var(--stroke_grey);
     border-top: none;
     border-bottom: none;
     display: flex;
@@ -336,9 +327,9 @@ header {
 
 #about {
     position: absolute;
-    width: 100%;
+    width: calc(50vw - 10px);
     top: 0%;
-    left: 100%;
+    right: calc(-50vw + 10px);
     transition: transform 2s ease-in-out;
     margin-left: 14px;
     background-color: var(--black);
@@ -349,8 +340,8 @@ header {
 }
 
 #about_content {
-    width: calc(50% - 46px);
-    border: 1.5pt solid var(--stroke_grey);
+    width: calc(50vw - 44px);
+    border: 2px solid var(--stroke_grey);
     border-top: none;
     border-bottom: none;
     flex: 1;
@@ -362,7 +353,7 @@ header {
 }
 
 .slide_in {
-	transform: translateX(-50%);
+	transform: translateX(calc(-50vw + 10px));
 }
 
 #about_content::-webkit-scrollbar {
@@ -401,7 +392,7 @@ header {
 
 #details>div {
     width: 33%;
-    border-right: 1.5pt solid var(--stroke_grey);
+    border-right: 2px solid var(--stroke_grey);
     padding-top: 20px;
 }
 
@@ -443,7 +434,6 @@ header {
 }
 
 #education_content {
-    max-width: 1920px;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -459,7 +449,7 @@ header {
 
 #credits_part1, #credits_part2 {
     width: calc(50% - 86px);
-    border: 1.5pt solid var(--stroke_grey);
+    border: 2px solid var(--stroke_grey);
     border-top: none;
     border-bottom: none;
     padding: 20px;
@@ -528,7 +518,7 @@ header {
 
 #education > div {
     width: calc(50% - 86px);
-    border: 1.5pt solid var(--stroke_grey);
+    border: 2px solid var(--stroke_grey);
     border-top: none;
     border-bottom: none;
     height: 100%;
@@ -566,10 +556,9 @@ header {
 /* Footer */
 
 footer {
-    border-top: 1.5pt solid var(--stroke_grey);
+    border-top: 2px solid var(--stroke_grey);
     background-color: var(--black);
     width: 100%;
-    max-width: 1920px;
     margin: 0 auto;
 }
 
@@ -598,7 +587,7 @@ footer {
 }
 
 .footer_content {
-    width: 96%;
+    width: calc(100vw - 40px);
     margin: auto;
     display: flex;
     justify-content: space-between;
