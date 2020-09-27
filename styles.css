@@ -237,24 +237,24 @@ header {
     flex-direction: column;
     overflow: hidden;
     margin: 0 auto;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
 }
 
 #content::-webkit-scrollbar {
     display: none;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
 }
 
 #projects {
     width: 100%;
     flex: 1;
     overflow: auto;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
 }
 
 #projects::-webkit-scrollbar {
     display: none;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
 }
 
 .pair {
@@ -350,6 +350,8 @@ header {
     border-bottom: none;
     flex: 1;
     overflow: auto;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
 }
 
 .unscrollable {
@@ -362,8 +364,6 @@ header {
 
 #about_content::-webkit-scrollbar {
     display: none;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
 }
 
 #work_areas {
@@ -520,12 +520,12 @@ header {
     width: calc(50vw - 74px);
     flex: 1;
     overflow: auto;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none; /* Firefox 64 */
 }
 
 #education > div::-webkit-scrollbar {
     display: none;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
 }
 
 #credits_part2 > div {
