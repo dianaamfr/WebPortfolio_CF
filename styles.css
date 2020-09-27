@@ -448,11 +448,11 @@ header {
 }
 
 .slide_out {
-	transform: translateX(-50%);
+	transform: translateX(calc(50vw - 10px));
 }
 
 #credits_part1, #credits_part2 {
-    width: calc(50% - 86px);
+    width: calc(50vw - 74px);
     border: 2px solid var(--stroke_grey);
     border-top: none;
     border-bottom: none;
@@ -483,12 +483,6 @@ header {
     padding-left: 80px;
 }
 
-#education > div::-webkit-scrollbar {
-    display: none;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
 .quote {
     font-family: tacite;
     font-weight: 200;
@@ -507,27 +501,31 @@ header {
     margin-left: 20px;
 }
 
-#education{
+#education {
     position: absolute;
-    width: 100%;
+    width: calc(50vw - 34px);
     top: 0%;
-    left: 50%;
+    right: 20px;
     transition: transform 2s ease-in-out;
     height: 100%;
     display: flex;
     flex-direction: column;
     background-color: var(--black);
-    margin-left: 14px;
+    border: 2px solid var(--stroke_grey);
+    border-top: none;
 }
 
 #education > div {
-    width: calc(50% - 86px);
-    border: 2px solid var(--stroke_grey);
-    border-top: none;
-    border-bottom: none;
-    height: 100%;
     padding: 20px;
+    width: calc(50vw - 74px);
+    flex: 1;
     overflow: auto;
+}
+
+#education > div::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 #credits_part2 > div {
@@ -551,11 +549,6 @@ header {
 #credits_part2 p:nth-child(even){
     padding-left: 80px;
 }
-
-.slide_out {
-	transform: translateX(50%);
-}
-
 
 /* Footer */
 

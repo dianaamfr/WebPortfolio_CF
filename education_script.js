@@ -32,6 +32,8 @@ function activateAbout() {
 let creditsPage = false;
 const credits = document.querySelector('#credits_part2');
 const education = document.querySelector('#education');
+const educationDiv = document.querySelector('#education>div');
+console.log(educationDiv);
 
 function checkActiveCredits() {
     const activeCredits = window.localStorage.getItem('creditsPage');
@@ -65,11 +67,11 @@ function closeCredits() {
 }
 
 function enableScroll() {
-    education.classList.remove('unscrollable');
+    educationDiv.classList.remove('unscrollable');
 }
 
 function disableScroll() {
-    education.classList.add('unscrollable');
+    educationDiv.classList.add('unscrollable');
 }
 
 
@@ -154,8 +156,8 @@ window.onload = function() {
 
     aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',activateAbout));
 
-    credits.addEventListener('transitionstart',disableScroll);
-    credits.addEventListener('transitionend',enableScroll);
+    education.addEventListener('transitionstart',disableScroll);
+    education.addEventListener('transitionend',enableScroll);
 
     creditsButtons.forEach(creditsBtn => creditsBtn.addEventListener('click',openCredits));
     educationButtons.forEach(educationBtn => educationBtn.addEventListener('click',closeCredits));
