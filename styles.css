@@ -275,7 +275,7 @@ header {
 
 .project_slider {
     width: calc(50vw - 34px);
-    max-height: 1300px;
+    max-height: calc(50vw - 34px);
     border: 2px solid var(--stroke_grey);
     border-bottom: none;
     border-top: none;
