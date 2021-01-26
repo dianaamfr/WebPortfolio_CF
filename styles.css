@@ -303,6 +303,7 @@ header {
 
 .description {
     width: calc(50vw - 34px);
+    min-height: 80px;
     background-color: var(--black);
     border: 2px solid var(--stroke_grey);
     border-top: none;
@@ -325,6 +326,7 @@ header {
 .description p {
     margin: 16px;
     text-transform: uppercase;
+    max-width:75%;
 }
 
 /* About section */
