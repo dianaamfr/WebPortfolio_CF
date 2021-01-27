@@ -1,5 +1,8 @@
 <?php 
 include_once('common.php');
+
+setLastPage('education');
+
 drawHead(); ?>
         <div id="education_wrapper">
             <?php drawHeader(); ?>

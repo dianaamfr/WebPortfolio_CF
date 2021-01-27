@@ -6,9 +6,15 @@ $projects  = getProjects();
 
 drawHead(); ?>
 <div id="wrapper">
-    <div id="canvas">
-        <canvas></canvas>
-    </div>
+    <?php 
+    if (!isset($_SESSION['lastPage']) || ($_SESSION['lastPage'] === '')) { ?> 
+        <div id="canvas">
+            <canvas></canvas>
+        </div>
+    <?php }
+    unset($_SESSION['lastPage']);
+    ?>
+
     <div id="canvas_under">
         <?php drawHeader(); ?>
         <div id="content">

@@ -25,22 +25,30 @@ function nextSlide(slider) {
 
 
 // Canvas shapes
-const canvas = document.querySelector('canvas');
-const wrap = document.querySelector('#wrapper');
+const canvas = document.getElementsByTagName('canvas')[0];
+const wrapper = document.getElementById('wrapper');
 const dpi = window.devicePixelRatio;
-const ctx = canvas.getContext('2d');
-const rect = canvas.getBoundingClientRect();
-const redShape = new Image(), blueShape = new Image(), yellowShape = new Image();
 
 function drawShapes() {
+    fix_dpi();
 
-   fix_dpi();
-   loadShapes();
-   wrapper.addEventListener('mousemove', eraseShapes);
+    let ctx = canvas.getContext('2d');
+    let rect = canvas.getBoundingClientRect();
+    
+    loadShapes(ctx);
+    wrapper.addEventListener('mousemove', function(e){
+        let x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
+        let y = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
+        let radius = 160;
+        ctx.globalCompositeOperation = 'destination-out';
+        ctx.beginPath(); 
+        ctx.arc(x, y, radius, 0, 2 * Math.PI);  
+        ctx.fill();
+    });
 }
 
-function drawImageWithSize(img, x, y, width, height) {
- ctx.drawImage(img, x, y, width, height);
+function drawImageWithSize(ctx, img, x, y, width, height) {
+    ctx.drawImage(img, x, y, width, height);
 }
 
 function fix_dpi() {
@@ -51,53 +59,43 @@ function fix_dpi() {
    canvas.setAttribute('width', style_width * dpi);
 }
 
-function loadShapes() {
-   redShape.src = 'icons/redShape.png';
-   yellowShape.src = 'icons/yellowShape.png';
-   blueShape.src = 'icons/blueShape.png';
+function loadShapes(ctx) {
+    const redShape = new Image(), blueShape = new Image(), yellowShape = new Image();
+    redShape.src = 'icons/redShape.png';
+    yellowShape.src = 'icons/yellowShape.png';
+    blueShape.src = 'icons/blueShape.png';
 
-   redShape.onload = function(){
-       const ratio = redShape.height/redShape.width;
-       const newWidth = canvas.width*0.6;
-       const newHeight = newWidth * ratio;
-   
-       drawImageWithSize(redShape, canvas.width/2 - newWidth/2 , 0, newWidth, newHeight);
-   }
+    redShape.onload = function(){
+        const ratio = redShape.height/redShape.width;
+        const newWidth = canvas.width*0.6;
+        const newHeight = newWidth * ratio;
+    
+        drawImageWithSize(ctx,redShape, canvas.width/2 - newWidth/2 , 0, newWidth, newHeight);
+    }
 
-   yellowShape.onload = function(){
-       const ratio = yellowShape.height/yellowShape.width;
-       const newWidth = canvas.width*0.30;
-       const newHeight = newWidth * ratio;
-       
-       const c = canvas.width/2;
-       const c1 = c/2;
-       const x = c1 - newWidth/2;
-   
-       drawImageWithSize(yellowShape, x, canvas.height - newHeight, newWidth, newHeight);
-   }
-   
-   blueShape.onload = function() {
-       const ratio = blueShape.height/blueShape.width;
-       const newWidth = canvas.width*0.30;
-       const newHeight = newWidth * ratio;
-   
-       const c = canvas.width/2;
-       const c2 = c + c/2;
-       const x = c2 - newWidth/2;
-       
-       drawImageWithSize(blueShape, x , canvas.height - newHeight, newWidth, newHeight);
-   }
-}
-
-function eraseShapes(e) {
-   let x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
-   let y = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
-   let radius = 160;
-   ctx.globalCompositeOperation = 'destination-out';
-
-   ctx.beginPath();    
-   ctx.arc(x, y, radius, 0, 2 * Math.PI);  
-   ctx.fill();
+    yellowShape.onload = function(){
+        const ratio = yellowShape.height/yellowShape.width;
+        const newWidth = canvas.width*0.30;
+        const newHeight = newWidth * ratio;
+        
+        const c = canvas.width/2;
+        const c1 = c/2;
+        const x = c1 - newWidth/2;
+    
+        drawImageWithSize(ctx,yellowShape, x, canvas.height - newHeight, newWidth, newHeight);
+    }
+    
+    blueShape.onload = function() {
+        const ratio = blueShape.height/blueShape.width;
+        const newWidth = canvas.width*0.30;
+        const newHeight = newWidth * ratio;
+    
+        const c = canvas.width/2;
+        const c2 = c + c/2;
+        const x = c2 - newWidth/2;
+        
+        drawImageWithSize(ctx,blueShape, x , canvas.height - newHeight, newWidth, newHeight);
+    }
 }
 
 
@@ -162,26 +160,21 @@ function disableProjectsScroll() {
 
 // Credits Page
 const creditsButtons = document.querySelectorAll('.credits_btn');
-let creditsPage = false;
 const credits = document.querySelector('#credits_part2');
 const education = document.querySelector('#education');
 const educationDiv = document.querySelector('#education>div');
 
 
-function openCredits() {
-    // Credits column is opened already
-    if(creditsPage === true) return;
-    creditsPage = true;
-
-    // Slide education column out
-    education.classList.add('slide_out');   
+function openCredits(event) {
+    event.preventDefault();
+    console.log('here')
+    if(!education.classList.contains('slide_out')){
+        education.classList.add('slide_out'); 
+    } 
 }
 
 function closeCredits() {
-    // Credits column is closed already
-    if(creditsPage === false) return;
-    creditsPage = false;
-
+    event.preventDefault();
     // Slide education column in
     education.classList.remove('slide_out'); 
 }
@@ -220,10 +213,12 @@ function projectsHeight() {
 
 // Load projects/about
 
-let wrapper = document.getElementById('wrapper');
 if(wrapper){
 
-    //drawShapes();
+    if(canvas){
+        drawShapes();
+    }
+
     sliders.forEach(nextSlide);
 
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
@@ -246,16 +241,12 @@ let education_wrapper = document.getElementById('education_wrapper');
 if(education_wrapper) {
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
 
-    document.addEventListener('click', function() { hideElement(contextMenu);});
-    document.addEventListener('contextmenu', checkClickedElement);
+    //aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',activateAbout));
 
-    aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',activateAbout));
-
-    education.addEventListener('transitionstart',disableScroll);
-    education.addEventListener('transitionend',enableScroll);
+    education.addEventListener('transitionstart',disableEducationScroll);
+    education.addEventListener('transitionend',enableEducationScroll);
 
     creditsButtons.forEach(creditsBtn => creditsBtn.addEventListener('click',openCredits));
     educationButtons.forEach(educationBtn => educationBtn.addEventListener('click',closeCredits));
-
-    checkActiveCredits();
 }
+

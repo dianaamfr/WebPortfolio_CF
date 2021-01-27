@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+function setLastPage($lastPage) {
+  $_SESSION['lastPage'] = $lastPage;
+}
+?>
+
+<?php
 function drawHead(){?>
     <!DOCTYPE html>
     <html lang="en-US">
