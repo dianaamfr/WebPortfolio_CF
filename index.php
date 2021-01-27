@@ -54,7 +54,7 @@ drawHead(); ?>
                     </div>
                 <?php } ?>
             </div>
-            <div id="about"> 
+            <div id="about" class="<?php if(isset($_GET['about'])){echo 'slide_in';}?>"> 
                 <div id="about_content">
                     <div id="work_areas">
                         <p>Graphic Design</p>

@@ -211,9 +211,14 @@ function projectsHeight() {
 }
 
 
+
 // Load projects/about
 
 if(wrapper){
+
+    if(typeof window.history.pushState == 'function') {
+        window.history.pushState({}, "Hide", "index.php");
+    }
 
     if(canvas){
         drawShapes();
@@ -222,8 +227,7 @@ if(wrapper){
     sliders.forEach(nextSlide);
 
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
-    homeButtons.forEach(homeBtn => homeBtn.addEventListener('click', function () {projectButtons[0].click()}));
-    //creditsButtons.forEach(creditsBtn => creditsBtn.addEventListener('click',activateCredits));
+    homeButtons.forEach(homeBtn => homeBtn.addEventListener('click', function (event) {event.preventDefault(); projectButtons[0].click()}));
 
     about.addEventListener('transitionstart',disableProjectsScroll);
     about.addEventListener('transitionend',enableProjectsScroll);
@@ -239,6 +243,11 @@ if(wrapper){
  
 let education_wrapper = document.getElementById('education_wrapper');
 if(education_wrapper) {
+
+    if(typeof window.history.pushState == 'function') {
+        window.history.pushState({}, "Hide", "education.php");
+    }
+
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
 
     //aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',activateAbout));

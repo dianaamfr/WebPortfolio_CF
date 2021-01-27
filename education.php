@@ -65,7 +65,7 @@ drawHead(); ?>
                         </div>
                     </div>   
                 </div>
-                <div id="education">
+                <div id="education" class="<?php if(isset($_GET['credits'])){echo 'slide_out';}?>">
                     <div>
                         <p class="quote">A maior parte de nós transporta uma chama mínima (...). No fundo, os seres humanos permanecem iguais ao que têm sido há milhares de anos. A educação correta é que poderá transformar esta condição de base. Quando se é totalmente honesto, essa mesma honestidade é transmitida aos outros.</p>
                         <p class="author">J. Krishnamurti, “Cartas às Escolas”</p>
