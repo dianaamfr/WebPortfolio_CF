@@ -12,7 +12,7 @@ function nextSlide(slider) {
     const sliderIdx = sliders.indexOf(slider);
     
     slides.forEach(hideElement);
-    console.log(slides)
+    
     showElement(slides[activeSlide[sliderIdx]]);
 
     activeSlide[sliderIdx]++;
@@ -31,15 +31,6 @@ const dpi = window.devicePixelRatio;
 const ctx = canvas.getContext('2d');
 const rect = canvas.getBoundingClientRect();
 const redShape = new Image(), blueShape = new Image(), yellowShape = new Image();
-
-function isNewSession() {
-   if (window.sessionStorage.getItem('isNewSession')) {
-       return true;
-   } else {
-       window.sessionStorage.setItem('isNewSession', 'true');
-       return false;
-   }
-}
 
 function drawShapes() {
 
@@ -131,41 +122,24 @@ function activateButton(menu, linkIdx){
 
 // About Page
 
-const aboutCol = document.querySelector('#about');
+const aboutCol = document.getElementById('about');
 const aboutContent = document.querySelector('#about_content');
 const aboutButtons = document.querySelectorAll('.about_btn');
 const homeButtons = document.querySelectorAll('.home_btn');
 const projectButtons = document.querySelectorAll('.project_btn');
 const projects = document.querySelector('#projects');
 const educationButtons = document.querySelectorAll('.education_btn');
-let aboutPage = false;
 
-function checkActiveAbout() {
-    const activeAbout = window.localStorage.getItem('aboutPage');
-    
-    if(activeAbout === 'active') {
-        window.localStorage.setItem('aboutPage', 'notActive');
-        aboutButtons[0].click();
-    }
+function openAbout(event) {
+    event.preventDefault();
+
+    if(!aboutCol.classList.contains('slide_in')){
+        aboutCol.classList.add('slide_in'); 
+    } 
 }
 
-function activateAbout() {
-    window.localStorage.setItem('aboutPage', 'active');
-}
-
-function openAbout() {
-    // About column is opened already
-    if(aboutPage === true) return;
-    aboutPage = true;
-
-    // Slide about column in
-    aboutCol.classList.add('slide_in');   
-}
-
-function closeAbout() {
-    // About column is closed already
-    if(aboutPage === false) return;
-    aboutPage = false;
+function closeAbout(event) {
+    event.preventDefault();
 
     // Lock scroll on projects and about
     projects.scrollTop = 0;
@@ -175,12 +149,12 @@ function closeAbout() {
     
 }
 
-function enableScroll() {
+function enableProjectsScroll() {
     projects.classList.remove('unscrollable');
     about_content.classList.remove('unscrollable');
 }
 
-function disableScroll() {
+function disableProjectsScroll() {
     projects.classList.add('unscrollable');
     about_content.classList.add('unscrollable');
 }
@@ -193,18 +167,6 @@ const credits = document.querySelector('#credits_part2');
 const education = document.querySelector('#education');
 const educationDiv = document.querySelector('#education>div');
 
-function activateCredits() {
-    window.localStorage.setItem('creditsPage', 'active');
-}
-
-function checkActiveCredits() {
-    const activeCredits = window.localStorage.getItem('creditsPage');
-    
-    if(activeCredits === 'active') {
-        window.localStorage.setItem('creditsPage', 'notActive');
-        creditsButtons[0].click();
-    }
-}
 
 function openCredits() {
     // Credits column is opened already
@@ -227,11 +189,11 @@ function closeCredits() {
 
 // Scroll
 
-function enableScroll() {
+function enableEducationScroll() {
     educationDiv.classList.remove('unscrollable');
 }
 
-function disableScroll() {
+function disableEducationScroll() {
     educationDiv.classList.add('unscrollable');
 }
 
@@ -256,65 +218,7 @@ function projectsHeight() {
 }
 
 
-// Context Menu
-
-const contextMenu = document.querySelector('#context_menu');
-const newTabLink = document.querySelector('#context_menu_link');
-const contextMenuWidth = parseInt(window.getComputedStyle(contextMenu).width.slice(0, -2));
-
-function customContextMenu(event) {
-
-    positionMenu(event);
-
-    const url = event.target.href;
-    setNewTabHref(url);
-    openSectionsOnNewPage(event.target);
-
-    showElement(contextMenu);
-}
-
-function positionMenu(event){
-
-    if(event.clientX + contextMenuWidth > window.innerWidth) {
-        contextMenu.style.left = window.innerWidth - contextMenuWidth - 5 + 'px';
-    }
-    else {
-        contextMenu.style.left = event.clientX + "px";
-    }
-
-    contextMenu.style.top = event.clientY + "px";
-}
-
-function checkClickedElement(event) {
-    
-    if(event.target.matches('.menu_desktop > ul > li > a') || event.target.matches('.page_title')){
-        event.preventDefault();
-        hideElement(contextMenu); 
-        customContextMenu(event);
-    }
-    else {
-      hideElement(contextMenu);  
-    }
-}
-
-function setNewTabHref(url){
-    if(url !== 'javascript:void(0)'){
-        newTabLink.href = url;
-    }
-    else {
-        newTabLink.href = window.location.href;
-    }
-}
-
-function openSectionsOnNewPage(el) {
-    if(el.matches('.about_btn')){
-        activateAbout();
-    }
-    else if (el.matches('.credits_btn')) {
-        activateCredits();
-    }
-}
-
+// Load projects/about
 
 let wrapper = document.getElementById('wrapper');
 if(wrapper){
@@ -322,24 +226,21 @@ if(wrapper){
     //drawShapes();
     sliders.forEach(nextSlide);
 
-    document.addEventListener('click', function() { hideElement(contextMenu);});
-    document.addEventListener('contextmenu', checkClickedElement);
-
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
     homeButtons.forEach(homeBtn => homeBtn.addEventListener('click', function () {projectButtons[0].click()}));
-    creditsButtons.forEach(creditsBtn => creditsBtn.addEventListener('click',activateCredits));
+    //creditsButtons.forEach(creditsBtn => creditsBtn.addEventListener('click',activateCredits));
 
-    about.addEventListener('transitionstart',disableScroll);
-    about.addEventListener('transitionend',enableScroll);
+    about.addEventListener('transitionstart',disableProjectsScroll);
+    about.addEventListener('transitionend',enableProjectsScroll);
 
     aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',openAbout));
     projectButtons.forEach(projectBtn => projectBtn.addEventListener('click',closeAbout));
 
     projectsHeight();
 
-    checkActiveAbout();
  };
 
+// Load education/credits
  
 let education_wrapper = document.getElementById('education_wrapper');
 if(education_wrapper) {

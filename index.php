@@ -184,6 +184,5 @@ drawHead(); ?>
 </div>
 
 <?php 
-contextMenu();
 drawEnd();
 ?>

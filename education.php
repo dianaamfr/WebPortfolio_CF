@@ -83,5 +83,4 @@ drawHead(); ?>
             <?php drawFooter(); ?>
         </div>
 <?php 
-contextMenu();
 drawEnd();?>

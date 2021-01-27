@@ -20,81 +20,13 @@ function drawEnd(){?>
 <?php } ?>
 
 <?php
-function contextMenu(){ ?>
-    <nav id="context_menu">
-    <ul id="context_menu_items">
-      <li id="context_menu_item">
-        <a href="#" target="_blank" id="context_menu_link">Open Link in New Tab</a>
-      </li>
-    </ul>
-</nav>
-<?php } ?>
-
-<?php
 function drawFooter(){?>
     <footer>
         <div id="footer_slider">
             <div id="footer_slide_track">
-                <div class="footer_slide">
-                    <div class="footer_content">
-                        <div class="social_media">
-                            <h2>Email:</h2>
-                            <a href="mailto:a.catarina.a.freitas@gmail.com" target="_blank">a.catarina.a.freitas@gmail.com</a>
-                        </div>
-                        <div class="social_media">
-                            <h2>Instagram:</h2>
-                            <a href="https://www.instagram.com/catarinamoranalua/" target="_blank">@catarinamoranalua</a>
-                        </div>
-                        <div class="social_media">
-                            <h2>Mobile:</h2>
-                            <a href="tel:+351916666380" target="_blank">+351 916 666 380</a>
-                        </div>
-                        <div class="social_media">
-                            <h2>Behance:</h2>
-                            <a href="https://www.behance.net/catarinaafreitas" target="_blank">behance.net/catarinaafreitas</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer_slide">
-                    <div class="footer_content">
-                        <div class="social_media">
-                            <h2>Email:</h2>
-                            <a href="mailto:a.catarina.a.freitas@gmail.com" target="_blank">a.catarina.a.freitas@gmail.com</a>
-                        </div>
-                        <div class="social_media">
-                            <h2>Instagram:</h2>
-                            <a href="https://www.instagram.com/catarinamoranalua/" target="_blank">@catarinamoranalua</a>
-                        </div>
-                        <div class="social_media">
-                            <h2>Mobile:</h2>
-                            <a href="tel:+351916666380" target="_blank">+351 916 666 380</a>
-                        </div>
-                        <div class="social_media">
-                            <h2>Behance:</h2>
-                            <a href="https://www.behance.net/catarinaafreitas" target="_blank">behance.net/catarinaafreitas</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer_slide">
-                    <div class="footer_content">
-                        <div class="social_media">
-                            <h2>Email:</h2>
-                            <a href="mailto:a.catarina.a.freitas@gmail.com" target="_blank">a.catarina.a.freitas@gmail.com</a>
-                        </div>
-                        <div class="social_media">
-                            <h2>Instagram:</h2>
-                            <a href="https://www.instagram.com/catarinamoranalua/" target="_blank">@catarinamoranalua</a>
-                        </div>
-                        <div class="social_media">
-                            <h2>Mobile:</h2>
-                            <a href="tel:+351916666380" target="_blank">+351 916 666 380</a>
-                        </div>
-                        <div class="social_media">
-                            <h2>Behance:</h2>
-                            <a href="https://www.behance.net/catarinaafreitas" target="_blank">behance.net/catarinaafreitas</a>
-                        </div>
-                    </div>
-                </div>
+                <?php for($i = 0; $i < 3; $i++){
+                    drawFooterSlide();
+                }?>
             </div>
         </div>
     </footer>
@@ -105,49 +37,53 @@ function drawHeader(){ ?>
     <header>
         <div id="header_slider">
             <div id="header_slide_track">
-                <div class="header_slide">
-                    <div class="header_text">
-                        <a class="page_title home_btn" href="index.php">Catarina Freitas</a>
-                        <h2 class="page_description">A selection of projects and collaborations</h2>
-                        <nav class="menu_desktop">
-                            <ul>
-                                <li><a class="about_btn" href="index.php">About</a></li>
-                                <li><a class="project_btn" href="index.php">Projects</a></li>
-                                <li><a class="education_btn" href="javascript:void(0)">Education</a></li>
-                                <li><a class="credits_btn" href="javascript:void(0)">Credits</a></li>
-                            </ul>
-                        </nav>
-                    </div>  
-                </div>
-                <div class="header_slide">
-                    <div class="header_text">
-                        <a class="page_title home_btn" href="index.php">Catarina Freitas</a>
-                        <h2 class="page_description">A selection of projects and collaborations</h2>
-                        <nav class="menu_desktop">
-                            <ul>
-                                <li><a class="about_btn" href="index.php">About</a></li>
-                                <li><a class="project_btn" href="index.php">Projects</a></li>
-                                <li><a class="education_btn active_page" href="javascript:void(0)">Education</a></li>
-                                <li><a class="credits_btn" href="javascript:void(0)">Credits</a></li>
-                            </ul>
-                        </nav>
-                    </div>  
-                </div>
-                <div class="header_slide">
-                    <div class="header_text">
-                        <a class="page_title home_btn" href="index.php">Catarina Freitas</a>
-                        <h2 class="page_description">A selection of projects and collaborations</h2>
-                        <nav class="menu_desktop">
-                            <ul>
-                                <li><a class="about_btn" href="index.php">About</a></li>
-                                <li><a class="project_btn" href="index.php">Projects</a></li>
-                                <li><a class="education_btn active_page" href="javascript:void(0)">Education</a></li>
-                                <li><a class="credits_btn" href="javascript:void(0)">Credits</a></li>
-                            </ul>
-                        </nav>
-                    </div>  
-                </div>
+                <?php for($i = 0; $i < 3; $i++){
+                    drawHeaderSlide();
+                }?>
             </div>
         </div>
     </header>
+<?php } ?>
+
+<?php
+function drawHeaderSlide(){ ?>
+    <div class="header_slide">
+        <div class="header_text">
+            <a class="page_title home_btn" href="index.php">Catarina Freitas</a>
+            <h2 class="page_description">A selection of projects and collaborations</h2>
+            <nav class="menu_desktop">
+                <ul>
+                    <li><a class="about_btn" href="index.php">About</a></li>
+                    <li><a class="project_btn" href="index.php">Projects</a></li>
+                    <li><a class="education_btn" href="education.php">Education</a></li>
+                    <li><a class="credits_btn" href="education.php">Credits</a></li>
+                </ul>
+            </nav>
+        </div>  
+    </div>
+<?php } ?>
+
+<?php 
+function drawFooterSlide(){ ?>
+    <div class="footer_slide">
+        <div class="footer_content">
+            <div class="social_media">
+                <h2>Email:</h2>
+                <a href="mailto:a.catarina.a.freitas@gmail.com" target="_blank">a.catarina.a.freitas@gmail.com</a>
+            </div>
+            <div class="social_media">
+                <h2>Instagram:</h2>
+                <a href="https://www.instagram.com/catarinamoranalua/" target="_blank">@catarinamoranalua</a>
+            </div>
+            <div class="social_media">
+                <h2>Mobile:</h2>
+                <a href="tel:+351916666380" target="_blank">+351 916 666 380</a>
+            </div>
+            <div class="social_media">
+                <h2>Behance:</h2>
+                <a href="https://www.behance.net/catarinaafreitas" target="_blank">behance.net/catarinaafreitas</a>
+            </div>
+        </div>
+    </div>
+
 <?php } ?>

@@ -279,6 +279,7 @@ header {
     border-bottom: none;
     border-top: none;
     overflow: hidden;
+    max-height: calc(50vw - 34px);
 }
 
 .pair_left > .project_slider, .pair_left > .description {
@@ -361,7 +362,7 @@ header {
 }
 
 .slide_in {
-	transform: translateX(calc(-50vw + 10px));
+    transform: translateX(calc(-50vw + 10px));
 }
 
 #about_content::-webkit-scrollbar {
