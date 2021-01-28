@@ -33,7 +33,7 @@ drawHead(); ?>
                             <div class="description">
                                 <p><?=$projects[$i]['title']?><br>
                                 <span class="italic"><?=$projects[$i]['projectType'] ? $projects[$i]['projectType']:null?></span></p>
-                                <a class="icon_plus"><img alt="plus icon" src="icons/plus.png"></a>
+                                <a class="icon_plus"><img alt="plus icon" src="items/plus.png"></a>
                             </div>
                         </div>      
                         <div class="pair_right">
@@ -48,7 +48,7 @@ drawHead(); ?>
                             <div class="description">
                                 <p><?=$projects[$i+1]['title']?><br>
                                 <span class="italic"><?=$projects[$i+1]['projectType'] ? $projects[$i+1]['projectType']:null?></span></p>
-                                <a class="icon_plus"><img alt="plus icon" src="icons/plus.png"></a>
+                                <a class="icon_plus"><img alt="plus icon" src="items/plus.png"></a>
                             </div>
                         </div>
                     </div>

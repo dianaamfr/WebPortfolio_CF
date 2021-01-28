@@ -61,9 +61,9 @@ function fix_dpi() {
 
 function loadShapes(ctx) {
     const redShape = new Image(), blueShape = new Image(), yellowShape = new Image();
-    redShape.src = 'icons/redShape.png';
-    yellowShape.src = 'icons/yellowShape.png';
-    blueShape.src = 'icons/blueShape.png';
+    redShape.src = 'items/redShape.png';
+    yellowShape.src = 'items/yellowShape.png';
+    blueShape.src = 'items/blueShape.png';
 
     redShape.onload = function(){
         const ratio = redShape.height/redShape.width;
