@@ -613,7 +613,8 @@ footer {
 }
 
 .project_content {
-    display: flex;
+    /*display: flex;*/
+    display: none;
     flex-direction: row;
     height: 100%;
     justify-content: space-evenly;
@@ -682,6 +683,61 @@ footer {
 
 .textAuthor {
     display: block;
+}
+
+/*Project Page Slider*/
+.project_page_slider {
+    flex: 1;
+    overflow: hidden;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.project_slider_track {
+    height: 100%;
+    display: flex;
+}
+
+.project_page_slide{
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(50vw - 34px);
+    border: 2px solid var(--stroke_grey);
+    border-bottom: none;
+    border-top: none;
+}
+
+.project_page_slide:first-child{
+    margin-left: unset;
+}
+
+.project_page_slide:last-child{
+    margin-right: unset;
+}
+
+.project_page_line {
+    width: 100%;
+    border-top: 2px solid var(--stroke_grey);
+}
+
+.project_page_description {
+    width: calc(100% - 40px);
+    margin: auto;
+    min-height: 80px;
+    background-color: var(--black);
+    border: 2px solid var(--stroke_grey);
+    border-top: none;
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project_page_description p {
+    margin: 16px;
+    text-transform: uppercase;
+    max-width: 75%;
 }
 
 @media only screen and (max-width: 1300px) {

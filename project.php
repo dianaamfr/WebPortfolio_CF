@@ -5,10 +5,25 @@ include_once('database/db_content.php');
 $project  = getProjectById($_GET['id']);
 $description = getProjectDescription($_GET['id']);
 $credits = getProjectCredits($_GET['id']);
+$images = getProjectImages($_GET['id']);
 
 drawHead(); ?>
 <div class="project_page">
     <?php drawHeader(); ?>
+    <div class="project_page_slider">
+        <div class="project_slider_track" style="width:<?=count($images)*100?>%">
+            <?php foreach($images as $img){?>
+                <div style="background-image: url('images/projects/project<?=$project['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_page_slide"></div>
+            <?php } ?>
+        </div>
+    </div>
+    <div class="project_page_line"></div>
+    <div class="project_page_description">
+        <p><?=$project['title']?><br>
+        <span class="italic"><?=$project['projectType'] ? $project['projectType']:null?></span></p>
+        <a class="icon_plus" href="project.php?id=<?=$project['projectId']?>"><img alt="plus icon" src="items/plus.png"></a>
+    </div>
+    
     <div class="project_content">
         <div>
             <header>
