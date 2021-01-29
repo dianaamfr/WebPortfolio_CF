@@ -159,7 +159,7 @@ canvas {
 
 /* Header */
 
-header {
+body > div > header, #canvas_under > header {
     background-color:var(--black);
     border-bottom: 2px solid var(--stroke_grey);
     display: block;
@@ -605,9 +605,84 @@ footer {
 }
 
 
-/*Project page styles go here*/
+/*Project page*/
+.project_page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
+.project_content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: space-evenly;
+}
 
+.project_content > div {
+    color: var(--grey);
+    width: calc(50vw - 74px);
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+}
+.project_content > div:first-child{
+    border-left: 2px solid var(--stroke_grey);
+}
+
+.project_content > div:nth-child(2) {
+    border-right: 2px solid var(--stroke_grey);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;   
+}
+
+.project_content header {
+    padding-bottom: 20px;
+}
+
+.project_content header .year{
+    font-family: haas_grot_disp;
+    font-weight: 200;
+    font-size: 16px;
+    margin-right: 65px;
+}
+
+.project_content header h2{
+    display: inline;
+}
+
+.keywords {
+    float: right;
+}
+
+.keywords li {
+    list-style-type: none;
+    display: inline-block;
+    font-family: haas_grot_disp;
+    font-weight: 200;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.project_info{
+    column-count:2;
+    column-gap: 80px;
+    column-fill: auto;
+    height: 60%;
+}
+
+.project_info section{
+    break-inside: avoid-column;
+}
+
+.project_info section p:nth-last-child(n+2), .project_info > p {
+    margin-bottom: unset;
+}
+
+.textAuthor {
+    display: block;
+}
 
 @media only screen and (max-width: 1300px) {
     .social_media h2 {

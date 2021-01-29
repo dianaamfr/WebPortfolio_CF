@@ -209,7 +209,7 @@ INSERT INTO Credits VALUES(
     NULL,
     3,
     'Texts',
-    'Steven Heller - "The Education of a Graphic Designer",Collective "Teaching for people who prefer not to teach"'
+    'Steven Heller-"The Education of a Graphic Designer",Collective-"Teaching for people who prefer not to teach"'
 );
 
 INSERT INTO Credits VALUES(
@@ -347,7 +347,7 @@ INSERT INTO Credits VALUES(
     NULL,
     5,
     'Texts',
-    'George Orwell "1984",FOAM Magazine #43,Ai Weiwei,"Freedom of Expression under Surveillance"'
+    'George Orwell-"1984",FOAM Magazine #43,Ai Weiwei-"Freedom of Expression under Surveillance"'
 );
 
 INSERT INTO Credits VALUES(
@@ -500,7 +500,7 @@ INSERT INTO Credits VALUES(
     NULL,
     7,
     'Texts',
-    'J. D Salinger "Catcher in the Rye",Raoul Vaneigem "The Revolution of Everyday Life"'
+    'J. D Salinger-"Catcher in the Rye",Raoul Vaneigem-"The Revolution of Everyday Life"'
 );
 
 INSERT INTO Credits VALUES(
@@ -576,7 +576,7 @@ INSERT INTO Credits VALUES(
     NULL,
     8,
     'Texts',
-    'Catarina Freitas,Reto Pulfer "Fabric Island",George Carlin'
+    'Catarina Freitas,Reto Pulfer-"Fabric Island",George Carlin'
 );
 
 INSERT INTO Credits VALUES(
@@ -814,7 +814,7 @@ INSERT INTO Credits VALUES(
     NULL,
     11,
     'Texts',
-    'Mateus Brandão "Para Poder Voltar",Raoul Vaneigen "The Revolution of Everyday Life",J. Krishnamurti "Carta às Escolas",Enzo Mari "Nothing is more Radical than facts",Que Força é essa "Cartazes Artesanais do Arquivo Ephemera",Bruno Munari "Design e Comunicação Visual",Ivan Illinch,"Descholling Society"'
+    'Mateus Brandão-"Para Poder Voltar",Raoul Vaneigen-"The Revolution of Everyday Life",J. Krishnamurti-"Carta às Escolas",Enzo Mari-"Nothing is more Radical than facts",Que Força é essa-"Cartazes Artesanais do Arquivo Ephemera",Bruno Munari-"Design e Comunicação Visual",Ivan Illinch-"Descholling Society"'
 );
 
 INSERT INTO Credits VALUES(
