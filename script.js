@@ -173,7 +173,7 @@ function openCredits(event) {
     } 
 }
 
-function closeCredits() {
+function closeCredits(event) {
     event.preventDefault();
     // Slide education column in
     education.classList.remove('slide_out'); 
@@ -259,3 +259,26 @@ if(education_wrapper) {
     educationButtons.forEach(educationBtn => educationBtn.addEventListener('click',closeCredits));
 }
 
+
+// Project Page Slider
+let actualSlide = 0;
+let projectPage = document.getElementsByClassName('project_page')[0];
+let dots = document.querySelectorAll("input[name='dot']");
+let slides = document.getElementsByClassName('project_slider_track')[0];
+
+if(projectPage){
+    dots.forEach(dot => dot.addEventListener('click', function(event){
+        let newSlide = parseInt(dot.getAttribute('data-slide'));
+        if(actualSlide != newSlide){
+            let move = newSlide * 50;
+            let offset = 10 * newSlide;
+
+            let signalMove = actualSlide < newSlide ? '-' : '';
+            let signalOffset = actualSlide < newSlide ? ' + ' : ' - ';
+
+            slides.style.transform = "translateX(calc(" + signalMove + move.toString() + "vw" + signalOffset + offset.toString() + "px))";
+
+            actualSlide = newSlide;
+        }
+    }))
+}
