@@ -317,7 +317,22 @@ body > div > header, #canvas_under > header {
     padding-right: 20px;
     width: 2vw;
     min-width: 30px;
+    cursor: pointer;
+    transition: transform .5s ease-in-out;
 }
+
+.rotate{
+    transform: rotate(45deg);
+  }
+
+.icon_plus:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    -webkit-mask-size: 200%;
+    animation: shine 2s infinite;
+}
+
 
 .icon_plus img{
     width: 100%;
@@ -612,17 +627,33 @@ footer {
     flex-direction: column;
 }
 
-.project_content {
-    /*display: flex;*/
-    display: none;
-    flex-direction: row;
+.project_sections {
+    width: 100%;
     height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.project_sections_track {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 1s ease-in-out;
+}
+
+
+.project_content {
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 80px);
     justify-content: space-evenly;
 }
 
 .project_content > div {
     color: var(--grey);
-    width: calc(50vw - 74px);
+    width: calc(50vw - 72px);
     padding: 20px;
     overflow: auto;
     position: relative;
@@ -686,15 +717,17 @@ footer {
 }
 
 /*Project Page Slider*/
+
+.project_images{
+    height: 100%;
+    width: 100%;
+}
+
 .project_page_slider {
+    height: calc(100% - 80px);
     flex: 1;
     overflow: hidden;
-    margin-left: 18px;
-    margin-right: 18px;
     position: relative;
-    border: 2px solid var(--stroke_grey);
-    border-bottom: none;
-    border-top: none;
 }
 
 .project_slider_track {
@@ -715,10 +748,11 @@ footer {
     border-bottom: none;
     border-top: none;
     background-position:center;
+    background-size: cover;
 }
 
 .project_page_slide:first-child{
-    margin-left: unset;
+    margin-left: 20px;
 }
 
 .project_page_slide:last-child{
@@ -735,14 +769,14 @@ footer {
 }
 
 .dots input {
-    opacity: 0;
+    display: none;
 }
 
 
 .dots label {
-    background-color: rgba(255, 255, 255, 0.131);
-    margin-left: 2px;
-    margin-right: 2px;
+    background-color: rgba(255, 255, 255, 0.434);
+    margin-left: 8px;
+    margin-right: 8px;
     display: inline-block;
     width: 14px;
     height: 14px;
@@ -765,9 +799,9 @@ footer {
 }
 
 .project_page_description {
-    width: calc(100% - 40px);
+    width: calc(100vw - 44px);
     margin: auto;
-    min-height: 80px;
+    height: 80px;
     background-color: var(--black);
     border: 2px solid var(--stroke_grey);
     border-top: none;
