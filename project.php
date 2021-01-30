@@ -2,6 +2,8 @@
 include_once('common.php');
 include_once('database/db_content.php');
 
+setLastPage('project');
+
 $project  = getProjectById($_GET['id']);
 $description = getProjectDescription($_GET['id']);
 $credits = getProjectCredits($_GET['id']);

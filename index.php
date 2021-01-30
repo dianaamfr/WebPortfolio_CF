@@ -2,8 +2,6 @@
 include_once('common.php');
 include_once('database/db_content.php');
 
-setLastPage('project');
-
 $projects  = getProjects();
 
 drawHead(); ?>
