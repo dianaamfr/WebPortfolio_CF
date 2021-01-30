@@ -267,14 +267,12 @@ let dots = document.querySelectorAll("input[name='dot']");
 let slides = document.getElementsByClassName('project_slider_track')[0];
 let plus = document.querySelector('.project_page .icon_plus');
 
-let projectSections = document.getElementsByClassName('project_sections_track')[0];
-let projectImages = document.getElementsByClassName('project_images')[0];
 let projectContent = document.getElementsByClassName('project_content')[0];
 let activeSection = 1;
 
 if(projectPage){
     let sliderHeight = document.getElementsByClassName('project_page_slide')[0].clientHeight;
-    
+
     dots.forEach(dot => dot.addEventListener('click', function(event){
         let newSlide = parseInt(dot.getAttribute('data-slide'));
         console.log('active = ' + actualSlide + ' new = ' + newSlide);
@@ -292,15 +290,10 @@ if(projectPage){
         plus.classList.toggle('rotate');
 
         if(activeSection === 1){
-            plus.parentElement.style.borderBottom = '2px solid var(--stroke_grey)';
-            projectSections.style.transform = `translateY(-${sliderHeight}px)`;
+            projectContent.style.transform = `translateY(0)`;
         }
         else{
-            projectSections.style.transform = `translateY(0px)`;
-            projectSections.addEventListener('transitionEnd',function(){
-                plus.parentElement.style.borderBottom = 'none';
-
-            })
+            projectContent.style.transform = `translateY(100%)`;
         }
 
         activeSection = -activeSection;
