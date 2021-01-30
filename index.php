@@ -2,6 +2,8 @@
 include_once('common.php');
 include_once('database/db_content.php');
 
+setLastPage('project');
+
 $projects  = getProjects();
 
 drawHead(); ?>
@@ -22,34 +24,10 @@ drawHead(); ?>
                 <?php for($i = 0; $i < count($projects); $i+=2){?>
                     <div class="pair">
                         <div class="pair_left">
-                            <div class="project_slider">
-                               <?php 
-                               $images1 = getProjectFirstImages($projects[$i]['projectId']);
-                               foreach($images1 as $img){?>
-                                    <div style="background-image: url('images/projects/project<?=$projects[$i]['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_slide"></div>
-                               <?php } ?>
-                            </div>
-                            <div class="line"></div>
-                            <div class="description">
-                                <p><?=$projects[$i]['title']?><br>
-                                <span class="italic"><?=$projects[$i]['projectType'] ? $projects[$i]['projectType']:null?></span></p>
-                                <a class="icon_plus"><img alt="plus icon" src="items/plus.png"></a>
-                            </div>
+                            <?php drawProjectPreview($projects[$i])?>
                         </div>      
                         <div class="pair_right">
-                            <div class="project_slider">
-                                <?php 
-                                $images2 = getProjectFirstImages($projects[$i+1]['projectId']);
-                                foreach($images2 as $img){?>
-                                    <div style="background-image: url('images/projects/project<?=$projects[$i+1]['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_slide"></div>
-                               <?php } ?>
-                            </div>
-                            <div class="line"></div>
-                            <div class="description">
-                                <p><?=$projects[$i+1]['title']?><br>
-                                <span class="italic"><?=$projects[$i+1]['projectType'] ? $projects[$i+1]['projectType']:null?></span></p>
-                                <a class="icon_plus"><img alt="plus icon" src="items/plus.png"></a>
-                            </div>
+                            <?php drawProjectPreview($projects[$i+1])?>
                         </div>
                     </div>
                 <?php } ?>

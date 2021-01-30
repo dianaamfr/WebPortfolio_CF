@@ -173,7 +173,7 @@ function openCredits(event) {
     } 
 }
 
-function closeCredits() {
+function closeCredits(event) {
     event.preventDefault();
     // Slide education column in
     education.classList.remove('slide_out'); 
@@ -259,3 +259,43 @@ if(education_wrapper) {
     educationButtons.forEach(educationBtn => educationBtn.addEventListener('click',closeCredits));
 }
 
+
+// Project Page Slider
+let actualSlide = 0;
+let projectPage = document.getElementsByClassName('project_page')[0];
+let dots = document.querySelectorAll("input[name='dot']");
+let slides = document.getElementsByClassName('project_slider_track')[0];
+let plus = document.querySelector('.project_page .icon_plus');
+
+let projectContent = document.getElementsByClassName('project_content')[0];
+let activeSection = 1;
+
+if(projectPage){
+    let sliderHeight = document.getElementsByClassName('project_page_slide')[0].clientHeight;
+
+    dots.forEach(dot => dot.addEventListener('click', function(event){
+        let newSlide = parseInt(dot.getAttribute('data-slide'));
+        console.log('active = ' + actualSlide + ' new = ' + newSlide);
+        if(actualSlide != newSlide){
+            let move = newSlide * 50;
+            let offset = 10 * newSlide;
+
+            slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
+
+            actualSlide = newSlide;
+        }
+    }))
+
+    plus.addEventListener('click', function(){
+        plus.classList.toggle('rotate');
+
+        if(activeSection === 1){
+            projectContent.style.transform = `translateY(0)`;
+        }
+        else{
+            projectContent.style.transform = `translateY(100%)`;
+        }
+
+        activeSection = -activeSection;
+    })
+}

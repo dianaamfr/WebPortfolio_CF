@@ -62,8 +62,8 @@ function drawHeaderSlide(){ ?>
             <nav class="menu_desktop">
                 <ul>
                     <li><a class="about_btn <?php if(isset($_GET['about'])){echo 'active_page';}?>" href="index.php?about=">About</a></li>
-                    <li><a class="project_btn <?php if(!isset($_GET['about']) && !active('education.php')){echo 'active_page';} ?>" href="index.php">Projects</a></li>
-                    <li><a class="education_btn <?php if(!isset($_GET['credits']) && active('education.php')){echo 'active_page';} ?>" href="education.php">Education</a></li>
+                    <li><a class="project_btn <?php if(!isset($_GET['about']) && !isset($_GET['credits']) && !active('education.php')){echo 'active_page';} ?>" href="index.php">Projects</a></li>
+                    <li><a class="education_btn <?php if(!isset($_GET['credits']) && !isset($_GET['about']) && active('education.php')){echo 'active_page';} ?>" href="education.php">Education</a></li>
                     <li><a class="credits_btn <?php if(isset($_GET['credits'])){echo 'active_page';}?>" href="education.php?credits=">Credits</a></li>
                 </ul>
             </nav>
@@ -103,3 +103,20 @@ function active($currect_page){
     return $currect_page == $url;
 }
 ?>
+
+<?php
+function drawProjectPreview($project){ ?>
+    <div class="project_slider">
+        <?php 
+        $images1 = getProjectFirstImages($project['projectId']);
+        foreach($images1 as $img){?>
+            <div style="background-image: url('images/projects/project<?=$project['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_slide"></div>
+        <?php } ?>
+    </div>
+    <div class="line"></div>
+    <div class="description">
+        <p><?=$project['title']?><br>
+        <span class="italic"><?=$project['projectType'] ? $project['projectType']:null?></span></p>
+        <a class="icon_plus" href="project.php?id=<?=$project['projectId']?>"><img alt="plus icon" src="items/plus.png"></a>
+    </div>
+<?php } ?>

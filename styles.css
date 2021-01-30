@@ -159,7 +159,7 @@ canvas {
 
 /* Header */
 
-header {
+body > div > header, #canvas_under > header {
     background-color:var(--black);
     border-bottom: 2px solid var(--stroke_grey);
     display: block;
@@ -315,9 +315,25 @@ header {
 
 .icon_plus {
     padding-right: 20px;
+    padding-left: 20px;
     width: 2vw;
     min-width: 30px;
+    cursor: pointer;
+    transition: transform .5s ease-in-out;
 }
+
+.rotate{
+    transform: rotate(45deg);
+  }
+
+.icon_plus:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    -webkit-mask-size: 200%;
+    animation: shine 2s infinite;
+}
+
 
 .icon_plus img{
     width: 100%;
@@ -605,9 +621,195 @@ footer {
 }
 
 
-/*Project page styles go here*/
+/*Project page*/
+.project_page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project_sections {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.project_content {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 80px);
+    justify-content: space-evenly;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(100%);
+    background-color: black;
+    z-index: -1;
+    transition: transform 2s ease-in-out;
+}
+
+.project_content > div {
+    color: var(--grey);
+    width: calc(50vw - 72px);
+    padding: 20px;
+    overflow: auto;
+    position: relative;
+}
+.project_content > div:first-child{
+    border-left: 2px solid var(--stroke_grey);
+}
+
+.project_content > div:nth-child(2) {
+    border-right: 2px solid var(--stroke_grey);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;   
+}
+
+.project_content header {
+    padding-bottom: 20px;
+}
+
+.project_content header .year{
+    font-family: haas_grot_disp;
+    font-weight: 200;
+    font-size: 16px;
+    margin-right: 65px;
+}
+
+.project_content header h2{
+    display: inline;
+}
+
+.keywords {
+    float: right;
+}
+
+.keywords li {
+    list-style-type: none;
+    display: inline-block;
+    font-family: haas_grot_disp;
+    font-weight: 200;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.project_info{
+    column-count:2;
+    column-gap: 80px;
+    column-fill: auto;
+    height: 60%;
+}
+
+.project_info section{
+    break-inside: avoid-column;
+}
+
+.project_info section p:nth-last-child(n+2), .project_info > p {
+    margin-bottom: unset;
+}
+
+.textAuthor {
+    display: block;
+}
+
+/*Project Page Slider*/
+.project_page_slider {
+    height: calc(100% - 80px);
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    z-index: -2;
+}
+
+.project_slider_track {
+    height: 100%;
+    display: flex;
+    -webkit-transition:all 1.0s ease-in-out;
+    -moz-transition:all 1.0s ease-in-out;
+    -o-transition:all 1.0s ease-in-out;
+    transition:all 1.0s ease-in-out;
+}
+
+.project_page_slide{
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(50vw - 34px);
+    border: 2px solid var(--stroke_grey);
+    border-bottom: none;
+    border-top: none;
+    background-position:center;
+    background-size: cover;
+}
+
+.project_page_slide:first-child{
+    margin-left: 20px;
+}
+
+.project_page_slide:last-child{
+    margin-right: unset;
+}
+
+.dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+
+}
+
+.dots input {
+    display: none;
+}
 
 
+.dots label {
+    background-color: rgba(255, 255, 255, 0.434);
+    margin-left: 8px;
+    margin-right: 8px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    /*border-radius: 100%;*/
+    z-index: 2;
+    cursor: pointer;
+    transition-duration: .6s;
+    -webkit-box-shadow: 0px 0px 27px 0px rgb(84, 84, 84);
+    -moz-box-shadow: 0px 0px 27px 0px rgb(84, 84, 84);
+    box-shadow: 0px 0px 27px 0px rgb(84, 84, 84);
+}
+  
+.dots input:checked + label{
+    background-color: rgb(255, 255, 255);
+}
+
+.project_page_line {
+    width: 100%;
+    border-top: 2px solid var(--stroke_grey);
+}
+
+.project_page_description {
+    width: calc(100vw - 44px);
+    margin: auto;
+    height: 80px;
+    background-color: var(--black);
+    border: 2px solid var(--stroke_grey);
+    border-top: none;
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project_page_description p {
+    margin: 16px;
+    text-transform: uppercase;
+    max-width: 75%;
+}
 
 @media only screen and (max-width: 1300px) {
     .social_media h2 {
