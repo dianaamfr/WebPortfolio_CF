@@ -179,6 +179,10 @@ body > div > header, #canvas_under > header {
     width: 300%;
 }
 
+#header_slide_track:hover{
+    animation-play-state: paused;
+}
+
 .header_slide {
     width: 33.33%;
 }
@@ -591,6 +595,10 @@ footer {
     transform: translateX(-66.66%);
 }
 
+#footer_slide_track:hover{
+    animation-play-state: paused;
+}
+
 .footer_slide {
     width: 33.33%;
 }
@@ -783,6 +791,40 @@ footer {
   
 .dots input:checked + label{
     background-color: rgb(255, 255, 255);
+}
+
+.arrows {
+    position: absolute;
+    top: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 40px;
+    margin-left: 40px;
+    width: calc(100% - 80px);
+}
+
+.arrows img {
+    max-width: 40px;
+    opacity: 0.8;
+    transition: all .4s ease-in-out;
+}
+
+.arrows :first-child {
+    transform: rotate(180deg);
+    left: 40px;
+    visibility: hidden;
+}
+
+.arrows :last-child {
+    right: 40px;
+}
+
+.arrows img:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    -webkit-mask-size: 200%;
+    animation: shine 2s infinite;
 }
 
 .project_page_line {

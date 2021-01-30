@@ -19,6 +19,12 @@ drawHead(); ?>
                     <div style="background-image: url('images/projects/project<?=$project['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_page_slide"></div>
                 <?php } ?>
             </div>
+
+            <div class="arrows">
+                <img alt="plus icon" src="items/arrow.png">
+                <img alt="plus icon" src="items/arrow.png">
+            </div>
+
             <form class="dots">
                 <?php for($i=0; $i < count($images)-1; $i++){?>
                     <input type="radio" data-slide="<?=$i?>" id="trigger<?=$i?>" name="dot" <?php if($i === 0){echo 'checked';}?>>

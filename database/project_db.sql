@@ -93,6 +93,7 @@ INSERT INTO Image VALUES(NULL,1,3,'Leslie Tynik');
 INSERT INTO Image VALUES(NULL,1,4,'Leslie Tynik');
 INSERT INTO Image VALUES(NULL,1,5,'Leslie Tynik');
 INSERT INTO Image VALUES(NULL,1,6,'Leslie Tynik');
+INSERT INTO Image VALUES(NULL,1,7,'Leslie Tynik');
 
 
 /*Project 2*/
@@ -1095,7 +1096,7 @@ INSERT INTO Image VALUES(NULL,14,6,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN')
 /*Project 15*/
 INSERT INTO Project VALUES(
     15,
-    '"REPEAT AFTER ME: WE DO NOT LIVE IN A BUBBLE.<br>WHAT WE DO MATTERS. STAY HOME" - <span class="italic">SERIES OF POSTERS</span>',
+    '"REPEAT AFTER ME: WE DO NOT LIVE IN A BUBBLE.<br>WHAT WE DO MATTERS" - <span class="italic">SERIES OF POSTERS</span>',
     NULL,
     'SELF-INITIATED',
     '2020',
@@ -1106,36 +1107,33 @@ INSERT INTO Project VALUES(
 INSERT INTO Description VALUES(
     NULL,
     15,
-    '"And the people stayed home. And read books, and listened, and rested, and exercised, and made art, and played games, and learned new ways of being, and were still. And listened more deeply. Some meditated, some prayed, some danced. Some met their shadows. And the people began to think differently. And the people healed. And, in the absence of people living in ignorant, dangerous, mindless, and heartless ways, the earth began to heal.
-    And when the danger passed, and the people joined together again, they grieved their losses, and made new choices, and dreamed new images, and created new ways to live and heal the earth fully, as they had been healed."'
+    '"And the people stayed home. And read books, and listened, and rested, and exercised, and made art, and played games, and learned new ways of being, and were still. And listened more deeply. Some meditated, some prayed, some danced. Some met their shadows. And the people began to think differently. And the people healed. And, in the absence of people living in ignorant, dangerous, mindless, and heartless ways, the earth began to heal. And when the danger passed, and the people joined together again, they grieved their losses, and made new choices, and dreamed new images, and created new ways to live and heal the earth fully, as they had been healed."'
+    );
+
+INSERT INTO Description VALUES(
+    NULL,
+    15,
+    'These few days, I started using Instagram as a form of hypertext, sharing books, movies or other relevant context, relating it to our current situation. "At its most sophisticated level, hypertext is a software environment for collaborative work, communication, and knowledge acquisition. It mimics the brain''s ability to store and retrieve information by referential links for quick and intuitive access."
+    Janet Fiderio'
 );
 
 INSERT INTO Description VALUES(
     NULL,
     15,
-    'These next days, I intend to use Instagram as a form of hypertext, sharing books, movies or other relevant context, relating it to our current situation.
-    "At its most sophisticated level, hypertext is a software environment for collaborative work, communication, and knowledge acquisition. It mimics the brain''s ability to store and retrieve information by referential links for quick and intuitive access."
-    Janet Fiderio'
+    'Inspired by First Love Studio and Subliming.jpg, I decided to make a poster about what has been happening outside our lives. Being black is not a crime.'
+);
+
+INSERT INTO Description VALUES(
+    NULL,
+    15,
+    '"Right of revolution is the right and duty of the people of a nation to overthrow a government that acts against their common interests and threatens the safety of the people without cause." Using the words of Jane Elliott: "You know what''s happening, you know you don''t want it for you... I want to know why are you so willing to accept it or to allow it to happen for others." 
+    No more deaths. End police brutality.'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
     15,
     'Editorial Coordination',
-    'Catarina Freitas'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    15,
-    'Texts',
-    'Law Magazine,"The Truman Show" Movie, "The Farewell" Movie,"I have a weekness for a touch of Red"'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    15,
-    'Collected by',
     'Catarina Freitas'
 );
 
@@ -1153,9 +1151,26 @@ INSERT INTO Credits VALUES(
     'Catarina Freitas'
 );
 
+INSERT INTO Credits VALUES(
+    NULL,
+    15,
+    'Texts',
+    'Law Magazine,"The Truman Show" Movie, "The Farewell" Movie,"I have a weekness for a touch of Red",First Love Studio,Subliming.jpg,Jane Elliott'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    15,
+    'Collected by',
+    'Catarina Freitas'
+);
+
 INSERT INTO Image VALUES(NULL,15,1,"WE DO NOT LIVE IN A BUBBLE");
 INSERT INTO Image VALUES(NULL,15,2,"WE DO NOT LIVE IN A BUBBLE");
 INSERT INTO Image VALUES(NULL,15,3,"WE DO NOT LIVE IN A BUBBLE");
+INSERT INTO Image VALUES(NULL,15,4,"WE DO NOT LIVE IN A BUBBLE");
+INSERT INTO Image VALUES(NULL,15,5,"WE DO NOT LIVE IN A BUBBLE");
+INSERT INTO Image VALUES(NULL,15,6,"Black Lives matter");
 
 /*Project 16*/
 INSERT INTO Project VALUES(

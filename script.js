@@ -298,11 +298,16 @@ let plus = document.querySelector('.project_page .icon_plus');
 let projectContent = document.getElementsByClassName('project_content')[0];
 let activeSection = 1;
 
-if(projectPage){
+let leftArrow = document.querySelector('.arrows img');
+let rightArrow = document.querySelector('.arrows img:last-child');
 
+let nSlides = dots.length;
+
+if(projectPage){
+    // dots
     dots.forEach(dot => dot.addEventListener('click', function(event){
         let newSlide = parseInt(dot.getAttribute('data-slide'));
-        console.log('active = ' + actualSlide + ' new = ' + newSlide);
+        
         if(actualSlide != newSlide){
             let move = newSlide * 50;
             let offset = 10 * newSlide;
@@ -310,9 +315,58 @@ if(projectPage){
             slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
 
             actualSlide = newSlide;
+            
+            if(actualSlide === 0){
+                leftArrow.style.visibility = 'hidden';
+            }
+            else if(actualSlide === (nSlides - 1)){
+                rightArrow.style.visibility = 'hidden';
+            }
+            else{
+                leftArrow.style.visibility = 'visible';
+                rightArrow.style.visibility = 'visible';
+            }
         }
     }))
 
+    //arrows
+    leftArrow.addEventListener('click', function(event){
+        if(actualSlide === 0) return;
+
+        actualSlide--;
+        let move = actualSlide * 50;
+        let offset = 10 * actualSlide;
+        
+        dots[actualSlide].click();
+        slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
+
+        if(actualSlide === 0){
+            leftArrow.style.visibility = 'hidden';
+        }
+        else if(actualSlide === nSlides - 2){
+            rightArrow.style.visibility = 'visible';
+        }
+    })
+
+    rightArrow.addEventListener('click', function(event){
+        if(actualSlide === (nSlides - 1)) return;
+
+        actualSlide++;
+        let move = actualSlide * 50;
+        let offset = 10 * actualSlide;
+
+        dots[actualSlide].click();
+        slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
+
+        if(actualSlide === nSlides - 1){
+            rightArrow.style.visibility = 'hidden';
+        }
+        else if(actualSlide === 1){
+            leftArrow.style.visibility = 'visible';
+        }
+    })
+
+    // plus
     plus.addEventListener('click', function(){
         plus.classList.toggle('rotate');
 
