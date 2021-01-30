@@ -639,30 +639,29 @@ footer {
     position: absolute;
     display: flex;
     flex-direction: row;
-    height: calc(100% - 80px);
-    justify-content: space-evenly;
+    height: calc(100% - 78px);
     top: 0;
     left: 0;
-    width: 100%;
     transform: translateY(100%);
     background-color: black;
-    z-index: -1;
     transition: transform 2s ease-in-out;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 44px);
+    border-left: 2px solid var(--stroke_grey);
+    border-right: 2px solid var(--stroke_grey);
+    border-top: 2px solid var(--stroke_grey);
 }
 
 .project_content > div {
     color: var(--grey);
-    width: calc(50vw - 72px);
+    width: 50%;
     padding: 20px;
     overflow: auto;
     position: relative;
 }
-.project_content > div:first-child{
-    border-left: 2px solid var(--stroke_grey);
-}
 
 .project_content > div:nth-child(2) {
-    border-right: 2px solid var(--stroke_grey);
     display: flex;
     flex-direction: column;
     justify-content: space-between;   
@@ -721,7 +720,6 @@ footer {
     flex: 1;
     overflow: hidden;
     position: relative;
-    z-index: -2;
 }
 
 .project_slider_track {
@@ -774,7 +772,7 @@ footer {
     display: inline-block;
     width: 14px;
     height: 14px;
-    /*border-radius: 100%;*/
+    border-radius: 100%;
     z-index: 2;
     cursor: pointer;
     transition-duration: .6s;
@@ -790,6 +788,8 @@ footer {
 .project_page_line {
     width: 100%;
     border-top: 2px solid var(--stroke_grey);
+    z-index: 2;
+    position: relative;
 }
 
 .project_page_description {
@@ -803,6 +803,8 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 2;
+    position: relative;
 }
 
 .project_page_description p {

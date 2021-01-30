@@ -290,7 +290,7 @@ if(projectPage){
         plus.classList.toggle('rotate');
 
         if(activeSection === 1){
-            projectContent.style.transform = `translateY(0)`;
+            projectContent.style.transform = `translateY(-2px)`;
         }
         else{
             projectContent.style.transform = `translateY(100%)`;
