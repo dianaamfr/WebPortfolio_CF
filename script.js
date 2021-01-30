@@ -1,3 +1,4 @@
+"use strict";
 
 // Project Sliders
 
@@ -33,9 +34,11 @@ function drawShapes() {
     fix_dpi();
 
     let ctx = canvas.getContext('2d');
+    let shapesPattern = randomWithProbability();
     let rect = canvas.getBoundingClientRect();
     
-    loadShapes(ctx);
+    loadShapes(shapesPattern, ctx);
+    
     wrapper.addEventListener('mousemove', function(e){
         let x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
         let y = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
@@ -59,7 +62,18 @@ function fix_dpi() {
    canvas.setAttribute('width', style_width * dpi);
 }
 
-function loadShapes(ctx) {
+function loadShapes(shapesPattern, ctx){
+    switch(shapesPattern){
+        case 1:
+            loadMainShapes(ctx);
+            break;
+        default:
+            loadAlternativeShapes(shapesPattern,ctx);
+            break;
+    }
+}
+
+function loadMainShapes(ctx) {
     const redShape = new Image(), blueShape = new Image(), yellowShape = new Image();
     redShape.src = 'items/redShape.png';
     yellowShape.src = 'items/yellowShape.png';
@@ -98,6 +112,20 @@ function loadShapes(ctx) {
     }
 }
 
+function loadAlternativeShapes(shapesPattern, ctx) {
+    const shape = new Image();
+    shape.src = 'items/shape' + shapesPattern.toString() + '.png';
+
+    shape.onload = function(){
+        drawImageWithSize(ctx, shape, canvas.width/2 - canvas.width/2 , 0, canvas.width, canvas.height);
+    }
+}
+
+function randomWithProbability() {
+    let notRandomNumbers = [1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
+    let idx = Math.floor(Math.random() * notRandomNumbers.length);
+    return notRandomNumbers[idx];
+}
 
 // Menu buttons
 
@@ -271,7 +299,6 @@ let projectContent = document.getElementsByClassName('project_content')[0];
 let activeSection = 1;
 
 if(projectPage){
-    let sliderHeight = document.getElementsByClassName('project_page_slide')[0].clientHeight;
 
     dots.forEach(dot => dot.addEventListener('click', function(event){
         let newSlide = parseInt(dot.getAttribute('data-slide'));
