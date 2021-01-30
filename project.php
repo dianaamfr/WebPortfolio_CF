@@ -18,7 +18,7 @@ drawHead(); ?>
         </div>
         <form class="dots">
             <?php for($i=0; $i < count($images)-1; $i++){?>
-                <input type="radio" data-slide="<?=$i?>" id="trigger<?=$i?>" name="dot">
+                <input type="radio" data-slide="<?=$i?>" id="trigger<?=$i?>" name="dot" <?php if($i === 0){echo 'checked';}?>>
                 <label for="trigger<?=$i?>"></label>
             <?php } ?>
         </form>
