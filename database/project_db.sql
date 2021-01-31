@@ -171,14 +171,171 @@ INSERT INTO Image VALUES(NULL,2,1,'GRACE HARTNETT WEBSITE');
 INSERT INTO Image VALUES(NULL,2,2,'GRACE HARTNETT WEBSITE');
 INSERT INTO Image VALUES(NULL,2,3,'GRACE HARTNETT WEBSITE');
 INSERT INTO Image VALUES(NULL,2,4,'GRACE HARTNETT WEBSITE');
-INSERT INTO Image VALUES(NULL,2,5,'GRACE HARTNETT WEBSITE');
-INSERT INTO Image VALUES(NULL,2,6,'GRACE HARTNETT WEBSITE');
-INSERT INTO Image VALUES(NULL,2,7,'GRACE HARTNETT WEBSITE');
-INSERT INTO Image VALUES(NULL,2,8,'GRACE HARTNETT WEBSITE');
 
 /*Project 3*/
 INSERT INTO Project VALUES(
-    3, 
+    3,
+    "Mecha studio website -",
+    'Welcome to our intimate landscape',
+    'Mecha studio website',
+    '2021',
+    'Website Design,Art Direction,UX/UI,Mecha Studio',
+    'June 2020'
+);
+
+INSERT INTO Description VALUES(
+    NULL,
+    3,
+    'Mecha is a Porto-based independent studio obsessed with making the unbelievable come true. We create meticulous disruption to communicate bold ideas, always locked on an iconic future-focused interactive approach. While humanity rashly embraces singularity, Mecha merges layers of technology and creativity as an entirely new way of connecting people, unlocking new ways of feeling, to generate realities never experienced before. Welcome to our new website.'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    3,
+    'Front-end / Graphic Design',
+    'Catarina Freitas'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    3,
+    'Web Design / Motion & Interaction',
+    'Pedro Galego'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    3,
+    'Homepage interactive 3D animation',
+    'Luís Lima,Pedro Galego'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    3,
+    'Previous Contributions',
+    'João Jesus,Joana Carneiro'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    3,
+    'Inorganic Future (2020)',
+    'Luís Lima,Pedro Galego,Catarina Freitas'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    3,
+    'Shattered Unicorn (2019)',
+    'Joana Carneiro,José Morais,Pedro Galego'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    3,
+    'I saw a sign(2018)',
+    'Pedro Ribeiro'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    3,
+    'Typeface contributions',
+    'Hanol by Bouk Ra,Salmanazar by Juliette Collin'
+);
+
+
+INSERT INTO Image VALUES(NULL,3,1,"Mecha Studio Website");
+INSERT INTO Image VALUES(NULL,3,2,"Mecha Studio Website");
+INSERT INTO Image VALUES(NULL,3,3,"Mecha Studio Website");
+INSERT INTO Image VALUES(NULL,3,4,"Mecha Studio Website");
+INSERT INTO Image VALUES(NULL,3,5,"Mecha Studio Website");
+INSERT INTO Image VALUES(NULL,3,6,"Mecha Studio Website");
+
+
+/*Project 4*/
+INSERT INTO Project VALUES(
+    4,
+    '"REPEAT AFTER ME: WE DO NOT LIVE IN A BUBBLE.<br>WHAT WE DO MATTERS" - <span class="italic">SERIES OF POSTERS</span>',
+    NULL,
+    'SELF-INITIATED',
+    '2020',
+    'Poster Design,COVID—2019,Black Lives Matter,No more deaths,Hyper Text',
+    'March—October 2020'
+);
+
+INSERT INTO Description VALUES(
+    NULL,
+    4,
+    '"And the people stayed home. And read books, and listened, and rested, and exercised, and made art, and played games, and learned new ways of being, and were still. And listened more deeply. Some meditated, some prayed, some danced. Some met their shadows. And the people began to think differently. And the people healed. And, in the absence of people living in ignorant, dangerous, mindless, and heartless ways, the earth began to heal. And when the danger passed, and the people joined together again, they grieved their losses, and made new choices, and dreamed new images, and created new ways to live and heal the earth fully, as they had been healed."'
+    );
+
+INSERT INTO Description VALUES(
+    NULL,
+    4,
+    'These few days, I started using Instagram as a form of hypertext, sharing books, movies or other relevant context, relating it to our current situation. "At its most sophisticated level, hypertext is a software environment for collaborative work, communication, and knowledge acquisition. It mimics the brain''s ability to store and retrieve information by referential links for quick and intuitive access."
+    Janet Fiderio'
+);
+
+INSERT INTO Description VALUES(
+    NULL,
+    4,
+    'Inspired by First Love Studio and Subliming.jpg, I decided to make a poster about what has been happening outside our lives. Being black is not a crime.'
+);
+
+INSERT INTO Description VALUES(
+    NULL,
+    4,
+    '"Right of revolution is the right and duty of the people of a nation to overthrow a government that acts against their common interests and threatens the safety of the people without cause." Using the words of Jane Elliott: "You know what''s happening, you know you don''t want it for you... I want to know why are you so willing to accept it or to allow it to happen for others." 
+    No more deaths. End police brutality.'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    4,
+    'Editorial Coordination',
+    'Catarina Freitas'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    4,
+    'Art Direction',
+    'Catarina Freitas'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    4,
+    'Graphic Design',
+    'Catarina Freitas'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    4,
+    'Texts',
+    'Law Magazine,"The Truman Show" Movie, "The Farewell" Movie,"I have a weekness for a touch of Red",First Love Studio,Subliming.jpg,Jane Elliott'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    4,
+    'Collected by',
+    'Catarina Freitas'
+);
+
+INSERT INTO Image VALUES(NULL,4,1,"WE DO NOT LIVE IN A BUBBLE");
+INSERT INTO Image VALUES(NULL,4,2,"WE DO NOT LIVE IN A BUBBLE");
+INSERT INTO Image VALUES(NULL,4,3,"WE DO NOT LIVE IN A BUBBLE");
+INSERT INTO Image VALUES(NULL,4,4,"WE DO NOT LIVE IN A BUBBLE");
+INSERT INTO Image VALUES(NULL,4,5,"WE DO NOT LIVE IN A BUBBLE");
+INSERT INTO Image VALUES(NULL,4,6,"Black Lives matter");
+
+/*Project 5*/
+INSERT INTO Project VALUES(
+    5, 
     'GRAPHIC DESIGN AS A SUBJECT, A METHOD AND A PRACTICE<br>A RESOURCE BOOK ON GRAPHIC DESIGN', 
     NULL,
     'MA PROJECT',
@@ -189,66 +346,66 @@ INSERT INTO Project VALUES(
 
 INSERT INTO Description VALUES(
     NULL,
-    3,
+    5,
     '"Graphic Design as a Subject, a Method and a Practice" consists in 3 graphic objects that work together to create a set of resources, designed to integrate and assist the beginning of the study (independent or formal) of Graphic Design.'
 );
 
 INSERT INTO Description VALUES(
     NULL,
-    3,
+    5,
     'The project aims, in addition to providing an entry into the study/practice of graphic design, to address some problems related to the commitment to written texts and historical discourses, together with examining the possibilities for creating an open resource (hyper text/ infinitive canvas). The publication aims to include critical and challenging texts from the design teaching paradigms, while exposing the uncertainties of competing methodologies. In case you want to participate with original texts for the book, please contact me via email.'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    3,
+    5,
     'Editorial Coordination',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    3,
+    5,
     'Texts',
     'Steven Heller-"The Education of a Graphic Designer",Collective-"Teaching for people who prefer not to teach"'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    3,
+    5,
     'Art Direction',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    3,
+    5,
     'Graphic Design',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    3,
+    5,
     'Print',
     'Gráfica Saúde Sá'
 );
 
-INSERT INTO Image VALUES(NULL,3,1,'A RESOURCE BOOK ON GRAPHIC DESIGN');
-INSERT INTO Image VALUES(NULL,3,2,'A RESOURCE BOOK ON GRAPHIC DESIGN');
-INSERT INTO Image VALUES(NULL,3,3,'A RESOURCE BOOK ON GRAPHIC DESIGN');
-INSERT INTO Image VALUES(NULL,3,4,'A RESOURCE BOOK ON GRAPHIC DESIGN');
-INSERT INTO Image VALUES(NULL,3,5,'A RESOURCE BOOK ON GRAPHIC DESIGN');
-INSERT INTO Image VALUES(NULL,3,6,'A RESOURCE BOOK ON GRAPHIC DESIGN');
-INSERT INTO Image VALUES(NULL,3,7,'A RESOURCE BOOK ON GRAPHIC DESIGN');
-INSERT INTO Image VALUES(NULL,3,8,'A RESOURCE BOOK ON GRAPHIC DESIGN');
-INSERT INTO Image VALUES(NULL,3,9,'A RESOURCE BOOK ON GRAPHIC DESIGN');
-INSERT INTO Image VALUES(NULL,3,10,'A RESOURCE BOOK ON GRAPHIC DESIGN');
+INSERT INTO Image VALUES(NULL,5,1,'A RESOURCE BOOK ON GRAPHIC DESIGN');
+INSERT INTO Image VALUES(NULL,5,2,'A RESOURCE BOOK ON GRAPHIC DESIGN');
+INSERT INTO Image VALUES(NULL,5,3,'A RESOURCE BOOK ON GRAPHIC DESIGN');
+INSERT INTO Image VALUES(NULL,5,4,'A RESOURCE BOOK ON GRAPHIC DESIGN');
+INSERT INTO Image VALUES(NULL,5,5,'A RESOURCE BOOK ON GRAPHIC DESIGN');
+INSERT INTO Image VALUES(NULL,5,6,'A RESOURCE BOOK ON GRAPHIC DESIGN');
+INSERT INTO Image VALUES(NULL,5,7,'A RESOURCE BOOK ON GRAPHIC DESIGN');
+INSERT INTO Image VALUES(NULL,5,8,'A RESOURCE BOOK ON GRAPHIC DESIGN');
+INSERT INTO Image VALUES(NULL,5,9,'A RESOURCE BOOK ON GRAPHIC DESIGN');
+INSERT INTO Image VALUES(NULL,5,10,'A RESOURCE BOOK ON GRAPHIC DESIGN');
 
 
-/*Project 4*/
+/*Project 6*/
 INSERT INTO Project VALUES(
-    4, 
+    6, 
     'SINAL – 100 Anos de Design das Telecomunicações<br>e dos Correios em Portugal -  <span class="italic">catalogue</span>', 
     NULL,
     'Catalogue',
@@ -259,62 +416,62 @@ INSERT INTO Project VALUES(
 
 INSERT INTO Description VALUES(
     NULL,
-    4,
+    6,
     'The logos, advertising materials, buildings, equipment and uniforms of Post Office and Telecommunications companies are part of Portugal''s imagination and collective experience, following the country''s technological, cultural, social and political evolution.'
 );
 
 INSERT INTO Description VALUES(
     NULL,
-    4,
+    6,
     'Stemming from the exhibition Sinal – 100 Years of Telecommunications and Postal Service Design in Portugal, this catalogue is the first to focus on the relationship between Portuguese design and telecommunications and postal services throughout the 20th century. It also reflects the structure of the exhibition as it is divided into six richly contextualized, documented and illustrated nuclei: Transmission, Network, Equipment, Message, Identity and Emission.'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    4,
+    6,
     'Co-Edition',
     'Câmera Municipal de Matosinhos'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    4,
+    6,
     'Editorial Coordination',
     'José Bártolo,Sara Pinheiro'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    4,
+    6,
     'Texts',
     'Fernando Rocha,José Bártolo,Luísa Salgueiro'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    4,
+    6,
     'Art Direction',
     'Inês Nepomuceno'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    4,
+    6,
     'Graphic Design',
     'Catarina Freitas,Susana Martins'
 );
 
-INSERT INTO Image VALUES(NULL,4,1,'SINAL');
-INSERT INTO Image VALUES(NULL,4,2,'SINAL');
-INSERT INTO Image VALUES(NULL,4,3,'SINAL');
-INSERT INTO Image VALUES(NULL,4,4,'SINAL');
-INSERT INTO Image VALUES(NULL,4,5,'SINAL');
-INSERT INTO Image VALUES(NULL,4,6,'SINAL');
+INSERT INTO Image VALUES(NULL,6,1,'SINAL');
+INSERT INTO Image VALUES(NULL,6,2,'SINAL');
+INSERT INTO Image VALUES(NULL,6,3,'SINAL');
+INSERT INTO Image VALUES(NULL,6,4,'SINAL');
+INSERT INTO Image VALUES(NULL,6,5,'SINAL');
+INSERT INTO Image VALUES(NULL,6,6,'SINAL');
 
 
-/*Project 5*/
+/*Project 7*/
 INSERT INTO Project VALUES(
-    5, 
+    7, 
     'A PROJECT ON SURVEILLANCE - PROTECTION, PRIVACY AND FEAR<br>WHAT DO YOU DO, WHEN YOU ARE NOT BEING WATCHED?',
     NULL,
     '3 BOOKS',
@@ -325,81 +482,81 @@ INSERT INTO Project VALUES(
 
 INSERT INTO Description VALUES(
     NULL,
-    5,
+    7,
     'With the intention of exploring the theme "Surveillance", 3 completely different graphic objects were made, each of them exploring one particular side of that same word: 01 Protection/Security; 02 Privacy and Fear; 03 Hiding Places and what do you do when you''re not being watched.'
 );
 
 INSERT INTO Description VALUES(
     NULL,
-    5,
+    7,
     'The first editorial piece is a Visual Essay that works with materials, transparency and sensitivity, combining pictures that have been taken of surveillance cameras on the streets of Porto. This first object explores the surveillance point of view where you are being watched, supposedly for your security and protection. The idea of the transparent object is to demonstrate that, even when everything is as visible as possible, visibility is sometimes compromised. This object arises as an antithesis to the conventional idea that one has of transparency. The idea that someone is transparent always referred to a person who has no problem in demonstrating everything that goes on in their life. In this case, the images of the filming cameras printed in acetate, overlap each other, creating an object and a narrative only that, although being transparent, becomes impossible to visualize.'
 );
 
 INSERT INTO Description VALUES(
     NULL,
-    5,
+    7,
     'The second object is a small sized book that explores the surveillance point of view of being watched without permission, and the fear of it, by collecting pictures taken by covered computer cameras. "Shall I say it, or will you? We are not human. They could spy upon you night and day. Are you prepared to give your lives? Folly, folly, his heart kept saying: conscious, gratuitous, suicidal folly. I assume that you have a hiding-place of some kind? Under the window somebody was singing."'
 );
 
 INSERT INTO Description VALUES(
     NULL,
-    5,
+    7,
     'The last book is in a pocketbook format inspired by the 1984 film diary, and portrays the view of the hideout as the place where we are safe and alone. In fact, it is not quite so. The spread dedicated to each of the images appears as reinforcement of the idea of zoom, observation, espionage: the idea of Surveillance.'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    5,
+    7,
     'Editorial Coordination',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    5,
+    7,
     'Texts',
     'George Orwell-"1984",FOAM Magazine #43,Ai Weiwei-"Freedom of Expression under Surveillance"'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    5,
+    7,
     'Art Direction',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    5,
+    7,
     'Graphic Design',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    5,
+    7,
     'Pictures',
     'Collected from Google Maps by Jon Rafman in "9-eyes.com"'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    5,
+    7,
     'Print',
     'Gráfica Saúde Sá'
 );
 
-INSERT INTO Image VALUES(NULL,5,1,'A project on surveillance');
-INSERT INTO Image VALUES(NULL,5,2,'A project on surveillance');
-INSERT INTO Image VALUES(NULL,5,3,'A project on surveillance');
-INSERT INTO Image VALUES(NULL,5,4,'A project on surveillance');
-INSERT INTO Image VALUES(NULL,5,5,'A project on surveillance');
-INSERT INTO Image VALUES(NULL,5,6,'A project on surveillance');
+INSERT INTO Image VALUES(NULL,7,1,'A project on surveillance');
+INSERT INTO Image VALUES(NULL,7,2,'A project on surveillance');
+INSERT INTO Image VALUES(NULL,7,3,'A project on surveillance');
+INSERT INTO Image VALUES(NULL,7,4,'A project on surveillance');
+INSERT INTO Image VALUES(NULL,7,5,'A project on surveillance');
+INSERT INTO Image VALUES(NULL,7,6,'A project on surveillance');
 
 
-/*Project 6*/
+/*Project 8*/
 INSERT INTO Project VALUES(
-    6, 
+    8, 
     'ALTERNATIVE SOCIETY - WE ESCAPED', 
     'A BOOK BY CATARINA FREITAS',
     'Short Story',
@@ -410,73 +567,73 @@ INSERT INTO Project VALUES(
 
 INSERT INTO Description VALUES(
     NULL,
-    6,
+    8,
     '"Alternative Society — We escaped" is a short story, written by me, that consists mainly on a cry for change: an appeal for the change and renewal of values, by not only the new generations, but also the older ones.'
 );
 
 INSERT INTO Description VALUES(
     NULL,
-    6,
+    8,
     'This book tells Vicente''s story, a character who used to live in our world and is later recovered into a parallel Society (better known as an Alternative Society). He presents us, in a sincere and attentive way, two very different realities: a polluted, degraded and silenced society, and an almost ideal one.'
 );
 
 INSERT INTO Description VALUES(
     NULL,
-    6,
+    8,
     'In the book, our world is characterised by disinterest in the life of books, forgetfulness, devaluation of dreams, laziness, carelessness and conflict. On the other hand, the Alternative Society explores the desires, the various senses, leisure and observation tome, the care in dealing with all the matters, creativity, as well as experimentalism, proactivity and dialogue.'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    6,
+    8,
     'Editorial Coordination',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    6,
+    8,
     'Texts',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    6,
+    8,
     'Art Direction',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    6,
+    8,
     'Graphic Design',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    6,
+    8,
     'Photography',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    6,
+    8,
     'Print',
     'Screen Printing (cover),Digital Printing'
 );
 
-INSERT INTO Image VALUES(NULL,6,1,'Alternative Society');
-INSERT INTO Image VALUES(NULL,6,2,'Alternative Society');
-INSERT INTO Image VALUES(NULL,6,3,'Alternative Society');
-INSERT INTO Image VALUES(NULL,6,4,'Alternative Society');
+INSERT INTO Image VALUES(NULL,8,1,'Alternative Society');
+INSERT INTO Image VALUES(NULL,8,2,'Alternative Society');
+INSERT INTO Image VALUES(NULL,8,3,'Alternative Society');
+INSERT INTO Image VALUES(NULL,8,4,'Alternative Society');
 
 
-/*Project 7*/
+/*Project 9*/
 INSERT INTO Project VALUES(
-    7, 
+    9, 
     'CATCHER IN THE RYE + THE REVOLUTION OF EVERYDAY LIFE', 
     'BOOK REDESIGN',
     'MAY 1968',
@@ -487,75 +644,75 @@ INSERT INTO Project VALUES(
 
 INSERT INTO Description VALUES(
     NULL,
-    7,
+    9,
     'We are in an age "where the renewal of values was accompanied by the prominent strength of a youth culture". Both books ("Catcher in the Rye", by J.D Salinger, and "The Revolution of Everyday Life" by Raoul Vaneigem) and images (taken in 1968, during the Students Protests) portray events or thoughts originating in a huge discontent with the environment, values and the surrounding dynamics, not only in the educational sector, but also in the social, sexual, political and civil sectors.'
 );
 
 INSERT INTO Description VALUES(
     NULL,
-    7,
+    9,
     '"Once you get past all the Mr. Vinsons, you''re going to start getting closer and closer - that is, if you want to, and if you look for it and wait for it - to the kind of information that will be very, very dear to your heart. Among other things, you''ll find that you''re not the first person who was ever confused and frightened and even sickened by human behaviour. You''re by no means alone on that score, you''ll be excited and stimulated to know. Many, many men have been just as troubled morally and spiritually as you are right now. Happily, some of them kept records of their troubles. You''ll learn from them - if you want to. Just as someday, if you have something to offer, someone will learn something from you. It''s a beautiful reciprocal arrangement. And it isn''t education. It''s history. It''s poetry." J. D. Salinger'
 );
 
 INSERT INTO Description VALUES(
     NULL,
-    7,
+    9,
     '"But what about the impossibility of living, what about this stifling mediocrity and this absence of passion? What about this feeling of never really being inside your own skin? Let nobody say these are minor details or secondary points. (...) If you go for revolution and neglect your own self, then you''re going about it backwards." Raoul Vaneigem'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    7,
+    9,
     'Editorial Coordination',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    7,
+    9,
     'Texts',
     'J. D Salinger-"Catcher in the Rye",Raoul Vaneigem-"The Revolution of Everyday Life"'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    7,
+    9,
     'Art Direction',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    7,
+    9,
     'Graphic Design',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    7,
+    9,
     'Photography',
     'Archive from the 1968,Student Protests'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    7,
+    9,
     'Print',
     'Gráfica Saúde Sá'
 );
 
-INSERT INTO Image VALUES(NULL,7,1,'Catcher in the rye');
-INSERT INTO Image VALUES(NULL,7,2,'Catcher in the rye');
-INSERT INTO Image VALUES(NULL,7,3,'Catcher in the rye');
-INSERT INTO Image VALUES(NULL,7,4,'Catcher in the rye');
-INSERT INTO Image VALUES(NULL,7,5,'Catcher in the rye');
-INSERT INTO Image VALUES(NULL,7,6,'Catcher in the rye');
-INSERT INTO Image VALUES(NULL,7,7,'Catcher in the rye');
+INSERT INTO Image VALUES(NULL,9,1,'Catcher in the rye');
+INSERT INTO Image VALUES(NULL,9,2,'Catcher in the rye');
+INSERT INTO Image VALUES(NULL,9,3,'Catcher in the rye');
+INSERT INTO Image VALUES(NULL,9,4,'Catcher in the rye');
+INSERT INTO Image VALUES(NULL,9,5,'Catcher in the rye');
+INSERT INTO Image VALUES(NULL,9,6,'Catcher in the rye');
+INSERT INTO Image VALUES(NULL,9,7,'Catcher in the rye');
 
-/*Project 8*/
+/*Project 10*/
 INSERT INTO Project VALUES(
-    8, 
+    10, 
     'THE PALACE OF DREAMS', 
     'PUBLICATION BY CATARINA FREITAS',
     'Dreams',
@@ -566,247 +723,74 @@ INSERT INTO Project VALUES(
 
 INSERT INTO Description VALUES(
     NULL,
-    8,
+    10,
     '"The Palace of Dreams" is a publication that show that dreams are made up of materiais, thoughts, songs and ideas that we bring from behind, from all places, from all people, from all memories. The publication intends to establish a parallel relation between my daily routine and my dreams, being the mapping concretised through images and narrative (in the form of memories). It analyses the day, the period of the year in which the dream takes place; the weather, the activities done during each day, the number of hour spent sleeping and the number of breaks during the night.'
 );
 
 INSERT INTO Description VALUES(
     NULL,
-    8,
+    10,
     '"People say, "I''m going to sleep now," as if it were nothing. But it''s really a bizarre activity. "For the next several hours, while the sun is gone, I''m going to become unconscious, temporarily losing command over everything I know and understand. When the sun returns, I will resume my life."'
 );
 
 INSERT INTO Description VALUES(
     NULL,
-    8,
+    10,
     'If you didn''t know what sleep was, and you had only seen it in a science fiction movie, you would think it was weird and tell all your friends about the movie you''d seen. They had these people, you know? And they would walk around all day and be ok? And then, once a day, usually after dark, they would lie down on these special platforms and become unconscious. They would stop functioning almost completely, except deep in their minds they would have adventures and experiences that were completely impossible in real life. As they lay there, completely vulnerable to their enemies, their only movements were to occasionally shift from one position to another; or, if one of the "mind adventures" got too real, they would sit up and scream and be glad they weren''t unconscious anymore. Then they would drink a lot of coffee. 
     George Carlin'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    8,
+    10,
     'Editorial Coordination',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    8,
+    10,
     'Texts',
     'Catarina Freitas,Reto Pulfer-"Fabric Island",George Carlin'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    8,
+    10,
     'Art Direction',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    8,
+    10,
     'Graphic Design',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    8,
+    10,
     'Photography',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    8,
+    10,
     'Print',
     'Risography'
 );
 
-INSERT INTO Image VALUES(NULL,8,1,'The Palace of dreams');
-INSERT INTO Image VALUES(NULL,8,2,'The Palace of dreams');
-INSERT INTO Image VALUES(NULL,8,3,'The Palace of dreams');
-INSERT INTO Image VALUES(NULL,8,4,'The Palace of dreams');
-INSERT INTO Image VALUES(NULL,8,5,'The Palace of dreams');
-INSERT INTO Image VALUES(NULL,8,6,'The Palace of dreams');
-INSERT INTO Image VALUES(NULL,8,7,'The Palace of dreams');
-INSERT INTO Image VALUES(NULL,8,8,'The Palace of dreams');
+INSERT INTO Image VALUES(NULL,10,1,'The Palace of dreams');
+INSERT INTO Image VALUES(NULL,10,2,'The Palace of dreams');
+INSERT INTO Image VALUES(NULL,10,3,'The Palace of dreams');
+INSERT INTO Image VALUES(NULL,10,4,'The Palace of dreams');
+INSERT INTO Image VALUES(NULL,10,5,'The Palace of dreams');
+INSERT INTO Image VALUES(NULL,10,6,'The Palace of dreams');
+INSERT INTO Image VALUES(NULL,10,7,'The Palace of dreams');
+INSERT INTO Image VALUES(NULL,10,8,'The Palace of dreams');
 
-
-/*Project 9*/
-INSERT INTO Project VALUES(
-    9,
-    '751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE', 
-    'DEVELOPED IN ESAD—IDEA WITH INÊS NEPOMUCENO',
-    'Meta-Livro',
-    '2018',
-    'Editorial,Paulo Cunha e Silva,Tribute,Culture',
-    '265x150mm,548 pages,Paperback,978-989-99871-8-0,June 2018'
-);
-
-INSERT INTO Description VALUES(
-    NULL,
-    9,
-    '"751 dias – O tempo não consome a Eternidade."
-    Paulo Cunha e Silva por Helena Teixeira da Silva. Developed in esad—idea.'
-);
-
-INSERT INTO Description VALUES(
-    NULL,
-    9,
-    '"A verdade é que foram muitas as pessoas que, de forma pensada ou espontânea, testemunharam o seu apreço e admiração e deixaram relatos da sua convivência com o Paulo. Havia que registar, para a posteridade, alguns desses testemunhos e, também, deixar impressas as suas notas pessoais, que nos deixou na sua imperdível página de Facebook."
-    Rui Moreira'
-);
-
-INSERT INTO Description VALUES(
-    NULL,
-    9,
-    '"A intenção passou a ser, também, a de guardar uma fatia muito particular do tempo de um homem e de uma cidade."
-    Helena Teixeira da Silva'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    9,
-    'Edition',
-    'Câmara Municipal do Porto'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    9,
-    'Authorship',
-    'Helena Teixeira da Silva'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    9,
-    'Review',
-    'Andreia Faria'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    9,
-    'Graphic Design',
-    'Inês Nepomuceno,Catarina Freitas,ESAD—idea'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    9,
-    'Photography',
-    'Miguel Nogueira,Bárbara Moreira'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    9,
-    'Facebook Support',
-    'Fernando Miranda'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    9,
-    'Print',
-    'Gráfica Maiadouro'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    9,
-    'ISBN',
-    'Andreia Faria'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    9,
-    'Legal Deposit',
-    '441 848/18'
-);
-
-INSERT INTO Image VALUES(NULL,9,1,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
-INSERT INTO Image VALUES(NULL,9,2,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
-INSERT INTO Image VALUES(NULL,9,3,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
-INSERT INTO Image VALUES(NULL,9,4,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
-INSERT INTO Image VALUES(NULL,9,5,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
-INSERT INTO Image VALUES(NULL,9,6,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
-INSERT INTO Image VALUES(NULL,9,7,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
-INSERT INTO Image VALUES(NULL,9,8,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
-INSERT INTO Image VALUES(NULL,9,9,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
-
-/*Project 10*/
-INSERT INTO Project VALUES(
-    10,
-    'PRINTING TECHNIQUES',
-    'SCREEN PRINTING/ RISOGRAPHY/ LETTERPRESS',
-    'Print is not dead',
-    '2019',
-    'Printing Techniques,Screen Printing,Risography,Letterpress',
-    NULL
-);
-
-INSERT INTO Description VALUES(
-    NULL,
-    10,
-    '"Let me state this for the record: the internet is not dead. Digital will not disappear. Print will not kill the web. (...) We are in a print world now. People have now come to understand that once a print book is purchased, they truly own their personal edition of that story. There are no limitations to what they can do with it or to it. (...)'
-);
-
-INSERT INTO Description VALUES(
-    NULL,
-    10,
-    'With print books, we have come to understand what it is like not to be forever leasing information. (...) By occupying space, by having weight and heft, by utilizing smells and tactility as part of their own stories, print have impact.'
-);
-
-INSERT INTO Description VALUES(
-    NULL,
-    10,
-    'Unlike an ever-reproducible digital file or webpage, a physical book is a solitary experience that can only be enjoyed by one person at a time. When we finish a book, we close the cover and are left in peace; there is no online store pushing us instantly to buy and read more. There are no in-book purchases to be made as we read. No advertisements will ever pop up related to our reading experience. Numerous studies have shown that since the arrival of print, people ́s ability and duration of maintaining attention on a single idea has increased. Print is literally changing how we think, and how we look at the worlds around us. The two are engaged not in a fight, but a dance. Print or digital? That question is as redundant as asking which is better, red or green?"
-    Fully Booked — Ink On Paper — Design & Concepts for New Publications'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    10,
-    'Print',
-    'ESAD Matosinhos'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    10,
-    'Editorial Coordination',
-    'Catarina Freitas'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    10,
-    'Art Direction',
-    'Catarina Freitas'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    10,
-    'Graphic Design',
-    'Catarina Freitas'
-);
-
-INSERT INTO Image VALUES(NULL,10,1,'PRINTING TECHNIQUES');
-INSERT INTO Image VALUES(NULL,10,2,'PRINTING TECHNIQUES');
-INSERT INTO Image VALUES(NULL,10,3,'PRINTING TECHNIQUES');
-INSERT INTO Image VALUES(NULL,10,4,'PRINTING TECHNIQUES');
-INSERT INTO Image VALUES(NULL,10,5,'PRINTING TECHNIQUES');
-INSERT INTO Image VALUES(NULL,10,6,'PRINTING TECHNIQUES');
-INSERT INTO Image VALUES(NULL,10,7,'PRINTING TECHNIQUES');
-INSERT INTO Image VALUES(NULL,10,8,'PRINTING TECHNIQUES');
-INSERT INTO Image VALUES(NULL,10,9,'PRINTING TECHNIQUES');
 
 
 /*Project 11*/
@@ -985,6 +969,181 @@ INSERT INTO Image VALUES(NULL, 12,6,'THERE''S A SECRET PARADE IN OUR HOMETOWN HE
 /*Project 13*/
 INSERT INTO Project VALUES(
     13,
+    '751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE', 
+    'DEVELOPED IN ESAD—IDEA WITH INÊS NEPOMUCENO',
+    'Meta-Livro',
+    '2018',
+    'Editorial,Paulo Cunha e Silva,Tribute,Culture',
+    '265x150mm,548 pages,Paperback,978-989-99871-8-0,June 2018'
+);
+
+INSERT INTO Description VALUES(
+    NULL,
+    13,
+    '"751 dias – O tempo não consome a Eternidade."
+    Paulo Cunha e Silva por Helena Teixeira da Silva. Developed in esad—idea.'
+);
+
+INSERT INTO Description VALUES(
+    NULL,
+    13,
+    '"A verdade é que foram muitas as pessoas que, de forma pensada ou espontânea, testemunharam o seu apreço e admiração e deixaram relatos da sua convivência com o Paulo. Havia que registar, para a posteridade, alguns desses testemunhos e, também, deixar impressas as suas notas pessoais, que nos deixou na sua imperdível página de Facebook."
+    Rui Moreira'
+);
+
+INSERT INTO Description VALUES(
+    NULL,
+    13,
+    '"A intenção passou a ser, também, a de guardar uma fatia muito particular do tempo de um homem e de uma cidade."
+    Helena Teixeira da Silva'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    13,
+    'Edition',
+    'Câmara Municipal do Porto'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    13,
+    'Authorship',
+    'Helena Teixeira da Silva'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    13,
+    'Review',
+    'Andreia Faria'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    13,
+    'Graphic Design',
+    'Inês Nepomuceno,Catarina Freitas,ESAD—idea'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    13,
+    'Photography',
+    'Miguel Nogueira,Bárbara Moreira'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    13,
+    'Facebook Support',
+    'Fernando Miranda'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    13,
+    'Print',
+    'Gráfica Maiadouro'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    13,
+    'ISBN',
+    'Andreia Faria'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    13,
+    'Legal Deposit',
+    '441 848/18'
+);
+
+INSERT INTO Image VALUES(NULL,13,1,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
+INSERT INTO Image VALUES(NULL,13,2,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
+INSERT INTO Image VALUES(NULL,13,3,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
+INSERT INTO Image VALUES(NULL,13,4,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
+INSERT INTO Image VALUES(NULL,13,5,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
+INSERT INTO Image VALUES(NULL,13,6,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
+INSERT INTO Image VALUES(NULL,13,7,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
+INSERT INTO Image VALUES(NULL,13,8,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
+INSERT INTO Image VALUES(NULL,13,9,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE');
+
+
+/*Project 14*/
+INSERT INTO Project VALUES(
+    14,
+    'PRINTING TECHNIQUES',
+    'SCREEN PRINTING/ RISOGRAPHY/ LETTERPRESS',
+    'Print is not dead',
+    '2019',
+    'Printing Techniques,Screen Printing,Risography,Letterpress',
+    NULL
+);
+
+INSERT INTO Description VALUES(
+    NULL,
+    14,
+    '"Let me state this for the record: the internet is not dead. Digital will not disappear. Print will not kill the web. (...) We are in a print world now. People have now come to understand that once a print book is purchased, they truly own their personal edition of that story. There are no limitations to what they can do with it or to it. (...)'
+);
+
+INSERT INTO Description VALUES(
+    NULL,
+    14,
+    'With print books, we have come to understand what it is like not to be forever leasing information. (...) By occupying space, by having weight and heft, by utilizing smells and tactility as part of their own stories, print have impact.'
+);
+
+INSERT INTO Description VALUES(
+    NULL,
+    14,
+    'Unlike an ever-reproducible digital file or webpage, a physical book is a solitary experience that can only be enjoyed by one person at a time. When we finish a book, we close the cover and are left in peace; there is no online store pushing us instantly to buy and read more. There are no in-book purchases to be made as we read. No advertisements will ever pop up related to our reading experience. Numerous studies have shown that since the arrival of print, people ́s ability and duration of maintaining attention on a single idea has increased. Print is literally changing how we think, and how we look at the worlds around us. The two are engaged not in a fight, but a dance. Print or digital? That question is as redundant as asking which is better, red or green?"
+    Fully Booked — Ink On Paper — Design & Concepts for New Publications'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    14,
+    'Print',
+    'ESAD Matosinhos'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    14,
+    'Editorial Coordination',
+    'Catarina Freitas'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    14,
+    'Art Direction',
+    'Catarina Freitas'
+);
+
+INSERT INTO Credits VALUES(
+    NULL,
+    14,
+    'Graphic Design',
+    'Catarina Freitas'
+);
+
+INSERT INTO Image VALUES(NULL,14,1,'PRINTING TECHNIQUES');
+INSERT INTO Image VALUES(NULL,14,2,'PRINTING TECHNIQUES');
+INSERT INTO Image VALUES(NULL,14,3,'PRINTING TECHNIQUES');
+INSERT INTO Image VALUES(NULL,14,4,'PRINTING TECHNIQUES');
+INSERT INTO Image VALUES(NULL,14,5,'PRINTING TECHNIQUES');
+INSERT INTO Image VALUES(NULL,14,6,'PRINTING TECHNIQUES');
+INSERT INTO Image VALUES(NULL,14,7,'PRINTING TECHNIQUES');
+INSERT INTO Image VALUES(NULL,14,8,'PRINTING TECHNIQUES');
+INSERT INTO Image VALUES(NULL,14,9,'PRINTING TECHNIQUES');
+
+
+/*Project 15*/
+INSERT INTO Project VALUES(
+    15,
     'COMPLETE LOVE',
     'PHOTOGRAPHY ANALOG SERIES',
     'Photography',
@@ -995,55 +1154,64 @@ INSERT INTO Project VALUES(
 
 INSERT INTO Description VALUES(
     NULL,
-    13,
+    15,
     'Motivated by the book "Complete Love", by Ingo Niermann, I decided to creat this series of on-going photographs. Like Ingo, I believe that all people, with all types of bodies, are sexy. This project intends to function as an infinite exposure of bodies, portraying their behavior on hot days, giving preference to beautiful elder bodies. With this, I intend to create a space that values bodies, identities and experiences.'
 );
 
 INSERT INTO Description VALUES(
     NULL,
-    13,
+    15,
     '"To avoid any physical discrimination whatsoever, an employer shouldn''t be able to see applicants before or after hiring them. Telecommunications had long made this a possibility. Physical discrimination would then be reserved for private life only. And even there you could postpone it until after the alliance, as demonstrated by Islam. Covering up was a great egalitarian measure - if only men were required to do it as well. It meant an enormous civilising capacity, loving someone regardless of how they looked. Western modernity had distanced itself from this more and more. We might of course wonder whether love was ever regarded as very important traditionally."
     Ingo Niermann on Complete Love'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    13,
+    15,
     'Photography',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    13,
+    15,
     'Texts',
     'Ingo Niermann'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    13,
+    15,
     'Art Direction',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    13,
+    15,
     'Laboratory',
     'Lab Center PT'
 );
 
-INSERT INTO Image VALUES(NULL,13,1,'COMPLETE LOVE');
-INSERT INTO Image VALUES(NULL,13,2,'COMPLETE LOVE');
-INSERT INTO Image VALUES(NULL,13,3,'COMPLETE LOVE');
-INSERT INTO Image VALUES(NULL,13,4,'COMPLETE LOVE');
-INSERT INTO Image VALUES(NULL,13,5,'COMPLETE LOVE');
-INSERT INTO Image VALUES(NULL,13,6,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,1,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,2,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,3,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,4,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,5,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,6,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,7,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,8,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,9,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,10,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,11,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,12,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,13,'COMPLETE LOVE');
+INSERT INTO Image VALUES(NULL,15,14,'COMPLETE LOVE');
 
-/*Project 14*/
+
+/*Project 16*/
 INSERT INTO Project VALUES(
-    14,
+    16,
     'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN , MATOSINHOS',
     'WORK DEVELOPED IN ESAD-IDEA.',
     'ESAD/ ESAD-IDEA Editorial Poster',
@@ -1054,187 +1222,41 @@ INSERT INTO Project VALUES(
 
 INSERT INTO Description VALUES(
     NULL,
-    14,
+    16,
     'Work developed in ESAD — idea.'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    14,
+    16,
     'Art Direction',
     'Inês Nepomuceno'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    14,
+    16,
     'Graphic Design',
     'Catarina Freitas,Inês Nepomuceno,Susana Martins,Susana Carreiras,Estepheny Abreu'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    14,
+    16,
     'Photography',
     'Catarina Freitas'
 );
 
 INSERT INTO Credits VALUES(
     NULL,
-    13,
+    16,
     'Print',
     'ESAD—Matosinhos'
 );
 
-INSERT INTO Image VALUES(NULL,14,1,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN');
-INSERT INTO Image VALUES(NULL,14,2,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN');
-INSERT INTO Image VALUES(NULL,14,3,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN');
-INSERT INTO Image VALUES(NULL,14,4,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN');
-INSERT INTO Image VALUES(NULL,14,5,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN');
-INSERT INTO Image VALUES(NULL,14,6,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN');
-
-/*Project 15*/
-INSERT INTO Project VALUES(
-    15,
-    '"REPEAT AFTER ME: WE DO NOT LIVE IN A BUBBLE.<br>WHAT WE DO MATTERS" - <span class="italic">SERIES OF POSTERS</span>',
-    NULL,
-    'SELF-INITIATED',
-    '2020',
-    'Poster Design,COVID—2019,Message,Society,Hyper Text',
-    'March—October 2020'
-);
-
-INSERT INTO Description VALUES(
-    NULL,
-    15,
-    '"And the people stayed home. And read books, and listened, and rested, and exercised, and made art, and played games, and learned new ways of being, and were still. And listened more deeply. Some meditated, some prayed, some danced. Some met their shadows. And the people began to think differently. And the people healed. And, in the absence of people living in ignorant, dangerous, mindless, and heartless ways, the earth began to heal. And when the danger passed, and the people joined together again, they grieved their losses, and made new choices, and dreamed new images, and created new ways to live and heal the earth fully, as they had been healed."'
-    );
-
-INSERT INTO Description VALUES(
-    NULL,
-    15,
-    'These few days, I started using Instagram as a form of hypertext, sharing books, movies or other relevant context, relating it to our current situation. "At its most sophisticated level, hypertext is a software environment for collaborative work, communication, and knowledge acquisition. It mimics the brain''s ability to store and retrieve information by referential links for quick and intuitive access."
-    Janet Fiderio'
-);
-
-INSERT INTO Description VALUES(
-    NULL,
-    15,
-    'Inspired by First Love Studio and Subliming.jpg, I decided to make a poster about what has been happening outside our lives. Being black is not a crime.'
-);
-
-INSERT INTO Description VALUES(
-    NULL,
-    15,
-    '"Right of revolution is the right and duty of the people of a nation to overthrow a government that acts against their common interests and threatens the safety of the people without cause." Using the words of Jane Elliott: "You know what''s happening, you know you don''t want it for you... I want to know why are you so willing to accept it or to allow it to happen for others." 
-    No more deaths. End police brutality.'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    15,
-    'Editorial Coordination',
-    'Catarina Freitas'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    15,
-    'Art Direction',
-    'Catarina Freitas'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    15,
-    'Graphic Design',
-    'Catarina Freitas'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    15,
-    'Texts',
-    'Law Magazine,"The Truman Show" Movie, "The Farewell" Movie,"I have a weekness for a touch of Red",First Love Studio,Subliming.jpg,Jane Elliott'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    15,
-    'Collected by',
-    'Catarina Freitas'
-);
-
-INSERT INTO Image VALUES(NULL,15,1,"WE DO NOT LIVE IN A BUBBLE");
-INSERT INTO Image VALUES(NULL,15,2,"WE DO NOT LIVE IN A BUBBLE");
-INSERT INTO Image VALUES(NULL,15,3,"WE DO NOT LIVE IN A BUBBLE");
-INSERT INTO Image VALUES(NULL,15,4,"WE DO NOT LIVE IN A BUBBLE");
-INSERT INTO Image VALUES(NULL,15,5,"WE DO NOT LIVE IN A BUBBLE");
-INSERT INTO Image VALUES(NULL,15,6,"Black Lives matter");
-
-/*Project 16*/
-INSERT INTO Project VALUES(
-    16,
-    "POSTER 'REPEAT AFTER ME: BEING BLACK ISN'T A CRIME.<br>END POLICE BRUTALITY. BLACK LIVES MATTER'.",
-    NULL,
-    'Self-Initiated',
-    '2020',
-    'Poster Design,Black Lives Matter,End Police Brutality,No more deaths',
-    'June 2020'
-);
-
-INSERT INTO Description VALUES(
-    NULL,
-    16,
-    'Inspired by First Love Studio and Subliming.jpg, I''ve decided to make this poster about what has been happening outside our lives. Being black is not a crime.'
-);
-
-INSERT INTO Description VALUES(
-    NULL,
-    16,
-    '"Right of revolution is the right and duty of the people of a nation to overthrow a government that acts against their common interests and threatens the safety of the people without cause." Using the words of Jane Elliott: "You know what''s happening, you know you don''t want it for you... I want to know why are you so willing to accept it or to allow it to happen for others."'
-);
-
-INSERT INTO Description VALUES(
-    NULL,
-    16,
-    'No more deaths. End police brutality.'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    16,
-    'Art Direction',
-    'Catarina Freitas'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    16,
-    'Graphic Design',
-    'Catarina Freitas'
-);
-INSERT INTO Credits VALUES(
-    NULL,
-    16,
-    'Texts',
-    'First Love Studio,Subliming.jpg,Jane Elliott'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    16,
-    'Collected by',
-    'Catarina Freitas'
-);
-
-INSERT INTO Credits VALUES(
-    NULL,
-    16,
-    'Music',
-    'I Don''t Want to Set the World on Fire,The Ink Spots'
-);
-
-
-INSERT INTO Image VALUES(NULL,16,1,"BLACK LIVES MATTER");
-INSERT INTO Image VALUES(NULL,16,2,"BLACK LIVES MATTER");
+INSERT INTO Image VALUES(NULL,16,1,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN');
+INSERT INTO Image VALUES(NULL,16,2,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN');
+INSERT INTO Image VALUES(NULL,16,3,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN');
+INSERT INTO Image VALUES(NULL,16,4,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN');
+INSERT INTO Image VALUES(NULL,16,5,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN');
+INSERT INTO Image VALUES(NULL,16,6,'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN');

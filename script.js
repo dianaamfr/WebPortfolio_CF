@@ -19,7 +19,7 @@ function nextSlide(slider) {
     activeSlide[sliderIdx]++;
     (activeSlide[sliderIdx] === slides.length) ? (activeSlide[sliderIdx] = 0) : null;
 
-    const time = Math.floor(Math.random() * 4000) + 2000;
+    const time = (sliderIdx !== 2) ? (Math.floor(Math.random() * 4000) + 2000) : 6000;
     setTimeout(function(){ nextSlide(slider) }, time);
     
 }
@@ -122,9 +122,7 @@ function loadAlternativeShapes(shapesPattern, ctx) {
 }
 
 function randomWithProbability() {
-    let notRandomNumbers = [1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
-    let idx = Math.floor(Math.random() * notRandomNumbers.length);
-    return notRandomNumbers[idx];
+    return Math.floor(Math.random() * 5 + 1);
 }
 
 // Menu buttons
@@ -229,17 +227,6 @@ function showElement(el) {
     el.style.display = 'block';
 }
 
-// Content height
-
-function projectsHeight() {
-    const projectDescription = document.querySelectorAll('.description')[1];
-    const content = document.querySelector('#content');
-
-    sliders.forEach(projectSlider => projectSlider.style.height = (content.offsetHeight - projectDescription.offsetHeight) + 'px');
-}
-
-
-
 // Load projects/about
 
 if(wrapper){
@@ -248,9 +235,9 @@ if(wrapper){
         window.history.pushState({}, "Hide", "index.php");
     }
 
-    if(canvas){
+    /*if(canvas){
         drawShapes();
-    }
+    }*/
 
     sliders.forEach(nextSlide);
 
@@ -262,8 +249,6 @@ if(wrapper){
 
     aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',openAbout));
     projectButtons.forEach(projectBtn => projectBtn.addEventListener('click',closeAbout));
-
-    projectsHeight();
 
  };
 
@@ -296,6 +281,10 @@ let slides = document.getElementsByClassName('project_slider_track')[0];
 let plus = document.querySelector('.project_page .icon_plus');
 
 let projectContent = document.getElementsByClassName('project_content')[0];
+let projectLeftText = document.querySelector('.project_content > div:first-child');
+let projectRightText = document.querySelector('.project_content > div:last-child');
+let projectDesc = document.querySelector('.project_description');
+let projectInfo = document.querySelector('.project_info');
 let activeSection = 1;
 
 let leftArrow = document.querySelector('.arrows img');
@@ -304,13 +293,15 @@ let rightArrow = document.querySelector('.arrows img:last-child');
 let nSlides = dots.length;
 
 if(projectPage){
+    let offsetBase = parseInt(getComputedStyle(document.getElementsByClassName('project_page_slide')[0]).getPropertyValue('margin-right'));
+
     // dots
     dots.forEach(dot => dot.addEventListener('click', function(event){
         let newSlide = parseInt(dot.getAttribute('data-slide'));
         
         if(actualSlide != newSlide){
             let move = newSlide * 50;
-            let offset = 10 * newSlide;
+            let offset = offsetBase * newSlide;
 
             slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
 
@@ -335,7 +326,7 @@ if(projectPage){
 
         actualSlide--;
         let move = actualSlide * 50;
-        let offset = 10 * actualSlide;
+        let offset = offsetBase * actualSlide;
         
         dots[actualSlide].click();
         slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
@@ -353,7 +344,7 @@ if(projectPage){
 
         actualSlide++;
         let move = actualSlide * 50;
-        let offset = 10 * actualSlide;
+        let offset = offsetBase * actualSlide;
 
         dots[actualSlide].click();
         slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
@@ -368,6 +359,17 @@ if(projectPage){
 
     // plus
     plus.addEventListener('click', function(){
+        // handle text overflow
+
+        if(window.screen.availWidth > 1150 ){
+            while(projectLeftText.scrollHeight > projectLeftText.clientHeight){
+                let lastP = projectDesc.lastElementChild;       
+                lastP.style.flex = '1';     
+                projectRightText.insertBefore(lastP, projectInfo);
+                projectDesc.removeChild(projectDesc.lastChild);
+            }
+        }
+
         plus.classList.toggle('rotate');
 
         if(activeSection === 1){

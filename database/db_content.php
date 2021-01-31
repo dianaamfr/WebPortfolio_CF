@@ -20,6 +20,17 @@ function getProjectFirstImages($projectId){
     return $stmt->fetchAll();
 }
 
+function getMechaImages(){
+    $projectId = 3;
+    $db = Database::instance()->db();
+    $stmt = $db->prepare("SELECT imageOrder, description 
+                          FROM Image 
+                          WHERE projectId = ? AND imageOrder >= 1 AND imageOrder >= 5
+                          ORDER BY imageOrder ASC");
+    $stmt->execute(array($projectId));
+    return $stmt->fetchAll();
+}
+
 function getProjectById($projectId){
     $db = Database::instance()->db();
     $stmt = $db->prepare("SELECT * 

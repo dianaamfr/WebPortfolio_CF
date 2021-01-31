@@ -169,14 +169,15 @@ body > div > header, #canvas_under > header {
 
 #header_slider {
     overflow:hidden;
-	position: relative;
+    position: relative;
+    width: 100%;
 }
 
 #header_slide_track {
-    animation: slide_to_left 25s linear infinite;
-    animation-delay: 8.75s;
+    animation: slide_to_left 15s ease-in-out infinite;
+    animation-delay: 3s;
     display: flex;
-    width: 300%;
+    width: 200%;
 }
 
 #header_slide_track:hover{
@@ -184,7 +185,7 @@ body > div > header, #canvas_under > header {
 }
 
 .header_slide {
-    width: 33.33%;
+    width: 50%;
 }
 
 .header_text {
@@ -208,8 +209,7 @@ body > div > header, #canvas_under > header {
 
 @keyframes slide_to_left {
 	0% { transform: translateX(0); }
-	15%, 50% { transform: translateX(-33.33%);}
-	65%, 100% { transform: translateX(-66.66%);}
+	100% { transform: translateX(-50%);}
 }
 
 .menu_desktop{
@@ -259,6 +259,7 @@ body > div > header, #canvas_under > header {
 }
 
 .pair {
+    height: 100%;
     border-top: 2px solid var(--stroke_grey);
     border-bottom: 2px solid var(--stroke_grey);
     margin-bottom: 40px;
@@ -272,16 +273,16 @@ body > div > header, #canvas_under > header {
 
 .pair_left, .pair_right {
     width: 50vw;
+    height: 100%;
 }
 
 .project_slider {
     width: calc(50vw - 34px);
-    max-height: calc(50vw - 34px);
+    height: calc(100% - 80px);
     border: 2px solid var(--stroke_grey);
     border-bottom: none;
     border-top: none;
     overflow: hidden;
-    max-height: calc(50vw - 34px);
 }
 
 .pair_left > .project_slider, .pair_left > .description {
@@ -307,8 +308,7 @@ body > div > header, #canvas_under > header {
 
 .description {
     width: calc(50vw - 34px);
-    min-height: 80px;
-    background-color: var(--black);
+    height: 80px;
     border: 2px solid var(--stroke_grey);
     border-top: none;
     border-bottom: none;
@@ -320,8 +320,7 @@ body > div > header, #canvas_under > header {
 .icon_plus {
     padding-right: 20px;
     padding-left: 20px;
-    width: 2vw;
-    min-width: 30px;
+    width: 42px;
     cursor: pointer;
     transition: transform .5s ease-in-out;
 }
@@ -346,7 +345,6 @@ body > div > header, #canvas_under > header {
 .description p {
     margin: 16px;
     text-transform: uppercase;
-    max-width:75%;
 }
 
 /* About section */
@@ -357,7 +355,6 @@ body > div > header, #canvas_under > header {
     top: 0%;
     right: calc(-50vw + 10px);
     transition: transform 2s ease-in-out;
-    margin-left: 14px;
     background-color: var(--black);
     height: 100%;
     display: flex;
@@ -366,7 +363,7 @@ body > div > header, #canvas_under > header {
 }
 
 #about_content {
-    width: calc(50vw - 44px);
+    width: calc(50vw - 34px);
     border: 2px solid var(--stroke_grey);
     border-top: none;
     border-bottom: none;
@@ -539,7 +536,6 @@ body > div > header, #canvas_under > header {
 
 #education > div {
     padding: 20px;
-    width: calc(50vw - 74px);
     flex: 1;
     overflow: auto;
     -ms-overflow-style: none; /* IE 11 */
@@ -584,15 +580,16 @@ footer {
 
 #footer_slider {
     overflow:hidden;
-	position: relative;
+    position: relative;
+    width: 100%;
 }
 
 #footer_slide_track {
-    animation: slide_to_right 25s linear infinite;
-    animation-delay: 8.75s;
+    animation: slide_to_right 15s ease-in-out infinite;
+    animation-delay: 3s;
     display: flex;
-    width: 300%;
-    transform: translateX(-66.66%);
+    width: 200%;
+    transform: translateX(-50%);
 }
 
 #footer_slide_track:hover{
@@ -600,13 +597,12 @@ footer {
 }
 
 .footer_slide {
-    width: 33.33%;
+    width: 50%;
 }
 
 @keyframes slide_to_right {
-	0% { transform: translateX(-66.66%); }
-	15%, 50% { transform: translateX(-33.33%); }
-	65%, 100% { transform: translateX(0%); }
+	0% { transform: translateX(-50%); }
+	100% { transform: translateX(0%); }
 }
 
 .footer_content {
@@ -667,6 +663,12 @@ footer {
     padding: 20px;
     overflow: auto;
     position: relative;
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+.project_content > div::-webkit-scrollbar {
+    display: none;
 }
 
 .project_content > div:nth-child(2) {
@@ -707,7 +709,6 @@ footer {
     column-count:2;
     column-gap: 80px;
     column-fill: auto;
-    height: 60%;
 }
 
 .project_info section{
@@ -795,7 +796,7 @@ footer {
 
 .arrows {
     position: absolute;
-    top: 20px;
+    top: 10px;
     display: flex;
     justify-content: space-between;
     margin-right: 40px;
@@ -804,8 +805,7 @@ footer {
 }
 
 .arrows img {
-    max-width: 40px;
-    opacity: 0.8;
+    width: 45px;
     transition: all .4s ease-in-out;
 }
 
@@ -855,6 +855,88 @@ footer {
     max-width: 75%;
 }
 
+
+/* Margens */
+
+@media only screen and (min-width: 1920px){
+    .header_text, .footer_content {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    /* All Projects page */
+    .header_text, .footer_content {
+        width: calc(100vw - 80px);
+    }
+
+    .pair_left > .project_slider, .pair_left > .description{
+        margin-left: 40px;
+    }
+
+    .pair_right > .project_slider, .pair_right > .description{
+        margin-right: 40px;
+        margin-left: 20px;
+    }
+
+    .project_slider, .description {
+        width: calc(50vw - 64px);
+    }
+
+    /* Project page */
+    .project_page_slide{
+        margin-left: 20px;
+        margin-right: 20px;
+        width: calc(50vw - 64px);
+    }
+    
+    .project_page_slide:first-child{
+        margin-left: 40px;
+    }
+
+    .arrows {
+        margin-right: 60px;
+        margin-left: 60px;
+        width: calc(100% - 120px);
+    }
+
+    .project_page_description, .project_content {
+        width: calc(100vw - 84px);
+    }
+
+    .project_content {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .arrows {
+        top: 20px;
+    }
+
+    #credits_part1, #credits_part2 {
+        width: calc(50vw - 104px);
+    }
+
+    #education {
+        width: calc(50vw - 64px);
+        right: 40px;
+    }
+
+    .slide_in {
+        transform: translateX(calc(-50vw + 20px));
+    }
+
+    #about {
+        width: calc(50vw - 20px);
+        right: calc(-50vw + 20px);
+    }
+
+    #about_content {
+        width: calc(50vw - 64px);
+    }
+}
+
 @media only screen and (max-width: 1300px) {
     .social_media h2 {
         margin-right: 7px;
@@ -862,14 +944,12 @@ footer {
 }
 
 @media only screen and (max-width: 1150px) {
-    .social_media{
+    .social_media {
         display: block;
     }
-}
 
-@media only screen and (max-width: 1080px) {
-    #work_areas {
-        display: none;
+    .project_content > div {
+        overflow: auto;
     }
 }
 

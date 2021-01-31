@@ -32,7 +32,7 @@ function drawFooter(){?>
     <footer>
         <div id="footer_slider">
             <div id="footer_slide_track">
-                <?php for($i = 0; $i < 3; $i++){
+                <?php for($i = 0; $i < 2; $i++){
                     drawFooterSlide();
                 }?>
             </div>
@@ -45,7 +45,7 @@ function drawHeader(){ ?>
     <header>
         <div id="header_slider">
             <div id="header_slide_track">
-                <?php for($i = 0; $i < 3; $i++){
+                <?php for($i = 0; $i < 2; $i++){
                     drawHeaderSlide();
                 }?>
             </div>
@@ -108,10 +108,17 @@ function active($currect_page){
 function drawProjectPreview($project){ ?>
     <div class="project_slider">
         <?php 
-        $images1 = getProjectFirstImages($project['projectId']);
-        foreach($images1 as $img){?>
-            <div style="background-image: url('images/projects/project<?=$project['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_slide"></div>
-        <?php } ?>
+        $images1 = $project['projectId'] == 3 ? getMechaImages() : getProjectFirstImages($project['projectId']);
+        foreach($images1 as $img){
+            if($project['projectId'] == 3){ ?>
+                <video class="project_slide" autoplay muted>
+                    <source src="images/projects/project<?=$project['projectId']?>/video<?=$img['imageOrder']?>.m4v">
+                </video>
+            <?php }
+            else{ ?>
+                <div style="background-image: url('images/projects/project<?=$project['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_slide"></div>
+            <?php } 
+        } ?>
     </div>
     <div class="line"></div>
     <div class="description">

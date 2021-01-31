@@ -15,9 +15,16 @@ drawHead(); ?>
     <div class="project_sections">  
         <div class="project_page_slider">
             <div class="project_slider_track" style="width:<?=count($images)*100?>%">
-                <?php foreach($images as $img){?>
-                    <div style="background-image: url('images/projects/project<?=$project['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_page_slide"></div>
-                <?php } ?>
+                <?php foreach($images as $img){
+                    if($project['projectId'] == 3){ ?>
+                        <video class="project_page_slide" autoplay muted>
+                            <source src="images/projects/project<?=$project['projectId']?>/video<?=$img['imageOrder']?>.m4v">
+                        </video>
+                    <?php }
+                    else{ ?>
+                        <div style="background-image: url('images/projects/project<?=$project['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_page_slide"></div>
+                <?php } 
+                } ?>
             </div>
 
             <div class="arrows">
