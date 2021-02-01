@@ -361,7 +361,7 @@ if(projectPage){
     plus.addEventListener('click', function(){
         // handle text overflow
 
-        if(window.screen.availWidth > 1150 ){
+        if(window.screen.availWidth > 1999.98 ){
             while(projectLeftText.scrollHeight > projectLeftText.clientHeight){
                 let lastP = projectDesc.lastElementChild;       
                 lastP.style.flex = '1';     
@@ -382,3 +382,14 @@ if(projectPage){
         activeSection = -activeSection;
     })
 }
+
+// Responsive menu
+
+let burger = document.getElementById('burger');
+let menuResponsive = document.querySelector('.menu_responsive');
+let headerHeight = document.getElementById('header_slider').offsetHeight + 4;
+    
+burger.addEventListener('click', function() {
+    menuResponsive.classList.toggle('menu_opened');
+    menuResponsive.style.top = headerHeight.toString() +'px';
+})

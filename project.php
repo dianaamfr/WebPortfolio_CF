@@ -13,11 +13,17 @@ drawHead(); ?>
 <div class="project_page">
     <?php drawHeader(); ?>
     <div class="project_sections">  
+
+        <header class="responsive_project_header">
+            <span class="year"><?=$project['year']?></span>
+            <h2 class="title"><?=$project['title']?></h2>
+        </header>
+
         <div class="project_page_slider">
             <div class="project_slider_track" style="width:<?=count($images)*100?>%">
                 <?php foreach($images as $img){
-                    if($project['projectId'] == 3){ ?>
-                        <video class="project_page_slide" autoplay muted>
+                    if(($project['projectId'] == 3) || (($project['projectId'] == 2) && ($img['imageOrder'] >= 9))){ ?>
+                        <video class="project_page_slide" loop autoplay muted>
                             <source src="images/projects/project<?=$project['projectId']?>/video<?=$img['imageOrder']?>.m4v">
                         </video>
                     <?php }

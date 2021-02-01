@@ -51,7 +51,7 @@ body {
 h2 {
     font-family: tacite;
     font-weight: 200;
-    font-size: 16px;
+    font-size: 14px;
     color: var(--grey);
     text-transform: uppercase;
 }
@@ -150,6 +150,7 @@ a.active_page:link {
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 canvas {
@@ -214,6 +215,10 @@ body > div > header, #canvas_under > header {
 
 .menu_desktop{
     float: right;
+}
+
+#burger_container, .menu_responsive{
+    display: none;
 }
 
 .menu_desktop ul {
@@ -681,15 +686,21 @@ footer {
     padding-bottom: 20px;
 }
 
-.project_content header .year{
+.project_content header .year, .responsive_project_header .year{
     font-family: haas_grot_disp;
     font-weight: 200;
     font-size: 16px;
     margin-right: 65px;
+    color: var(--grey);
 }
 
 .project_content header h2{
     display: inline;
+}
+
+.project_description{
+    text-align: justify;
+    hyphens: auto;
 }
 
 .keywords {
@@ -725,6 +736,7 @@ footer {
 
 /*Project Page Slider*/
 .project_page_slider {
+    width: 100%;
     height: calc(100% - 80px);
     flex: 1;
     overflow: hidden;
@@ -766,7 +778,6 @@ footer {
     left: 50%;
     transform: translate(-50%, 0);
     display: flex;
-
 }
 
 .dots input {
@@ -855,6 +866,15 @@ footer {
     max-width: 75%;
 }
 
+.responsive_project_header {
+    display: none;
+    margin-right: 20px;
+    margin-left:20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-right: 2px solid var(--grey);
+    border-left: 2px solid var(--grey);
+}
 
 /* Margens */
 
@@ -943,12 +963,170 @@ footer {
     }
 }
 
-@media only screen and (max-width: 1150px) {
+/* Tablet */
+@media only screen and (max-width: 1199.98px) {
+
+    /* Menu */
+    .menu_desktop {
+        display: none;
+    }
+
+    #header_slide_track {
+        animation:  unset;
+    }
+
+    #burger_container{
+        display: flex;
+        flex: 20%;
+        justify-content: flex-end;
+    }
+
+    .menu_responsive.menu_opened {
+        display: block;
+        position: absolute;
+        width: 50vw;
+        z-index: 3;
+        padding: 0px 48px 0px;
+        background-color: black;
+        border-right: 2px solid var(--stroke_grey);
+        height: 100%;
+    }
+
+    .menu_responsive li {
+        list-style-type: none;
+        margin-top: 5px;
+    }
+
+    #burger {
+        width: 20px;
+        height: 10px;
+    }
+
+    .bar{
+        width: 100%;
+        height: 2px;
+        display: block;
+        position: relative;
+        background: white;
+    }
+
+    #btmBar {
+        transform: translateY(6px)
+    }
+
+
+    /* Projects */
     .social_media {
         display: block;
     }
 
     .project_content > div {
+        overflow: auto;
+    }
+
+    .pair {
+        height: calc((50% - 20px));
+        border: unset;
+    }
+
+    .line{
+        display: none;
+    }
+
+    .description {
+        border-bottom: 2px solid var(--stroke_grey);
+        border-top: 2px solid var(--stroke_grey);
+    }
+
+    .project_slider {
+        border-top: 2px solid var(--stroke_grey);
+    }
+
+    .pair:first-child .project_slider {
+        border-top: unset;
+    }
+
+    /* Project Page */
+    .project_page_slider {
+        height: calc(50vw - 44px);
+        overflow-y: initial;
+    }
+
+    .responsive_project_header {
+        display: flex;
+        border-right: unset;
+        border-left: unset;
+    }
+
+    .subtitle{
+        margin: 16px;
+        text-transform: uppercase;
+    }
+
+    .project_page_description {
+        display: none;
+    }
+
+    .project_page_slide {
+        border-top: 2px solid var(--stroke_grey);
+        border-bottom: 2px solid var(--stroke_grey);
+        height: calc(50vw - 80px);
+    }
+
+    .page_title{
+        margin-right: unset;
+        flex: 20%;
+    }
+
+    .page_description{
+        flex: 60%;
+        text-align: center;
+    }
+
+    .project_page_line{
+        display: none;
+    }
+
+    .project_slider_track {
+        height: calc(50vw - 80px);
+    }
+
+    .project_content{
+        position: static;
+        height: auto;
+        transform: translateY(0);
+        border-left: unset; 
+        border-right: unset; 
+        border-top: unset; 
+        padding-top: 20px;
+    }
+
+    .dots{
+        position: static;
+        transform: translateY(0);
+        padding-top: 20px;
+        justify-content: center;
+    }
+
+    .arrows {
+        display: none;
+    }
+
+    .project_content header {
+        display: none;
+    }
+
+    .project_content > div{
+        padding-top: unset;
+    }
+
+    .project_description{
+        text-align: left;
+        hyphens: none;
+    }
+
+    .project_sections{
+        height: auto;
         overflow: auto;
     }
 }
@@ -974,11 +1152,6 @@ footer {
 
     .page_description {
         flex: none;
-    }
-
-    /* change to hamburguer menu? */
-    .menu_desktop {
-        display: none;
     }
 
     /* change to icons? */

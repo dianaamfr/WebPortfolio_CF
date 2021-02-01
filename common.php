@@ -51,6 +51,14 @@ function drawHeader(){ ?>
             </div>
         </div>
     </header>
+    <nav class="menu_responsive">
+        <ul>
+            <li><a <?php if(active('about.php')){echo 'active_page';}?>" href="about.php">About</a></li>
+            <li><a <?php if(!active('education.php') && !active('credits.php') && !active('about.php')){echo 'active_page';} ?>" href="index.php">Projects</a></li>
+            <li><a <?php if(active('education.php')){echo 'active_page';} ?>" href="education.php">Education</a></li>
+            <li><a <?php if(active('credits.php')){echo 'active_page';}?>" href="credits.php">Credits</a></li>
+        </ul>
+    </nav>
 <?php } ?>
 
 <?php
@@ -67,6 +75,13 @@ function drawHeaderSlide(){ ?>
                     <li><a class="credits_btn <?php if(isset($_GET['credits'])){echo 'active_page';}?>" href="education.php?credits=">Credits</a></li>
                 </ul>
             </nav>
+
+            <div id="burger_container">
+                <div id="burger">
+                    <div id="topBar" class="bar"></div>
+                    <div id="btmBar" class="bar"></div>
+                </div>
+            </div>
         </div>  
     </div>
 <?php } ?>
@@ -111,7 +126,7 @@ function drawProjectPreview($project){ ?>
         $images1 = $project['projectId'] == 3 ? getMechaImages() : getProjectFirstImages($project['projectId']);
         foreach($images1 as $img){
             if($project['projectId'] == 3){ ?>
-                <video class="project_slide" autoplay muted>
+                <video class="project_slide" loop autoplay muted>
                     <source src="images/projects/project<?=$project['projectId']?>/video<?=$img['imageOrder']?>.m4v">
                 </video>
             <?php }
