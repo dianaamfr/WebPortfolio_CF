@@ -394,13 +394,18 @@ body > div > header, #canvas_under > header {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
 }
 
 #work_areas p {
     display: inline-block;
+    margin-bottom: 0px;
+}
+
+#catarina_description {
+    margin-bottom: 20px;
 }
 
 #catarina_description p {
@@ -410,7 +415,11 @@ body > div > header, #canvas_under > header {
     margin-right: 20px;
 }
 
-#about img {
+#catarina_description p:last-child {
+    margin-bottom: 0px;
+}
+
+#about img{
     width: 100%;
 }
 
@@ -422,10 +431,12 @@ body > div > header, #canvas_under > header {
     width: 33%;
     border-right: 2px solid var(--stroke_grey);
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #details>div:first-of-type {
-    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 #details>div:last-of-type {
@@ -447,11 +458,30 @@ body > div > header, #canvas_under > header {
     padding-left: 20px;
 }
 
-#languages {
-    position: absolute;
-    bottom: 0;
+#details > div:first-child .details_block:nth-last-child(2){
+    flex: 1;
 }
 
+.details_block:last-child{
+    margin-bottom: unset;
+}
+
+.details_block p:last-child{
+    margin-bottom: unset;
+}
+
+/* About page responsive */
+
+#about_page {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#catarina_description + img{
+    width: calc(100% - 40px);
+    margin: 0 20px;
+}
 
 /* Education */
 
@@ -482,13 +512,8 @@ body > div > header, #canvas_under > header {
     border-bottom: none;
     padding: 20px;
     overflow: auto;
-    position: relative;
-}
-
-#credits_part1 > div {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
+    display: flex;
+    align-items: flex-end;
 }
 
 #credits_part1 > div > div{ 
@@ -510,7 +535,6 @@ body > div > header, #canvas_under > header {
 .quote {
     font-family: tacite;
     font-weight: 200;
-    font-size: 18px;
     line-height: 19px;
     margin-bottom: 6px;
 }
@@ -547,14 +571,12 @@ body > div > header, #canvas_under > header {
     scrollbar-width: none; /* Firefox 64 */
 }
 
-#education > div::-webkit-scrollbar {
-    display: none;
+#education > div p:last-child {
+    margin: 0px;
 }
 
-#credits_part2 > div {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
+#education > div::-webkit-scrollbar {
+    display: none;
 }
 
 #credits_part2 > div > div{ 
@@ -570,6 +592,43 @@ body > div > header, #canvas_under > header {
 }
 
 #credits_part2 p:nth-child(even){
+    padding-left: 80px;
+}
+
+/* Credits responsive */
+#credits_page{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#credits_page_content {
+    height: 100%;
+    flex: 1;
+    padding: 20px;
+}
+
+#credits_page_content h2 {
+    margin-bottom: 16px;
+}
+
+#credits_top {
+    margin-bottom: 40px;
+}
+
+#credits_top > div, #credits_bottom > div{
+    column-count: 2;
+}
+
+#credits_top > div > div, #credits_bottom > div > div{
+    display: table-row; 
+}
+
+#credits_top p, #credits_bottom p {
+    display: table-cell; 
+}
+
+#credits_top p:nth-child(even), #credits_bottom p:nth-child(even) {
     padding-left: 80px;
 }
 
@@ -623,6 +682,9 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+.social_media_mobile {
+    display: none;
 }
 
 .social_media h2 {
@@ -941,6 +1003,7 @@ footer {
     #education {
         width: calc(50vw - 64px);
         right: 40px;
+        overflow: initial;
     }
 
     .slide_in {
@@ -997,6 +1060,10 @@ footer {
         margin-top: 5px;
     }
 
+    .footer_content {
+        display: none;
+    }
+
     #burger {
         width: 20px;
         height: 10px;
@@ -1014,12 +1081,29 @@ footer {
         transform: translateY(6px)
     }
 
-
-    /* Projects */
+    #footer_slide_track {
+        animation: unset;
+    }
+    
     .social_media {
-        display: block;
+        display: none;
     }
 
+    .social_media_mobile {
+        display: block;
+        padding: 20px;
+    }
+
+    .social_media_mobile a {
+        display: inline-block;
+    }
+
+    .social_media_mobile img{
+        width: 40px;
+        margin-right: 10px;
+    }
+
+    /* Projects */
     .project_content > div {
         overflow: auto;
     }
@@ -1126,9 +1210,39 @@ footer {
     }
 
     .project_sections{
-        height: auto;
         overflow: auto;
     }
+
+    /* Education responsive */
+
+    #credits_part1, #credits_part2 {
+        display: none;
+    }
+
+    #education {
+        position: static;
+        width: 100%;
+    }
+
+    #education_content {
+        height: auto;
+        display: block;
+        flex: 1;
+    }
+
+    #education > div {
+        overflow: initial;
+    }
+
+    #work_areas {
+        justify-content: flex-end;
+        margin-bottom: 40px;
+    }
+
+    #work_areas p {
+        margin-left: 20px;
+    }
+
 }
 
 @media only screen and (max-width: 1000px) {
@@ -1152,19 +1266,6 @@ footer {
 
     .page_description {
         flex: none;
-    }
-
-    /* change to icons? */
-    .social_media {
-        height: 30px;
-    }
-
-    .social_media a {
-        display: none;
-    }
-
-    .social_media h2 {
-        display: none;
     }
 
     /* Education and About take all screen */

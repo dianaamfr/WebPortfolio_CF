@@ -54,9 +54,8 @@ function drawHeader(){ ?>
     <nav class="menu_responsive">
         <ul>
             <li><a <?php if(active('about.php')){echo 'active_page';}?>" href="about.php">About</a></li>
-            <li><a <?php if(!active('education.php') && !active('credits.php') && !active('about.php')){echo 'active_page';} ?>" href="index.php">Projects</a></li>
+            <li><a <?php if(!active('education.php') && !active('about.php')){echo 'active_page';} ?>" href="index.php">Projects</a></li>
             <li><a <?php if(active('education.php')){echo 'active_page';} ?>" href="education.php">Education</a></li>
-            <li><a <?php if(active('credits.php')){echo 'active_page';}?>" href="credits.php">Credits</a></li>
         </ul>
     </nav>
 <?php } ?>
@@ -106,6 +105,12 @@ function drawFooterSlide(){ ?>
                 <h2>Behance:</h2>
                 <a href="https://www.behance.net/catarinaafreitas" target="_blank">behance.net/catarinaafreitas</a>
             </div>
+        </div>
+        <div class="social_media_mobile">
+            <a href="mailto:a.catarina.a.freitas@gmail.com" target="_blank"><img src="items/email.png" alt="email"></a>
+            <a href="https://www.instagram.com/catarinamoranalua/" target="_blank"><img src="items/instagram.png" alt="instagram"></a>
+            <a href="tel:+351916666380" target="_blank"><img src="items/mobile.png" alt="mobile"></a>
+            <a href="https://www.behance.net/catarinaafreitas" target="_blank"><img src="items/behance.png" alt="behance"></a>
         </div>
     </div>
 
