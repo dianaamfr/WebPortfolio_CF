@@ -66,7 +66,7 @@ drawHead(); ?>
                             </div>
                             <div class="details_block" id="languages">
                                 <h3>Languages</h3>
-                                <p>Portuguese: C1</p>
+                                <p>PT: Mother Tongue</p>
                                 <p>English: C1</p>
                                 <p>Spanish: B1</p>
                             </div>

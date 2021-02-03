@@ -51,7 +51,7 @@ body {
 h2 {
     font-family: tacite;
     font-weight: 200;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--grey);
     text-transform: uppercase;
 }
@@ -72,7 +72,7 @@ p {
     font-size: 16px;
     color: var(--grey);
     text-decoration:none;
-    margin-bottom: 16px;
+    
 }
 
 a {
@@ -330,6 +330,10 @@ body > div > header, #canvas_under > header {
     transition: transform .5s ease-in-out;
 }
 
+.description .icon_plus {
+    padding-left: 0px;
+}
+
 .rotate{
     transform: rotate(45deg);
   }
@@ -444,7 +448,7 @@ body > div > header, #canvas_under > header {
 }
 
 #details>div>h2:first-of-type {
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 #details>div>h2 {
@@ -536,17 +540,26 @@ body > div > header, #canvas_under > header {
     font-family: tacite;
     font-weight: 200;
     line-height: 19px;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 }
 
 .author {
     font-family: atlas;
     font-weight: 200;
     font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.in_text, .normal_p {
+    margin-bottom: 20px;
 }
 
 .in_text {
     margin-left: 20px;
+}
+
+.in_text.quote {
+    margin-left: unset;
 }
 
 #education {
@@ -572,7 +585,7 @@ body > div > header, #canvas_under > header {
 }
 
 #education > div p:last-child {
-    margin: 0px;
+    margin-bottom: 0px;
 }
 
 #education > div::-webkit-scrollbar {
@@ -786,6 +799,7 @@ footer {
 
 .project_info section{
     break-inside: avoid-column;
+    margin-bottom: 20px;
 }
 
 .project_info section p:nth-last-child(n+2), .project_info > p {
@@ -1090,7 +1104,7 @@ footer {
     }
 
     .social_media_mobile {
-        display: block;
+        /*display: block;*/
         padding: 20px;
     }
 
@@ -1134,6 +1148,7 @@ footer {
     .project_page_slider {
         height: calc(50vw - 44px);
         overflow-y: initial;
+        overflow-x: scroll;
     }
 
     .responsive_project_header {
@@ -1270,12 +1285,89 @@ footer {
 
     /* Education and About take all screen */
 }
+
+
+@media only screen and (max-width: 575.98px) {
+
+    .header_text {
+        width: calc(100vw - 20px);
+    }
+
+    .pair {
+        height: calc((100vw + 64px) * 2 + 40px);
+        flex-direction: column;
+    }
+
+    .pair:first-child .pair_right .project_slider {
+        border: 2px solid var(--stroke_grey);
+    }
+
+    .pair_left, .pair_right{
+        width: 100vw;
+        height: auto;
+    }
+
+    .pair_left > .project_slider, .pair_left > .description{
+        margin-left: 10px;
+        margin-bottom: 0px;
+    }
+
+    .project_slider{
+        height: calc(100vw - 24px);
+        width: calc(100vw - 24px);
+    }
+
+    .description {
+        width: calc(100vw - 24px);
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .description p {
+        margin: 10px;
+    }
+
     
+    /* Project Page */
+    .dots {
+        display: none;
+    }
 
-@media only screen and (max-width: 750px) {
+    .responsive_project_header {
+        margin-right: 10px;
+        margin-left: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 
-    /* Smaller structure lines */
-    .description, .project_slider {
-        width: calc(50% - 30px);
+    .responsive_project_header .year {
+        margin-right: 20px;
+    }
+
+    .project_page_slider, .project_slider_track {
+        height: calc(100vw - 20px);
+    }
+
+    .project_page_slide:first-child {
+        margin-left: 10px;
+    }
+
+    .project_page_slide {
+        height: calc(100vw - 24px);
+        width: calc(100vw - 24px);
+    }
+
+    .project_content {
+        margin-right: 20px;
+        margin-left: 20px;
+        width: calc(100% - 20px);
+        display: block;
+    }
+
+    .project_content > div {
+        padding: unset;
+        width: 100%;
     }
 }

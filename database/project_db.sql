@@ -281,13 +281,13 @@ INSERT INTO Description VALUES(
     NULL,
     4,
     'These few days, I started using Instagram as a form of hypertext, sharing books, movies or other relevant context, relating it to our current situation. "At its most sophisticated level, hypertext is a software environment for collaborative work, communication, and knowledge acquisition. It mimics the brain''s ability to store and retrieve information by referential links for quick and intuitive access."
-    Janet Fiderio'
+    <br><span class="italic">Janet Fiderio</span>'
 );
 
 INSERT INTO Description VALUES(
     NULL,
     4,
-    'Inspired by First Love Studio and Subliming.jpg, I decided to make a poster about what has been happening outside our lives. Being black is not a crime.'
+    'Inspired by <span class="italic">First Love Studio</span> and <span class="italic">Subliming.jpg</span>, I decided to make a poster about what has been happening outside our lives. Being black is not a crime.'
 );
 
 INSERT INTO Description VALUES(
@@ -657,13 +657,15 @@ INSERT INTO Description VALUES(
 INSERT INTO Description VALUES(
     NULL,
     9,
-    '"Once you get past all the Mr. Vinsons, you''re going to start getting closer and closer - that is, if you want to, and if you look for it and wait for it - to the kind of information that will be very, very dear to your heart. Among other things, you''ll find that you''re not the first person who was ever confused and frightened and even sickened by human behaviour. You''re by no means alone on that score, you''ll be excited and stimulated to know. Many, many men have been just as troubled morally and spiritually as you are right now. Happily, some of them kept records of their troubles. You''ll learn from them - if you want to. Just as someday, if you have something to offer, someone will learn something from you. It''s a beautiful reciprocal arrangement. And it isn''t education. It''s history. It''s poetry." J. D. Salinger'
+    '"Once you get past all the Mr. Vinsons, you''re going to start getting closer and closer - that is, if you want to, and if you look for it and wait for it - to the kind of information that will be very, very dear to your heart. Among other things, you''ll find that you''re not the first person who was ever confused and frightened and even sickened by human behaviour. You''re by no means alone on that score, you''ll be excited and stimulated to know. Many, many men have been just as troubled morally and spiritually as you are right now. Happily, some of them kept records of their troubles. You''ll learn from them - if you want to. Just as someday, if you have something to offer, someone will learn something from you. It''s a beautiful reciprocal arrangement. And it isn''t education. It''s history. It''s poetry."
+    <br><span class="italic">J. D. Salinger</span>'
 );
 
 INSERT INTO Description VALUES(
     NULL,
     9,
-    '"But what about the impossibility of living, what about this stifling mediocrity and this absence of passion? What about this feeling of never really being inside your own skin? Let nobody say these are minor details or secondary points. (...) If you go for revolution and neglect your own self, then you''re going about it backwards." Raoul Vaneigem'
+    '"But what about the impossibility of living, what about this stifling mediocrity and this absence of passion? What about this feeling of never really being inside your own skin? Let nobody say these are minor details or secondary points. (...) If you go for revolution and neglect your own self, then you''re going about it backwards."
+    <br><span class="italic">Raoul Vaneigem</span>'
 );
 
 INSERT INTO Credits VALUES(
@@ -743,7 +745,7 @@ INSERT INTO Description VALUES(
     NULL,
     10,
     'If you didn''t know what sleep was, and you had only seen it in a science fiction movie, you would think it was weird and tell all your friends about the movie you''d seen. They had these people, you know? And they would walk around all day and be ok? And then, once a day, usually after dark, they would lie down on these special platforms and become unconscious. They would stop functioning almost completely, except deep in their minds they would have adventures and experiences that were completely impossible in real life. As they lay there, completely vulnerable to their enemies, their only movements were to occasionally shift from one position to another; or, if one of the "mind adventures" got too real, they would sit up and scream and be glad they weren''t unconscious anymore. Then they would drink a lot of coffee. 
-    George Carlin'
+    <br><span class="italic">George Carlin</span>'
 );
 
 INSERT INTO Credits VALUES(
@@ -994,14 +996,14 @@ INSERT INTO Description VALUES(
     NULL,
     13,
     '"A verdade é que foram muitas as pessoas que, de forma pensada ou espontânea, testemunharam o seu apreço e admiração e deixaram relatos da sua convivência com o Paulo. Havia que registar, para a posteridade, alguns desses testemunhos e, também, deixar impressas as suas notas pessoais, que nos deixou na sua imperdível página de Facebook."
-    Rui Moreira'
+    <br><span class="italic">Rui Moreira</span>'
 );
 
 INSERT INTO Description VALUES(
     NULL,
     13,
     '"A intenção passou a ser, também, a de guardar uma fatia muito particular do tempo de um homem e de uma cidade."
-    Helena Teixeira da Silva'
+    <br><span class="italic">Helena Teixeira da Silva</span>'
 );
 
 INSERT INTO Credits VALUES(
@@ -1105,7 +1107,7 @@ INSERT INTO Description VALUES(
     NULL,
     14,
     'Unlike an ever-reproducible digital file or webpage, a physical book is a solitary experience that can only be enjoyed by one person at a time. When we finish a book, we close the cover and are left in peace; there is no online store pushing us instantly to buy and read more. There are no in-book purchases to be made as we read. No advertisements will ever pop up related to our reading experience. Numerous studies have shown that since the arrival of print, people ́s ability and duration of maintaining attention on a single idea has increased. Print is literally changing how we think, and how we look at the worlds around us. The two are engaged not in a fight, but a dance. Print or digital? That question is as redundant as asking which is better, red or green?"
-    Fully Booked — Ink On Paper — Design & Concepts for New Publications'
+    <br><span class="italic">Fully Booked — Ink On Paper — Design & Concepts for New Publications</span>'
 );
 
 INSERT INTO Credits VALUES(
@@ -1168,7 +1170,7 @@ INSERT INTO Description VALUES(
     NULL,
     15,
     '"To avoid any physical discrimination whatsoever, an employer shouldn''t be able to see applicants before or after hiring them. Telecommunications had long made this a possibility. Physical discrimination would then be reserved for private life only. And even there you could postpone it until after the alliance, as demonstrated by Islam. Covering up was a great egalitarian measure - if only men were required to do it as well. It meant an enormous civilising capacity, loving someone regardless of how they looked. Western modernity had distanced itself from this more and more. We might of course wonder whether love was ever regarded as very important traditionally."
-    Ingo Niermann on Complete Love'
+    <br><span class="italic">Ingo Niermann on Complete Love</span>'
 );
 
 INSERT INTO Credits VALUES(

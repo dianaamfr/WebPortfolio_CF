@@ -53,8 +53,8 @@ function drawHeader(){ ?>
     </header>
     <nav class="menu_responsive">
         <ul>
-            <li><a <?php if(active('about.php')){echo 'active_page';}?>" href="about.php">About</a></li>
             <li><a <?php if(!active('education.php') && !active('about.php')){echo 'active_page';} ?>" href="index.php">Projects</a></li>
+            <li><a <?php if(active('about.php')){echo 'active_page';}?>" href="about.php">About</a></li>
             <li><a <?php if(active('education.php')){echo 'active_page';} ?>" href="education.php">Education</a></li>
         </ul>
     </nav>
@@ -68,8 +68,8 @@ function drawHeaderSlide(){ ?>
             <h2 class="page_description">A selection of projects and collaborations</h2>
             <nav class="menu_desktop">
                 <ul>
-                    <li><a class="about_btn <?php if(isset($_GET['about'])){echo 'active_page';}?>" href="index.php?about=">About</a></li>
                     <li><a class="project_btn <?php if(!isset($_GET['about']) && !isset($_GET['credits']) && !active('education.php')){echo 'active_page';} ?>" href="index.php">Projects</a></li>
+                    <li><a class="about_btn <?php if(isset($_GET['about'])){echo 'active_page';}?>" href="index.php?about=">About</a></li>
                     <li><a class="education_btn <?php if(!isset($_GET['credits']) && !isset($_GET['about']) && active('education.php')){echo 'active_page';} ?>" href="education.php">Education</a></li>
                     <li><a class="credits_btn <?php if(isset($_GET['credits'])){echo 'active_page';}?>" href="education.php?credits=">Credits</a></li>
                 </ul>

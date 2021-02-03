@@ -263,8 +263,6 @@ if(education_wrapper) {
 
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
 
-    //aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',activateAbout));
-
     education.addEventListener('transitionstart',disableEducationScroll);
     education.addEventListener('transitionend',enableEducationScroll);
 
