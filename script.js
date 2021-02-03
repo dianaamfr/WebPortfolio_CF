@@ -253,8 +253,9 @@ if(wrapper){
     projectButtons.forEach(projectBtn => projectBtn.addEventListener('click',closeAbout));
     closeAboutBtn.addEventListener('click', closeAbout)
     
-    // Projects Scroll Sticky
-    projects.addEventListener('wheel', projectsStickyScroll);
+    // Projects Scroll Sticky  
+    // TODO - improve
+    //projects.addEventListener('wheel', projectsStickyScroll);
 
  };
 
@@ -438,9 +439,10 @@ function plusButton(){
 
 // Responsive menu
 
-let burger = document.getElementById('burger');
-let menuResponsive = document.querySelector('#header_slider');
+let burger = document.getElementById('burger_container');
+let header = document.getElementById('header_slider').parentElement
     
 burger.addEventListener('click', function() {
-    menuResponsive.classList.toggle('menu_opened');
+    burger.classList.toggle('open');
+    header.classList.toggle('open')
 })

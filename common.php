@@ -66,14 +66,14 @@ function drawHeader(){ ?>
                 }?>
             </div>
         </div>
+        <nav class="menu_responsive">
+            <ul>
+                <li><a <?php if(!active('education.php') && !active('about.php')){echo 'active_page';} ?>" href="index.php">Projects</a></li>
+                <li><a <?php if(active('about.php')){echo 'active_page';}?>" href="about.php">About</a></li>
+                <li><a <?php if(active('education.php')){echo 'active_page';} ?>" href="education.php">Education</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav class="menu_responsive">
-        <ul>
-            <li><a <?php if(!active('education.php') && !active('about.php')){echo 'active_page';} ?>" href="index.php">Projects</a></li>
-            <li><a <?php if(active('about.php')){echo 'active_page';}?>" href="about.php">About</a></li>
-            <li><a <?php if(active('education.php')){echo 'active_page';} ?>" href="education.php">Education</a></li>
-        </ul>
-    </nav>
 <?php } ?>
 
 <?php
@@ -93,8 +93,13 @@ function drawHeaderSlide(){ ?>
 
             <div id="burger_container">
                 <div id="burger">
-                    <div id="topBar" class="bar"></div>
-                    <div id="btmBar" class="bar"></div>
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>
+                <div id="cross">
+                <span></span>
+                <span></span>
                 </div>
             </div>
         </div>  
