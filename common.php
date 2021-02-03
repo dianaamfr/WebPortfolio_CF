@@ -17,6 +17,22 @@ function drawHead(){?>
             <meta name="author" content="Diana Freitas">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <script src="script.js" defer></script>
+            <?php if(isset($_GET['about'])){ ?>
+            <script defer>
+                window.addEventListener('load', function(){
+                    if(document.getElementById('about'))
+                        document.getElementById('about').classList.add('slide_in'); 
+                })
+            </script>
+            <?php }
+            else if(isset($_GET['credits'])){ ?>
+            <script defer>
+                window.addEventListener('load', function(){
+                    if(document.getElementById('education'))
+                        document.getElementById('education').classList.add('slide_out'); 
+                })
+            </script>
+            <?php } ?>
         </head>
         <body>
 <?php } ?>

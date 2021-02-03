@@ -148,8 +148,6 @@ a.active_page:link {
 
 #canvas_under {
     height: 100%;
-    display: flex;
-    flex-direction: column;
     position: relative;
 }
 
@@ -161,17 +159,22 @@ canvas {
 /* Header */
 
 body > div > header, #canvas_under > header {
-    background-color:var(--black);
+    background-color: var(--black);
     border-bottom: 2px solid var(--stroke_grey);
-    display: block;
     width: 100%;
     margin: 0 auto;
+    position: fixed;
+    z-index: 4;
+    height: 56px;
+    display: flex;
+    align-items: center;
 }
 
 #header_slider {
     overflow:hidden;
     position: relative;
     width: 100%;
+    transition: all .6s;
 }
 
 #header_slide_track {
@@ -194,8 +197,6 @@ body > div > header, #canvas_under > header {
     margin: auto;
     display: flex;
     align-items: baseline;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 
 .page_title {
@@ -237,8 +238,9 @@ body > div > header, #canvas_under > header {
 
 #content {
     width: 100%;
-    position: relative;
-    height: 100%;
+    position: absolute;
+    height: calc(100vh - 112px);
+    top: 56px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -253,10 +255,10 @@ body > div > header, #canvas_under > header {
 
 #projects {
     width: 100%;
-    flex: 1;
-    overflow: auto;
+    overflow: hidden;
     -ms-overflow-style: none; /* IE 11 */
     scrollbar-width: none; /* Firefox 64 */
+    overflow: hidden;
 }
 
 #projects::-webkit-scrollbar {
@@ -272,10 +274,6 @@ body > div > header, #canvas_under > header {
     justify-content: space-between;
 }
 
-.pair:first-of-type {
-    border-top: unset;
-}
-
 .pair_left, .pair_right {
     width: 50vw;
     height: 100%;
@@ -283,7 +281,7 @@ body > div > header, #canvas_under > header {
 
 .project_slider {
     width: calc(50vw - 34px);
-    height: calc(100% - 80px);
+    height: calc(100% - 82px);
     border: 2px solid var(--stroke_grey);
     border-bottom: none;
     border-top: none;
@@ -394,18 +392,33 @@ body > div > header, #canvas_under > header {
     display: none;
 }
 
+#catarina_description + img{
+    width: calc(100% - 40px);
+    margin: 0 20px;
+}
+
 #work_areas {
     display: flex;
-    justify-content: space-between;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 20px;
+    align-items: center;
 }
 
 #work_areas p {
     display: inline-block;
     margin-bottom: 0px;
+    margin-right: 20px;
+}
+
+#work_areas p:nth-last-child(2) {
+    flex: 1;
+}
+
+#work_areas .icon_plus {
+    transform: rotate(45deg);
+    width: 30px;
 }
 
 #catarina_description {
@@ -474,25 +487,10 @@ body > div > header, #canvas_under > header {
     margin-bottom: unset;
 }
 
-/* About page responsive */
-
-#about_page {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-#catarina_description + img{
-    width: calc(100% - 40px);
-    margin: 0 20px;
-}
-
 /* Education */
 
 #education_wrapper {
     height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 #education_content {
@@ -500,8 +498,9 @@ body > div > header, #canvas_under > header {
     display: flex;
     justify-content: space-evenly;
     overflow: hidden;
-    position: relative;
-    height: 100%;
+    position: absolute;
+    height: calc(100vh - 112px);
+    top: 56px;
     margin: 0 auto;
 }
 
@@ -652,6 +651,11 @@ footer {
     background-color: var(--black);
     width: 100%;
     margin: 0 auto;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
 }
 
 
@@ -687,8 +691,6 @@ footer {
     margin: auto;
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 
 .social_media {
@@ -708,13 +710,13 @@ footer {
 /*Project page*/
 .project_page {
     height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 .project_sections {
+    top: 56px;
     width: 100%;
-    height: 100%;
+    position: absolute;
+    height: calc(100vh - 112px);
     overflow: hidden;
     position: relative;
 }
@@ -778,6 +780,14 @@ footer {
     hyphens: auto;
 }
 
+.project_description p {
+    margin-bottom: 20px;
+}
+
+.project_description p:last-child {
+    margin-bottom: unset;
+}
+
 .keywords {
     float: right;
 }
@@ -813,8 +823,7 @@ footer {
 /*Project Page Slider*/
 .project_page_slider {
     width: 100%;
-    height: calc(100% - 80px);
-    flex: 1;
+    height: calc(100% - 84px);
     overflow: hidden;
     position: relative;
 }
@@ -1058,17 +1067,6 @@ footer {
         justify-content: flex-end;
     }
 
-    .menu_responsive.menu_opened {
-        display: block;
-        position: absolute;
-        width: 50vw;
-        z-index: 3;
-        padding: 0px 48px 0px;
-        background-color: black;
-        border-right: 2px solid var(--stroke_grey);
-        height: 100%;
-    }
-
     .menu_responsive li {
         list-style-type: none;
         margin-top: 5px;
@@ -1118,6 +1116,11 @@ footer {
     }
 
     /* Projects */
+
+    #projects {
+        overflow: auto;
+    }
+
     .project_content > div {
         overflow: auto;
     }
@@ -1144,11 +1147,23 @@ footer {
         border-top: unset;
     }
 
+    /* About */
+
+    #about_page {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #work_areas p:nth-last-child(2){
+        flex:initial;
+    }
+
     /* Project Page */
     .project_page_slider {
         height: calc(50vw - 44px);
         overflow-y: initial;
-        overflow-x: scroll;
+        /*overflow-x: scroll;*/
     }
 
     .responsive_project_header {

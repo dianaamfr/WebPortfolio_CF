@@ -5,6 +5,7 @@ include_once('database/db_content.php');
 $projects  = getProjects();
 
 drawHead(); ?>
+
 <div id="wrapper">
     <?php 
     if (!isset($_SESSION['lastPage']) || ($_SESSION['lastPage'] === '')) { ?> 
@@ -30,13 +31,14 @@ drawHead(); ?>
                     </div>
                 <?php } ?>
             </div>
-            <div id="about" class="<?php if(isset($_GET['about'])){echo 'slide_in';}?>"> 
+            <div id="about"> 
                 <div id="about_content">
                     <div id="work_areas">
                         <p>Graphic Design</p>
                         <p>Photography</p>
                         <p>Visual Communication</p>
                         <p>Education</p>
+                        <span class="icon_plus"><img alt="plus icon" src="items/plus.png"></span>
                     </div>
                     <div id="catarina_description">
                         <p>My name is <span class="highlight">Catarina</span>,</p>

@@ -40,32 +40,36 @@ drawHead(); ?>
             <div>
                 <h2>Work with:</h2>
                 <div>
-                    <p>Inês Nepomuceno</p>
+                    <p>Shannon Jagger</p>
+                    <p>Jacob Macdonald</p>
+                </div>
+                <div>
+                    <p>Pedro Galego</p>
+                    <p>Lois Lima</p>
+                </div>
+                <div>
+                    <p>Tânia Franco</p>
+                    <p>José Morais</p>
+                </div>
+                <div>
+                    <p>Fábio Cerqueira</p>
                     <p>Susana Martins</p>
                 </div>
                 <div>
                     <p>Susana Carreiras</p>
-                    <p>Alexandre Oliveira</p>
-                </div>
-                <div>
-                    <p>Catarina Cunha</p>
-                    <p>Francisco Sá</p>
-                </div>
-                <div>
-                    <p>Super.Brand Consultants</p>
-                    <p>Laura Moreira</p>
-                </div>
-                <div>
-                    <p>Inês Leal</p>
-                    <p>Guilherme Afonso</p>
+                    <p>Inês Nepomuceno</p>
                 </div>
                 <div>
                     <p>Lourenço Providência</p>
-                    <p>Sara Steege</p>
+                    <p>Catarina Cunha</p>
+                </div>
+                <div>
+                    <p>Francisco Sá</p>
+                    <p>Alexandre oliveira</p>
                 </div>
             </div>   
         </div>
-        <div id="education" class="<?php if(isset($_GET['credits'])){echo 'slide_out';}?>">
+        <div id="education">
             <div>
                 <p class="quote">A maior parte de nós transporta uma chama mínima (...). No fundo, os seres humanos permanecem iguais ao que têm sido há milhares de anos. A educação correta é que poderá transformar esta condição de base. Quando se é totalmente honesto, essa mesma honestidade é transmitida aos outros.</p>
                 <p class="author">J. Krishnamurti, “Cartas às Escolas”</p>

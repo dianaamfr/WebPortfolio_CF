@@ -14,7 +14,7 @@ function nextSlide(slider) {
     
     slides.forEach(hideElement);
     
-    showElement(slides[activeSlide[sliderIdx]]);
+    slides[activeSlide[sliderIdx]].style.display = 'block';
 
     activeSlide[sliderIdx]++;
     (activeSlide[sliderIdx] === slides.length) ? (activeSlide[sliderIdx] = 0) : null;
@@ -22,6 +22,10 @@ function nextSlide(slider) {
     const time = (sliderIdx !== 2) ? (Math.floor(Math.random() * 4000) + 2000) : 6000;
     setTimeout(function(){ nextSlide(slider) }, time);
     
+}
+
+function hideElement(el) {
+    el.style.display = 'none';
 }
 
 
@@ -193,7 +197,6 @@ const educationDiv = document.querySelector('#education>div');
 
 function openCredits(event) {
     event.preventDefault();
-    console.log('here')
     if(!education.classList.contains('slide_out')){
         education.classList.add('slide_out'); 
     } 
@@ -217,55 +220,73 @@ function disableEducationScroll() {
 }
 
 
-// Hide/Show elements
+// Load Header
 
-function hideElement(el) {
-    el.style.display = 'none';
-}
-
-function showElement(el) {
-    el.style.display = 'block';
-}
 
 // Load projects/about
+let pair = document.getElementsByClassName('pair')[0];
+let closeAboutBtn = document.querySelector('#work_areas .icon_plus')
 
 if(wrapper){
 
+    // URL format
     if(typeof window.history.pushState == 'function') {
         window.history.pushState({}, "Hide", "index.php");
     }
 
+    // Draw Shapes
     /*if(canvas){
         drawShapes();
     }*/
 
+    // Activate Sliders
     sliders.forEach(nextSlide);
 
+    // Menu buttons
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
     homeButtons.forEach(homeBtn => homeBtn.addEventListener('click', function (event) {event.preventDefault(); projectButtons[0].click()}));
 
+    // About movement
     about.addEventListener('transitionstart',disableProjectsScroll);
     about.addEventListener('transitionend',enableProjectsScroll);
-
     aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',openAbout));
     projectButtons.forEach(projectBtn => projectBtn.addEventListener('click',closeAbout));
+    closeAboutBtn.addEventListener('click', closeAbout)
+    
+    // Projects Scroll Sticky
+    projects.addEventListener('wheel', projectsStickyScroll);
 
  };
+
+ function projectsStickyScroll(event){
+    event.preventDefault();
+
+    if (event.deltaY < 0 && pair.previousElementSibling){
+        pair = pair.previousElementSibling
+        pair.scrollIntoView({behavior: "smooth"});
+    }
+    else if (event.deltaY > 0 && pair.nextElementSibling){
+        pair = pair.nextElementSibling
+        pair.scrollIntoView({ behavior: "smooth"});
+    }
+ }
 
 // Load education/credits
  
 let education_wrapper = document.getElementById('education_wrapper');
 if(education_wrapper) {
 
+    // URL format
     if(typeof window.history.pushState == 'function') {
         window.history.pushState({}, "Hide", "education.php");
     }
 
+    // Menu buttons
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
 
+    // Credits movement
     education.addEventListener('transitionstart',disableEducationScroll);
     education.addEventListener('transitionend',enableEducationScroll);
-
     creditsButtons.forEach(creditsBtn => creditsBtn.addEventListener('click',openCredits));
     educationButtons.forEach(educationBtn => educationBtn.addEventListener('click',closeCredits));
 }
@@ -289,105 +310,137 @@ let leftArrow = document.querySelector('.arrows img');
 let rightArrow = document.querySelector('.arrows img:last-child');
 
 let nSlides = dots.length;
+let offsetBase;
 
 if(projectPage){
-    let offsetBase = parseInt(getComputedStyle(document.getElementsByClassName('project_page_slide')[0]).getPropertyValue('margin-right'));
+    offsetBase = parseInt(getComputedStyle(document.getElementsByClassName('project_page_slide')[0]).getPropertyValue('margin-right'));
+
+    // Scroll up and down
+    if(window.screen.availWidth > 1199.98){
+        window.addEventListener('wheel', projectContentScroll);
+    }
 
     // dots
-    dots.forEach(dot => dot.addEventListener('click', function(event){
-        let newSlide = parseInt(dot.getAttribute('data-slide'));
-        
-        if(actualSlide != newSlide){
-            let move = newSlide * 50;
-            let offset = offsetBase * newSlide;
-
-            slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
-
-            actualSlide = newSlide;
-            
-            if(actualSlide === 0){
-                leftArrow.style.visibility = 'hidden';
-            }
-            else if(actualSlide === (nSlides - 1)){
-                rightArrow.style.visibility = 'hidden';
-            }
-            else{
-                leftArrow.style.visibility = 'visible';
-                rightArrow.style.visibility = 'visible';
-            }
-        }
-    }))
+    dots.forEach(dot => dot.addEventListener('click', dotsSlider))
 
     //arrows
-    leftArrow.addEventListener('click', function(event){
-        if(actualSlide === 0) return;
+    leftArrow.addEventListener('click', leftArrowClick)
 
-        actualSlide--;
-        let move = actualSlide * 50;
-        let offset = offsetBase * actualSlide;
-        
-        dots[actualSlide].click();
+    rightArrow.addEventListener('click', rightArrowClick)
+
+    // plus
+    plus.addEventListener('click', plusButton)
+}
+
+function projectContentScroll(event){
+
+    if (event.deltaY < 0 && activeSection === -1){
+        // Change to slider
+        plus.classList.toggle('rotate');
+        projectContent.style.transform = `translateY(100%)`;
+        activeSection = -activeSection;
+    }
+    else if (event.deltaY > 0 && activeSection === 1){
+        // Change to info
+        plus.classList.toggle('rotate');
+        projectContent.style.transform = `translateY(-2px)`;
+        activeSection = -activeSection;
+    }
+}
+
+function dotsSlider(){
+    let newSlide = parseInt(dot.getAttribute('data-slide'));
+    
+    if(actualSlide != newSlide){
+        let move = newSlide * 50;
+        let offset = offsetBase * newSlide;
+
         slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
 
+        actualSlide = newSlide;
+        
         if(actualSlide === 0){
             leftArrow.style.visibility = 'hidden';
         }
-        else if(actualSlide === nSlides - 2){
-            rightArrow.style.visibility = 'visible';
-        }
-    })
-
-    rightArrow.addEventListener('click', function(event){
-        if(actualSlide === (nSlides - 1)) return;
-
-        actualSlide++;
-        let move = actualSlide * 50;
-        let offset = offsetBase * actualSlide;
-
-        dots[actualSlide].click();
-        slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
-
-        if(actualSlide === nSlides - 1){
+        else if(actualSlide === (nSlides - 1)){
             rightArrow.style.visibility = 'hidden';
         }
-        else if(actualSlide === 1){
-            leftArrow.style.visibility = 'visible';
-        }
-    })
-
-    // plus
-    plus.addEventListener('click', function(){
-        // handle text overflow
-
-        if(window.screen.availWidth > 1999.98 ){
-            while(projectLeftText.scrollHeight > projectLeftText.clientHeight){
-                let lastP = projectDesc.lastElementChild;       
-                lastP.style.flex = '1';     
-                projectRightText.insertBefore(lastP, projectInfo);
-                projectDesc.removeChild(projectDesc.lastChild);
-            }
-        }
-
-        plus.classList.toggle('rotate');
-
-        if(activeSection === 1){
-            projectContent.style.transform = `translateY(-2px)`;
-        }
         else{
-            projectContent.style.transform = `translateY(100%)`;
+            leftArrow.style.visibility = 'visible';
+            rightArrow.style.visibility = 'visible';
         }
+    }
+}
 
-        activeSection = -activeSection;
-    })
+function leftArrowClick(){
+    
+    if(actualSlide === 0) return;
+
+    actualSlide--;
+    let move = actualSlide * 50;
+    let offset = offsetBase * actualSlide;
+    
+    dots[actualSlide].click();
+    slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
+
+    if(actualSlide === 0){
+        leftArrow.style.visibility = 'hidden';
+    }
+    else if(actualSlide === nSlides - 2){
+        rightArrow.style.visibility = 'visible';
+    }
+}
+
+function rightArrowClick(){
+    if(actualSlide === (nSlides - 1)) return;
+
+    actualSlide++;
+    let move = actualSlide * 50;
+    let offset = offsetBase * actualSlide;
+
+    dots[actualSlide].click();
+    slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
+
+    if(actualSlide === nSlides - 1){
+        rightArrow.style.visibility = 'hidden';
+    }
+    else if(actualSlide === 1){
+        leftArrow.style.visibility = 'visible';
+    }
+}
+
+function plusButton(){
+    
+    // handle text overflow
+
+    if(window.screen.availWidth > 1199.98){
+        while(projectLeftText.scrollHeight > projectLeftText.clientHeight){
+            let lastP = projectDesc.lastElementChild;       
+            lastP.style.flex = '1';     
+            projectRightText.insertBefore(lastP, projectInfo);
+            projectDesc.removeChild(projectDesc.lastChild);
+        }
+    }
+
+    // Rotate plus button
+    plus.classList.toggle('rotate');
+
+    // Open/Close project info
+    if(activeSection === 1){
+        projectContent.style.transform = `translateY(-2px)`;
+    }
+    else{
+        projectContent.style.transform = `translateY(100%)`;
+    }
+
+    activeSection = -activeSection;
 }
 
 // Responsive menu
 
 let burger = document.getElementById('burger');
-let menuResponsive = document.querySelector('.menu_responsive');
-let headerHeight = document.getElementById('header_slider').offsetHeight + 4;
+let menuResponsive = document.querySelector('#header_slider');
     
 burger.addEventListener('click', function() {
     menuResponsive.classList.toggle('menu_opened');
-    menuResponsive.style.top = headerHeight.toString() +'px';
 })
