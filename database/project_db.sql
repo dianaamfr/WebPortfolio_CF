@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS Project(
     title text,
     projectType text,
     shortTitle text,
+    tabletTitle text,
     year text,
     keywords text,
     details text
@@ -32,8 +33,9 @@ CREATE TABLE IF NOT EXISTS Image(
 INSERT INTO Project VALUES(
     1, 
     'LESLIE TYNIK CONSULTING - BRANDING', 
-    'GRAPHIC  identity for Leslie Tynik, founder of LTC in NYC',
+    'GRAPHIC identity for Leslie Tynik, founder of LTC in NYC',
     'LESLIE TYNIK CONSULTING',
+    'LESLIE TYNIK CONSULTING<br><span class="italic">branding</span>',
     '2020',
     'Graphic Identity,Branding,NYC,Logo,Monogram',
     NULL
@@ -102,6 +104,7 @@ INSERT INTO Project VALUES(
     'GRACE HARTNETT WEBSITE', 
     'Website for the NYC director and set designer',
     'GRACE HARTNETT',
+    'GRACE HARTNETT WEBSITE<br><span class="italic">Website for the NYC director<span>',
     '2020',
     'Website Design,Art Direction,NYC,UX/UI',
     NULL
@@ -184,6 +187,7 @@ INSERT INTO Project VALUES(
     "Mecha studio website -",
     'Welcome to our intimate landscape',
     'Mecha studio website',
+    'Mecha studio<br><span class="italic">website<span>',
     '2021',
     'Website Design,Art Direction,UX/UI,Mecha Studio',
     'June 2020'
@@ -266,6 +270,7 @@ INSERT INTO Project VALUES(
     '"REPEAT AFTER ME: WE DO NOT LIVE IN A BUBBLE.<br>WHAT WE DO MATTERS" - <span class="italic">SERIES OF POSTERS</span>',
     NULL,
     'SELF-INITIATED',
+    'WE DO NOT LIVE IN A BUBBLE<br><span class="italic">SERIES OF POSTERS</span>',
     '2020',
     'Poster Design,COVID—2019,Black Lives Matter,No more deaths,Hyper Text',
     'March—October 2020'
@@ -345,6 +350,7 @@ INSERT INTO Project VALUES(
     'GRAPHIC DESIGN AS A SUBJECT, A METHOD AND A PRACTICE<br>A RESOURCE BOOK ON GRAPHIC DESIGN', 
     NULL,
     'MA PROJECT',
+    'GRAPHIC DESIGN AS A SUBJECT,<br>A METHOD AND A PRACTICE',
     '2020',
     'Resource Book,Education,Print is not dead,Commitment to the Future',
     '220x150mm,607 pages,Paperback,PT,February 2020'
@@ -415,6 +421,7 @@ INSERT INTO Project VALUES(
     'SINAL – 100 Anos de Design das Telecomunicações<br>e dos Correios em Portugal -  <span class="italic">catalogue</span>', 
     NULL,
     'Catalogue',
+    'SINAL - 100 Anos de Design<br>das Telecomunicações e dos Correios em Portugal',
     '2019',
     'Transmission,Network,Equipment,Message,Identity,Emission',
     '235x165mm,200 pages,Paperback,PT,978-989-8829-57-3,July 2019'
@@ -481,6 +488,7 @@ INSERT INTO Project VALUES(
     'A PROJECT ON SURVEILLANCE - PROTECTION, PRIVACY AND FEAR<br>WHAT DO YOU DO, WHEN YOU ARE NOT BEING WATCHED?',
     NULL,
     '3 BOOKS',
+    'A PROJECT ON SURVEILLANCE<br><span class="italic">PROTECTION, PRIVACY AND FEAR</span>',
     '2019',
     'Surveillance,Security,Editorial,Visual Essay,Pocket Book',
     '180x110mm,200 pages,Paperback,PT,April 2019'
@@ -566,6 +574,7 @@ INSERT INTO Project VALUES(
     'ALTERNATIVE SOCIETY - WE ESCAPED', 
     'A BOOK BY CATARINA FREITAS',
     'Short Story',
+    'ALTERNATIVE SOCIETY<br>WE ESCAPED',
     '2019',
     'Tale,Alternative Society,Editorial,New World,MA Project',
     '165x125 mm,64 pages,Paperback,PT,November 2019'
@@ -643,6 +652,7 @@ INSERT INTO Project VALUES(
     'CATCHER IN THE RYE + THE REVOLUTION OF EVERYDAY LIFE', 
     'BOOK REDESIGN',
     'MAY 1968',
+    'CATCHER IN THE RYE + THE REVOLUTION OF EVERYDAY LIFE<br><span class="italic">BOOK REDESIGN</span>',
     '2019',
     '1968,Student Revolution,Education,Progress,Editorial',
     '180x110 mm,359 pages,Paperback,PT,November 2019'
@@ -724,6 +734,7 @@ INSERT INTO Project VALUES(
     'THE PALACE OF DREAMS', 
     'PUBLICATION BY CATARINA FREITAS',
     'Dreams',
+    'THE PALACE OF DREAMS<br><span class="italic">PUBLICATION</span>',
     '2019',
     'Zine,Risography,Print,Sleeping,Exploration,Editorial',
     '140x85mm,52 pages,Paperback,PT,May 2019'
@@ -807,6 +818,7 @@ INSERT INTO Project VALUES(
     "FOR THE FUTURE WE PRESENT: 'THOUGHT, ACTION, CONDUCT'<br>THE PROJECT OF A TOTAL LIFE",
     NULL,
     'Risography Publication',
+    "FOR THE FUTURE WE PRESENT: 'THOUGHT, ACTION, CONDUCT'<br>THE PROJECT OF A TOTAL LIFE",
     '2020',
     'Printing Techniques,Risography,Editorial,Values,Education',
     '225x150mm,16 pages,Paperback,PT,Feb 2020'
@@ -888,6 +900,7 @@ INSERT INTO Project VALUES(
     "THERE'S A SECRET PARADE IN OUR HOMETOWN<br>HERE'S WHAT OUR MOTHERS DON'T SHARE",
     NULL,
     '1000 pages book',
+    'THERE''S A SECRET PARADE<br>IN OUR HOMETOWN',
     '2019',
     'Editorial,Conspiracy Theories,Secret,Invisible Ink',
     '250x170mm,1000 pages,Paperback,PT,Jun 2019'
@@ -980,6 +993,7 @@ INSERT INTO Project VALUES(
     '751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE', 
     'DEVELOPED IN ESAD—IDEA WITH INÊS NEPOMUCENO',
     'Meta-Livro',
+    '751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE',
     '2018',
     'Editorial,Paulo Cunha e Silva,Tribute,Culture',
     '265x150mm,548 pages,Paperback,978-989-99871-8-0,June 2018'
@@ -1086,6 +1100,7 @@ INSERT INTO Project VALUES(
     'PRINTING TECHNIQUES',
     'SCREEN PRINTING/ RISOGRAPHY/ LETTERPRESS',
     'Print is not dead',
+    'PRINTING TECHNIQUES<br>SCREEN PRINTING/ RISOGRAPHY/ LETTERPRESS',
     '2019',
     'Printing Techniques,Screen Printing,Risography,Letterpress',
     NULL
@@ -1155,6 +1170,7 @@ INSERT INTO Project VALUES(
     'COMPLETE LOVE',
     'PHOTOGRAPHY ANALOG SERIES',
     'Photography',
+    'COMPLETE LOVE<br><span class="italic">PHOTOGRAPHY ANALOG SERIES</span>',
     '2017-Now',
     'Love,Analog Photography,Summer Bodies',
     'PT,2017—Present'
@@ -1221,8 +1237,9 @@ INSERT INTO Image VALUES(NULL,15,14,'COMPLETE LOVE');
 INSERT INTO Project VALUES(
     16,
     'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN , MATOSINHOS',
-    'WORK DEVELOPED IN ESAD-IDEA.',
+    'WORK DEVELOPED IN ESAD-IDEA',
     'ESAD/ ESAD-IDEA Editorial Poster',
+    'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN , MATOSINHOS<br><span class="italic">WORK DEVELOPED IN ESAD-IDEA</span>',
     '2017-2020',
     'Editorial,Poster Design,Photography,Education',
     'PT,2017—2020'

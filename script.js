@@ -309,7 +309,13 @@ let activeSection = 1;
 let leftArrow = document.querySelector('.arrows img');
 let rightArrow = document.querySelector('.arrows img:last-child');
 
+const _C = document.querySelector('.project_slider_track')
+
+let i = 0, x0 = null, locked = false, w;
+
 if(projectPage){
+
+    let N = _C.children.length;
     
     // Scroll up and down
     if(window.screen.availWidth > 1199.98){
@@ -326,6 +332,21 @@ if(projectPage){
 
     // plus
     plus.addEventListener('click', plusButton)
+
+    // touch slider
+    size();
+    _C.style.setProperty('--n', N);
+
+    addEventListener('resize', size, false);
+
+    _C.addEventListener('mousedown', lock, false);
+    _C.addEventListener('touchstart', lock, false);
+
+    _C.addEventListener('mousemove', drag, false);
+    _C.addEventListener('touchmove', drag, false);
+
+    _C.addEventListener('mouseup', move, false);
+    _C.addEventListener('touchend', move, false);
 }
 
 function projectContentScroll(event){
@@ -368,6 +389,8 @@ function leftArrowClick(){
 }
 
 function rightArrowClick(){
+    let N = _C.children.length;
+
     if(i === (N - 2)) return;
 
     _C.style.setProperty('--i', i += 1);
@@ -420,17 +443,6 @@ if(videos.length > 0){
     videos.forEach(video => video.controls = false)
 }
 
-
-
-
-
-// Testing project slider
-
-const _C = document.querySelector('.project_slider_track'), 
-      N = _C.children.length;
-
-let i = 0, x0 = null, locked = false, w;
-
 function size() { w = window.innerWidth };
 
 function unify(e) {	return e.changedTouches ? e.changedTouches[0] : e };
@@ -442,45 +454,32 @@ function lock(e) {
 
 function drag(e) {
 	e.preventDefault();
-	
+    let N = _C.children.length;
+    
 	if(locked && i < N - 2 && i > 0) 		
 		_C.style.setProperty('--tx', `${Math.round(unify(e).clientX - x0)}px`)
 };
 
 function move(e) {
+    let N = _C.children.length;
+    if(locked) {
+        let dx = unify(e).clientX - x0, s = Math.sign(dx), 
+                    f = +(s*dx/w).toFixed(2);
 
-  if(locked) {
-    let dx = unify(e).clientX - x0, s = Math.sign(dx), 
-				f = +(s*dx/w).toFixed(2);
+        if((i > 0 || s < 0) && (i < N - 2 || s > 0)) {
+            _C.style.setProperty('--i', i -= s);
+            dots[i].click();
+            f = 1 - f
+        }
+            
+        _C.style.setProperty('--tx', '0px');
+        _C.style.setProperty('--f', f);
+        _C.classList.toggle('smooth', !(locked = false));
+        x0 = null
+    }
 
-    if((i > 0 || s < 0) && (i < N - 2 || s > 0)) {
-        _C.style.setProperty('--i', i -= s);
-        dots[i].click();
-        f = 1 - f
-	}
-		
-    _C.style.setProperty('--tx', '0px');
-	_C.style.setProperty('--f', f);
-    _C.classList.toggle('smooth', !(locked = false));
-    x0 = null
-  }
-
-  arrowVisibility();
+    arrowVisibility();
 };
-
-size();
-_C.style.setProperty('--n', N);
-
-addEventListener('resize', size, false);
-
-_C.addEventListener('mousedown', lock, false);
-_C.addEventListener('touchstart', lock, false);
-
-_C.addEventListener('mousemove', drag, false);
-_C.addEventListener('touchmove', drag, false);
-
-_C.addEventListener('mouseup', move, false);
-_C.addEventListener('touchend', move, false);
 
 function arrowVisibility(){
     if(i === 0){
@@ -489,6 +488,8 @@ function arrowVisibility(){
     else{
         leftArrow.style.visibility = 'visible';
     }
+
+    let N = _C.children.length;
 
     if(i === N - 2){
         rightArrow.style.visibility = 'hidden';
