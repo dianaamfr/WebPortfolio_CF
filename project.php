@@ -20,7 +20,7 @@ drawHead(); ?>
         </header>
 
         <div class="project_page_slider">
-            <div class="project_slider_track" style="width:<?=count($images)*100?>%">
+            <div class="project_slider_track">
                 <?php foreach($images as $img){
                     if(($project['projectId'] == 3) || (($project['projectId'] == 2) && ($img['imageOrder'] >= 9))){ ?>
                         <video class="project_page_slide" loop autoplay muted>

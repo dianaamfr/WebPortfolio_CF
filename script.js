@@ -294,7 +294,6 @@ if(education_wrapper) {
 
 
 // Project Page Slider
-let actualSlide = 0;
 let projectPage = document.getElementsByClassName('project_page')[0];
 let dots = document.querySelectorAll("input[name='dot']");
 let slides = document.getElementsByClassName('project_slider_track')[0];
@@ -310,12 +309,8 @@ let activeSection = 1;
 let leftArrow = document.querySelector('.arrows img');
 let rightArrow = document.querySelector('.arrows img:last-child');
 
-let nSlides = dots.length;
-let offsetBase;
-
 if(projectPage){
-    offsetBase = parseInt(getComputedStyle(document.getElementsByClassName('project_page_slide')[0]).getPropertyValue('margin-right'));
-
+    
     // Scroll up and down
     if(window.screen.availWidth > 1199.98){
         window.addEventListener('wheel', projectContentScroll);
@@ -334,80 +329,52 @@ if(projectPage){
 }
 
 function projectContentScroll(event){
-
-    if (event.deltaY < 0 && activeSection === -1){
+    
+    if (event.deltaY < 0 && activeSection === 1){
         // Change to slider
         plus.classList.toggle('rotate');
-        projectContent.style.transform = `translateY(100%)`;
+        projectContent.style.bottom = '78px';
         activeSection = -activeSection;
     }
-    else if (event.deltaY > 0 && activeSection === 1){
+    else if (event.deltaY > 0 && activeSection === -1){
         // Change to info
         plus.classList.toggle('rotate');
-        projectContent.style.transform = `translateY(-2px)`;
+        projectContent.style.bottom = 'calc(-100% + 158px)';
         activeSection = -activeSection;
+    }
+    else{
+        console.log(event.deltaY)
     }
 }
 
 function dotsSlider(){
-    let newSlide = parseInt(dot.getAttribute('data-slide'));
-    
-    if(actualSlide != newSlide){
-        let move = newSlide * 50;
-        let offset = offsetBase * newSlide;
+    if(i != parseInt(this.getAttribute('data-slide'))){
+        i = parseInt(this.getAttribute('data-slide'))
+        _C.style.setProperty('--i', i);
+    }   
 
-        slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
-
-        actualSlide = newSlide;
-        
-        if(actualSlide === 0){
-            leftArrow.style.visibility = 'hidden';
-        }
-        else if(actualSlide === (nSlides - 1)){
-            rightArrow.style.visibility = 'hidden';
-        }
-        else{
-            leftArrow.style.visibility = 'visible';
-            rightArrow.style.visibility = 'visible';
-        }
-    }
+    arrowVisibility()
 }
 
 function leftArrowClick(){
-    
-    if(actualSlide === 0) return;
+    if(i === 0) return;
 
-    actualSlide--;
-    let move = actualSlide * 50;
-    let offset = offsetBase * actualSlide;
+    _C.style.setProperty('--i', i -= 1);
     
-    dots[actualSlide].click();
-    slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
+    dots[i].click();
 
-    if(actualSlide === 0){
-        leftArrow.style.visibility = 'hidden';
-    }
-    else if(actualSlide === nSlides - 2){
-        rightArrow.style.visibility = 'visible';
-    }
+    arrowVisibility()
+
 }
 
 function rightArrowClick(){
-    if(actualSlide === (nSlides - 1)) return;
+    if(i === (N - 2)) return;
 
-    actualSlide++;
-    let move = actualSlide * 50;
-    let offset = offsetBase * actualSlide;
+    _C.style.setProperty('--i', i += 1);
 
-    dots[actualSlide].click();
-    slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
+    dots[i].click();
 
-    if(actualSlide === nSlides - 1){
-        rightArrow.style.visibility = 'hidden';
-    }
-    else if(actualSlide === 1){
-        leftArrow.style.visibility = 'visible';
-    }
+    arrowVisibility()
 }
 
 function plusButton(){
@@ -428,10 +395,10 @@ function plusButton(){
 
     // Open/Close project info
     if(activeSection === 1){
-        projectContent.style.transform = `translateY(-2px)`;
+        projectContent.style.bottom = '78px';
     }
     else{
-        projectContent.style.transform = `translateY(100%)`;
+        projectContent.style.bottom = 'calc(-100% + 158px)';
     }
 
     activeSection = -activeSection;
@@ -446,3 +413,87 @@ burger.addEventListener('click', function() {
     burger.classList.toggle('open');
     header.classList.toggle('open')
 })
+
+// Hide video controls
+let videos = document.getElementsByClassName("video")
+if(videos.length > 0){
+    videos.forEach(video => video.controls = false)
+}
+
+
+
+
+
+// Testing project slider
+
+const _C = document.querySelector('.project_slider_track'), 
+      N = _C.children.length;
+
+let i = 0, x0 = null, locked = false, w;
+
+function size() { w = window.innerWidth };
+
+function unify(e) {	return e.changedTouches ? e.changedTouches[0] : e };
+
+function lock(e) {
+  x0 = unify(e).clientX;
+	_C.classList.toggle('smooth', !(locked = true))
+};
+
+function drag(e) {
+	e.preventDefault();
+	
+	if(locked && i < N - 2 && i > 0) 		
+		_C.style.setProperty('--tx', `${Math.round(unify(e).clientX - x0)}px`)
+};
+
+function move(e) {
+
+  if(locked) {
+    let dx = unify(e).clientX - x0, s = Math.sign(dx), 
+				f = +(s*dx/w).toFixed(2);
+
+    if((i > 0 || s < 0) && (i < N - 2 || s > 0)) {
+        _C.style.setProperty('--i', i -= s);
+        dots[i].click();
+        f = 1 - f
+	}
+		
+    _C.style.setProperty('--tx', '0px');
+	_C.style.setProperty('--f', f);
+    _C.classList.toggle('smooth', !(locked = false));
+    x0 = null
+  }
+
+  arrowVisibility();
+};
+
+size();
+_C.style.setProperty('--n', N);
+
+addEventListener('resize', size, false);
+
+_C.addEventListener('mousedown', lock, false);
+_C.addEventListener('touchstart', lock, false);
+
+_C.addEventListener('mousemove', drag, false);
+_C.addEventListener('touchmove', drag, false);
+
+_C.addEventListener('mouseup', move, false);
+_C.addEventListener('touchend', move, false);
+
+function arrowVisibility(){
+    if(i === 0){
+        leftArrow.style.visibility = 'hidden';
+    }
+    else{
+        leftArrow.style.visibility = 'visible';
+    }
+
+    if(i === N - 2){
+        rightArrow.style.visibility = 'hidden';
+    }
+    else{
+        rightArrow.style.visibility = 'visible';
+    }
+}

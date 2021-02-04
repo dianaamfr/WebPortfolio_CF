@@ -165,8 +165,8 @@ body > div > header, #canvas_under > header {
     margin: 0 auto;
     position: fixed;
     z-index: 3;
-    height: 38px;
-    padding-top: 18px;
+    height: 40px;
+    padding-top: 20px;
     transition: height 1s ease-in-out;
 }
 
@@ -243,8 +243,8 @@ body > div > header, #canvas_under > header {
 #content {
     width: 100%;
     position: absolute;
-    height: calc(100vh - 112px);
-    top: 56px;
+    height: calc(100vh - 122px);
+    top: 62px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -659,7 +659,7 @@ footer {
     background-color: var(--black);
     width: 100%;
     margin: 0 auto;
-    height: 56px;
+    height: 58px;
     display: flex;
     align-items: center;
     position: fixed;
@@ -721,10 +721,10 @@ footer {
 }
 
 .project_sections {
-    top: 56px;
+    top: 62px;
     width: 100%;
     position: absolute;
-    height: calc(100vh - 112px);
+    height: calc(100vh - 122px);
     overflow: hidden;
     position: relative;
 }
@@ -734,11 +734,10 @@ footer {
     display: flex;
     flex-direction: row;
     height: calc(100% - 78px);
-    top: 0;
+    bottom: calc(-100% + 158px);
     left: 0;
-    transform: translateY(100%);
     background-color: black;
-    transition: transform 2s ease-in-out;
+    transition: bottom 2s ease-in-out;
     margin-left: 20px;
     margin-right: 20px;
     width: calc(100% - 44px);
@@ -831,19 +830,23 @@ footer {
 /*Project Page Slider*/
 .project_page_slider {
     width: 100%;
-    height: calc(100% - 84px);
+    height: calc(100% - 82px);
     overflow: hidden;
     position: relative;
 }
 
 .project_slider_track {
+    --n: 1;
     height: 100%;
+    width: 100%; /* fallback */
+    width: calc(var(--n)*100%);
     display: flex;
-    -webkit-transition:all 1.0s ease-in-out;
-    -moz-transition:all 1.0s ease-in-out;
-    -o-transition:all 1.0s ease-in-out;
-    transition:all 1.0s ease-in-out;
+    transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n)*-50% + var(--i)*10px));
+    transition: all 1.0s ease-in-out;
+    cursor: grab;
 }
+
+.smooth { transition: transform  0.5s ease-out }
 
 .project_page_slide{
     height: 100%;
@@ -910,7 +913,8 @@ footer {
 
 .arrows img {
     width: 45px;
-    transition: all .4s ease-in-out;
+    object-fit: contain;
+    transition: visibility 0.3s ease;
 }
 
 .arrows :first-child {
@@ -971,16 +975,13 @@ footer {
 
 /* Margens */
 
-@media only screen and (min-width: 1920px){
-
-}
-
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 3000px){
     /* All Projects page */
-    /*.header_text, .footer_content {
-        width: calc(100vw - 80px);
+/*
+    .header_text, .footer_content {
+        width: calc(100vw - 80px);  
     }
-
+    
     .pair_left > .project_slider, .pair_left > .description{
         margin-left: 40px;
     }
@@ -992,10 +993,10 @@ footer {
 
     .project_slider, .description {
         width: calc(50vw - 64px);
-    }*/
-
+    }
+*/
     /* Project page */
-    /*.project_page_slide{
+/*        .project_page_slide{
         margin-left: 20px;
         margin-right: 20px;
         width: calc(50vw - 64px);
@@ -1004,11 +1005,12 @@ footer {
     .project_page_slide:first-child{
         margin-left: 40px;
     }
-
+    
     .arrows {
         margin-right: 60px;
         margin-left: 60px;
         width: calc(100% - 120px);
+        top: 20px;
     }
 
     .project_page_description, .project_content {
@@ -1018,10 +1020,6 @@ footer {
     .project_content {
         margin-left: 40px;
         margin-right: 40px;
-    }
-
-    .arrows {
-        top: 20px;
     }
 
     #credits_part1, #credits_part2 {
@@ -1269,7 +1267,7 @@ footer {
 
     /* Project Page */
     .project_page_slider {
-        height: calc(50vw - 44px);
+        height: auto;
         overflow-y: initial;
         /*overflow-x: scroll;*/
     }
@@ -1310,7 +1308,7 @@ footer {
     }
 
     .project_slider_track {
-        height: calc(50vw - 80px);
+        height: calc(50vw - 74px);
     }
 
     .project_content{
@@ -1324,14 +1322,19 @@ footer {
     }
 
     .dots{
-        position: static;
+        display: none;
+        /* position: static;
         transform: translateY(0);
         padding-top: 20px;
-        justify-content: center;
+        justify-content: center; */
     }
 
     .arrows {
-        display: none;
+        margin-right: 20px;
+        margin-left: 20px;
+        width: calc(100% - 40px);
+        margin-top: 10px;
+        position: static;
     }
 
     .project_content header {
