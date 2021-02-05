@@ -504,7 +504,11 @@ canvas {
     padding-left: 20px;
 }
 
-#details > div:first-child .details_block:nth-last-child(2){
+.details_block:nth-last-child(2) {
+    display: none;
+}
+
+#details > div:first-child .details_block:nth-last-child(3){
     flex: 1;
 }
 
@@ -1593,7 +1597,7 @@ footer {
 
     .project_content header .year, .responsive_project_header .year {
         margin-right: 35px;
-    }
+    }   
 
     .pair_right > .project_slider, .pair_right > .description {
         margin-left: 20px;
@@ -1613,5 +1617,60 @@ footer {
 
     #education::-webkit-scrollbar {
         display: none;
+    }
+
+    /* About */
+
+    #work_areas {
+        display: none;
+    }
+
+    #catarina_description {
+        margin-top: 20px;
+    }
+
+    .details_block {
+        width: calc(50% - 10px);
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    .details_block:nth-last-child(2) {
+        display: block;
+        margin-bottom: unset;
+    }
+    
+    #details > div:first-child .details_block:nth-last-child(3){
+        display:none
+    }
+
+    #details {
+        flex-wrap: wrap;
+    }
+
+    #details>div {
+        display: flex;
+        flex-wrap: wrap;
+        border-right: unset;
+        width: 100%;
+        justify-content: space-between;
+        margin: 0 20px;
+    }
+
+    #details>div>h2 {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    #details>div:first-of-type {
+        flex-direction: row;
+    }
+
+    #details>div .details_block:nth_child(2n) {
+        flex-direction: row;
+    }
+
+    #details>div>h2 {
+        flex-basis: 100%;
     }
 }
