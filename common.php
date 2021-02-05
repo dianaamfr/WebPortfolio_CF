@@ -58,7 +58,7 @@ function drawFooter(){?>
 
 <?php 
 function drawHeader(){ ?>
-    <header>
+    <header id="main_header">
         <div id="header_slider">
             <div id="header_slide_track">
                 <?php for($i = 0; $i < 2; $i++){
@@ -161,7 +161,7 @@ function drawProjectPreview($project){ ?>
     <div class="line"></div>
     <div class="description">
         <p><?=$project['title']?><br>
-        <span class="italic"><?=$project['projectType'] ? $project['projectType']:null?></span></p>
+        <span><?=$project['projectType'] ? $project['projectType']:null?></span></p>
         <p><?=$project['tabletTitle']?></p>
         <a class="icon_plus" href="project.php?id=<?=$project['projectId']?>"><img alt="plus icon" src="items/plus.png"></a>
     </div>

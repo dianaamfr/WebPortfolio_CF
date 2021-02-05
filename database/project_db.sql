@@ -32,10 +32,10 @@ CREATE TABLE IF NOT EXISTS Image(
 /*Project 1*/
 INSERT INTO Project VALUES(
     1, 
-    'LESLIE TYNIK CONSULTING - BRANDING', 
-    'GRAPHIC identity for Leslie Tynik, founder of LTC in NYC',
-    'LESLIE TYNIK CONSULTING',
-    'LESLIE TYNIK CONSULTING<br><span class="italic">branding</span>',
+    'Leslie Tynik Consulting - Branding', 
+    'Graphic identity for Leslie Tynik, founder of LTC in NYC',
+    'Leslie Tynik Consulting',
+    'Leslie Tynik Consulting<br><span>Branding</span>',
     '2020',
     'Graphic Identity,Branding,NYC,Logo,Monogram',
     NULL
@@ -101,10 +101,10 @@ INSERT INTO Image VALUES(NULL,1,7,'Leslie Tynik');
 /*Project 2*/
 INSERT INTO Project VALUES(
     2, 
-    'GRACE HARTNETT WEBSITE', 
+    'Grace Hartnett Website', 
     'Website for the NYC director and set designer',
-    'GRACE HARTNETT',
-    'GRACE HARTNETT WEBSITE<br><span class="italic">Website for the NYC director<span>',
+    'Grace Hartnett',
+    'Grace Hartnett Website<br><span>Website for the NYC director<span>',
     '2020',
     'Website Design,Art Direction,NYC,UX/UI',
     NULL
@@ -184,10 +184,10 @@ INSERT INTO Image VALUES(NULL,2,10,'GRACE HARTNETT WEBSITE');
 /*Project 3*/
 INSERT INTO Project VALUES(
     3,
-    "Mecha studio website -",
+    "Mecha Studio Website -",
     'Welcome to our intimate landscape',
-    'Mecha studio website',
-    'Mecha studio<br><span class="italic">website<span>',
+    'Mecha Studio Website',
+    'Mecha Studio<br><span>Website<span>',
     '2021',
     'Website Design,Art Direction,UX/UI,Mecha Studio',
     'June 2020'
@@ -267,10 +267,10 @@ INSERT INTO Image VALUES(NULL,3,6,"Mecha Studio Website");
 /*Project 4*/
 INSERT INTO Project VALUES(
     4,
-    '"REPEAT AFTER ME: WE DO NOT LIVE IN A BUBBLE.<br>WHAT WE DO MATTERS" - <span class="italic">SERIES OF POSTERS</span>',
+    '"Repeat after me: We do not Live in a bubble.<br>What we do matters" - Series of Posters',
     NULL,
     'SELF-INITIATED',
-    'WE DO NOT LIVE IN A BUBBLE<br><span class="italic">SERIES OF POSTERS</span>',
+    'We do not live in a bubble<br><span>Series of Posters</span>',
     '2020',
     'Poster Design,COVID—2019,Black Lives Matter,No more deaths,Hyper Text',
     'March—October 2020'
@@ -347,10 +347,10 @@ INSERT INTO Image VALUES(NULL,4,6,"Black Lives matter");
 /*Project 5*/
 INSERT INTO Project VALUES(
     5, 
-    'GRAPHIC DESIGN AS A SUBJECT, A METHOD AND A PRACTICE<br>A RESOURCE BOOK ON GRAPHIC DESIGN', 
+    'Graphic Design as a Subject, a Method and a Practice<br>A Resource Book on Graphic Design', 
     NULL,
     'MA PROJECT',
-    'GRAPHIC DESIGN AS A SUBJECT,<br>A METHOD AND A PRACTICE',
+    'Graphic Design as a Subject,<br>a Method and a Practice',
     '2020',
     'Resource Book,Education,Print is not dead,Commitment to the Future',
     '220x150mm,607 pages,Paperback,PT,February 2020'
@@ -418,7 +418,7 @@ INSERT INTO Image VALUES(NULL,5,10,'A RESOURCE BOOK ON GRAPHIC DESIGN');
 /*Project 6*/
 INSERT INTO Project VALUES(
     6, 
-    'SINAL – 100 Anos de Design das Telecomunicações<br>e dos Correios em Portugal -  <span class="italic">catalogue</span>', 
+    'SINAL – 100 Anos de Design das Telecomunicações<br>e dos Correios em Portugal -  Catalogue', 
     NULL,
     'Catalogue',
     'SINAL - 100 Anos de Design<br>das Telecomunicações e dos Correios em Portugal',
@@ -485,10 +485,10 @@ INSERT INTO Image VALUES(NULL,6,6,'SINAL');
 /*Project 7*/
 INSERT INTO Project VALUES(
     7, 
-    'A PROJECT ON SURVEILLANCE - PROTECTION, PRIVACY AND FEAR<br>WHAT DO YOU DO, WHEN YOU ARE NOT BEING WATCHED?',
+    'A project on Surveillance - Protection, Privacy and Fear<br>What to do, when you are not being watched?',
     NULL,
     '3 BOOKS',
-    'A PROJECT ON SURVEILLANCE<br><span class="italic">PROTECTION, PRIVACY AND FEAR</span>',
+    'A project on Surveillance<br><span>Protection, Privacy and Fear</span>',
     '2019',
     'Surveillance,Security,Editorial,Visual Essay,Pocket Book',
     '180x110mm,200 pages,Paperback,PT,April 2019'
@@ -571,10 +571,10 @@ INSERT INTO Image VALUES(NULL,7,6,'A project on surveillance');
 /*Project 8*/
 INSERT INTO Project VALUES(
     8, 
-    'ALTERNATIVE SOCIETY - WE ESCAPED', 
-    'A BOOK BY CATARINA FREITAS',
+    'Alternative Society - We escaped', 
+    'A Book by Catarina Freitas',
     'Short Story',
-    'ALTERNATIVE SOCIETY<br>WE ESCAPED',
+    'Alternative Society<br>We escaped',
     '2019',
     'Tale,Alternative Society,Editorial,New World,MA Project',
     '165x125 mm,64 pages,Paperback,PT,November 2019'
@@ -649,10 +649,10 @@ INSERT INTO Image VALUES(NULL,8,4,'Alternative Society');
 /*Project 9*/
 INSERT INTO Project VALUES(
     9, 
-    'CATCHER IN THE RYE + THE REVOLUTION OF EVERYDAY LIFE', 
-    'BOOK REDESIGN',
+    'Catcher in the Rye + The Revolution of Everyday Life', 
+    'Book Redesign',
     'MAY 1968',
-    'CATCHER IN THE RYE + THE REVOLUTION OF EVERYDAY LIFE<br><span class="italic">BOOK REDESIGN</span>',
+    'Catcher in the Rye + The Revolution of Everyday Life<br><span>Book Redesign</span>',
     '2019',
     '1968,Student Revolution,Education,Progress,Editorial',
     '180x110 mm,359 pages,Paperback,PT,November 2019'
@@ -731,10 +731,10 @@ INSERT INTO Image VALUES(NULL,9,7,'Catcher in the rye');
 /*Project 10*/
 INSERT INTO Project VALUES(
     10, 
-    'THE PALACE OF DREAMS', 
-    'PUBLICATION BY CATARINA FREITAS',
+    'The Palace of Dreams', 
+    'Publication by Catarina Freitas',
     'Dreams',
-    'THE PALACE OF DREAMS<br><span class="italic">PUBLICATION</span>',
+    'The Palace of Dreams<br><span>Publication</span>',
     '2019',
     'Zine,Risography,Print,Sleeping,Exploration,Editorial',
     '140x85mm,52 pages,Paperback,PT,May 2019'
@@ -815,10 +815,10 @@ INSERT INTO Image VALUES(NULL,10,8,'The Palace of dreams');
 /*Project 11*/
 INSERT INTO Project VALUES(
     11,
-    "FOR THE FUTURE WE PRESENT: 'THOUGHT, ACTION, CONDUCT'<br>THE PROJECT OF A TOTAL LIFE",
+    "For the Future we present: Thought, Action, Conduct<br>The Project of a Total Life",
     NULL,
     'Risography Publication',
-    "FOR THE FUTURE WE PRESENT: 'THOUGHT, ACTION, CONDUCT'<br>THE PROJECT OF A TOTAL LIFE",
+    "For the Future we present: Thought, Action, Conduct<br>The Project of a Total Life",
     '2020',
     'Printing Techniques,Risography,Editorial,Values,Education',
     '225x150mm,16 pages,Paperback,PT,Feb 2020'
@@ -897,10 +897,10 @@ INSERT INTO Image VALUES(NULL,11,7,'THE PROJECT OF A TOTAL LIFE');
 /*Project 12*/
 INSERT INTO Project VALUES(
     12,
-    "THERE'S A SECRET PARADE IN OUR HOMETOWN<br>HERE'S WHAT OUR MOTHERS DON'T SHARE",
+    "There's a secret parade in our hometown<br>Here's what our mothers don't share",
     NULL,
     '1000 pages book',
-    'THERE''S A SECRET PARADE<br>IN OUR HOMETOWN',
+    'There''s a secret parade<br>in our hometown',
     '2019',
     'Editorial,Conspiracy Theories,Secret,Invisible Ink',
     '250x170mm,1000 pages,Paperback,PT,Jun 2019'
@@ -990,10 +990,10 @@ INSERT INTO Image VALUES(NULL, 12,6,'THERE''S A SECRET PARADE IN OUR HOMETOWN HE
 /*Project 13*/
 INSERT INTO Project VALUES(
     13,
-    '751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE', 
-    'DEVELOPED IN ESAD—IDEA WITH INÊS NEPOMUCENO',
+    '751 DIAS – O tempo não consome a Eternidade', 
+    'Developed in ESAD—idea with Inês Nepomuceno',
     'Meta-Livro',
-    '751 DIAS – O TEMPO NÃO CONSOME A ETERNIDADE',
+    '751 DIAS – O tempo não consome a Eternidade',
     '2018',
     'Editorial,Paulo Cunha e Silva,Tribute,Culture',
     '265x150mm,548 pages,Paperback,978-989-99871-8-0,June 2018'
@@ -1097,10 +1097,10 @@ INSERT INTO Image VALUES(NULL,13,9,'751 DIAS – O TEMPO NÃO CONSOME A ETERNIDA
 /*Project 14*/
 INSERT INTO Project VALUES(
     14,
-    'PRINTING TECHNIQUES',
-    'SCREEN PRINTING/ RISOGRAPHY/ LETTERPRESS',
+    'Printing Techniques',
+    'Screen Printing/ Risography/ Letterpress',
     'Print is not dead',
-    'PRINTING TECHNIQUES<br>SCREEN PRINTING/ RISOGRAPHY/ LETTERPRESS',
+    'Printing Techniques<br><span>Screen Printing/ Risography/ Letterpress</span>',
     '2019',
     'Printing Techniques,Screen Printing,Risography,Letterpress',
     NULL
@@ -1167,10 +1167,10 @@ INSERT INTO Image VALUES(NULL,14,9,'PRINTING TECHNIQUES');
 /*Project 15*/
 INSERT INTO Project VALUES(
     15,
-    'COMPLETE LOVE',
-    'PHOTOGRAPHY ANALOG SERIES',
+    'Complete Love',
+    'Photography Analog Series',
     'Photography',
-    'COMPLETE LOVE<br><span class="italic">PHOTOGRAPHY ANALOG SERIES</span>',
+    'Complete Love<br><span>Photography Analog Series</span>',
     '2017-Now',
     'Love,Analog Photography,Summer Bodies',
     'PT,2017—Present'
@@ -1236,10 +1236,10 @@ INSERT INTO Image VALUES(NULL,15,14,'COMPLETE LOVE');
 /*Project 16*/
 INSERT INTO Project VALUES(
     16,
-    'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN , MATOSINHOS',
-    'WORK DEVELOPED IN ESAD-IDEA',
-    'ESAD/ ESAD-IDEA Editorial Poster',
-    'ESAD — ESCOLA SUPERIOR DE ARTES E DESIGN , MATOSINHOS<br><span class="italic">WORK DEVELOPED IN ESAD-IDEA</span>',
+    'ESAD — Escola Superior de Artes e Design , Matosinhos',
+    'Work developed in ESAD-idea',
+    'ESAD/ ESAD-idea Editorial Poster',
+    'ESAD — Escola Superior de Artes e Design , Matosinhos<br><span>Work developed in ESAD-idea</span>',
     '2017-2020',
     'Editorial,Poster Design,Photography,Education',
     'PT,2017—2020'
