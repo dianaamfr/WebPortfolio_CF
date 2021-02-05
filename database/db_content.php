@@ -3,7 +3,7 @@ include_once('database/db_connection.php');
 
 function getProjects(){
     $db = Database::instance()->db();
-    $stmt = $db->prepare("SELECT projectId, title, projectType 
+    $stmt = $db->prepare("SELECT projectId, title, projectType, tabletTitle 
                           FROM Project");
     $stmt->execute();
     return $stmt->fetchAll();

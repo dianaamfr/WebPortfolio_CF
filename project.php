@@ -16,11 +16,12 @@ drawHead(); ?>
 
         <header class="responsive_project_header">
             <span class="year"><?=$project['year']?></span>
-            <h2 class="title"><?=$project['title']?></h2>
+            <h2 class="title"><?=$project['tabletTitle']?></h2>
         </header>
 
         <div class="project_page_slider">
-            <div class="project_slider_track" style="width:<?=count($images)*100?>%">
+            <div>
+            <div class="project_slider_track">
                 <?php foreach($images as $img){
                     if(($project['projectId'] == 3) || (($project['projectId'] == 2) && ($img['imageOrder'] >= 9))){ ?>
                         <video class="project_page_slide" loop autoplay muted>
@@ -31,6 +32,7 @@ drawHead(); ?>
                         <div style="background-image: url('images/projects/project<?=$project['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_page_slide"></div>
                 <?php } 
                 } ?>
+            </div>
             </div>
 
             <div class="arrows">
