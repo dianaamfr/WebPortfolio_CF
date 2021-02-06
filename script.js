@@ -46,7 +46,7 @@ function drawShapes() {
     wrapper.addEventListener('mousemove', function(e){
         let x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
         let y = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
-        let radius = 160;
+        let radius = 250;
         ctx.globalCompositeOperation = 'destination-out';
         ctx.beginPath(); 
         ctx.arc(x, y, radius, 0, 2 * Math.PI);  
@@ -247,11 +247,13 @@ if(wrapper){
     homeButtons.forEach(homeBtn => homeBtn.addEventListener('click', function (event) {event.preventDefault(); projectButtons[0].click()}));
 
     // About movement
-    about.addEventListener('transitionstart',disableProjectsScroll);
-    about.addEventListener('transitionend',enableProjectsScroll);
-    aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',openAbout));
-    projectButtons.forEach(projectBtn => projectBtn.addEventListener('click',closeAbout));
-    closeAboutBtn.addEventListener('click', closeAbout)
+    if(window.screen.availWidth > 1199.98) {
+        about.addEventListener('transitionstart',disableProjectsScroll);
+        about.addEventListener('transitionend',enableProjectsScroll);
+        aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',openAbout));
+        projectButtons.forEach(projectBtn => projectBtn.addEventListener('click',closeAbout));
+        closeAboutBtn.addEventListener('click', closeAbout)
+    }
     
     // Projects Scroll Sticky  
     // TODO - improve
@@ -429,7 +431,7 @@ function plusButton(){
 
 // Responsive menu
 
-let burger = document.getElementById('burger_container');
+let burger = document.getElementsByClassName('burger_container')[0];
 let header = document.getElementById('header_slider').parentElement
     
 burger.addEventListener('click', function() {

@@ -15,7 +15,7 @@ function drawHead(){?>
             <link href="styles.css" rel="stylesheet" type="text/css">
             <meta charset="utf-8">
             <meta name="author" content="Diana Freitas">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
             <script src="script.js" defer></script>
             <?php if(isset($_GET['about'])){ ?>
             <script defer>
@@ -68,9 +68,9 @@ function drawHeader(){ ?>
         </div>
         <nav class="menu_responsive">
             <ul>
-                <li><a <?php if(!active('education.php') && !active('about.php')){echo 'active_page';} ?>" href="index.php">Projects</a></li>
-                <li><a <?php if(active('about.php')){echo 'active_page';}?>" href="about.php">About</a></li>
-                <li><a <?php if(active('education.php')){echo 'active_page';} ?>" href="education.php">Education</a></li>
+                <li><a class="project_btn <?php if(!active('education.php') && !active('about.php')){echo 'active_page';} ?>" href="index.php">Projects</a></li>
+                <li><a class="about_btn <?php if(active('about.php')){echo 'active_page';}?>" href="about.php">About</a></li>
+                <li><a class="education_btn <?php if(active('education.php')){echo 'active_page';} ?>" href="education.php">Education</a></li>
             </ul>
         </nav>
     </header>
@@ -94,13 +94,13 @@ function drawHeaderSlide(){ ?>
                 </ul>
             </nav>
 
-            <div id="burger_container">
-                <div id="burger">
+            <div class="burger_container">
+                <div class="burger">
                 <span></span>
                 <span></span>
                 <span></span>
                 </div>
-                <div id="cross">
+                <div class="cross">
                 <span></span>
                 <span></span>
                 </div>

@@ -104,7 +104,7 @@ INSERT INTO Project VALUES(
     'Grace Hartnett Website', 
     'Website for the NYC director and set designer',
     'Grace Hartnett',
-    'Grace Hartnett Website<br><span>Website for the NYC director<span>',
+    'Grace Hartnett Website<br><span>Website for the NYC director</span>',
     '2020',
     'Website Design,Art Direction,NYC,UX/UI',
     NULL
@@ -187,7 +187,7 @@ INSERT INTO Project VALUES(
     "Mecha Studio Website -",
     'Welcome to our intimate landscape',
     'Mecha Studio Website',
-    'Mecha Studio<br><span>Website<span>',
+    'Mecha Studio<br><span>Website</span>',
     '2021',
     'Website Design,Art Direction,UX/UI,Mecha Studio',
     'June 2020'
