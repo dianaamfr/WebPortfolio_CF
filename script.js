@@ -19,7 +19,7 @@ function nextSlide(slider) {
     activeSlide[sliderIdx]++;
     (activeSlide[sliderIdx] === slides.length) ? (activeSlide[sliderIdx] = 0) : null;
 
-    const time = (sliderIdx !== 2) ? (Math.floor(Math.random() * 4000) + 2000) : 6000;
+    const time = ((sliderIdx === 2) || ((sliderIdx === 1) && (activeSlide[sliderIdx] === 0))) ? 6000 : (Math.floor(Math.random() * 4000) + 2000);
     setTimeout(function(){ nextSlide(slider) }, time);
     
 }
@@ -235,9 +235,9 @@ if(wrapper){
     }
 
     // Draw Shapes
-    /*if(canvas){
+    if(canvas && (window.screen.availWidth > 1199.98)){
         drawShapes();
-    }*/
+    }
 
     // Activate Sliders
     sliders.forEach(nextSlide);
@@ -466,7 +466,7 @@ function move(e) {
         let dx = unify(e).clientX - x0, s = Math.sign(dx), 
                     f = +(s*dx/w).toFixed(2);
 
-        if((i > 0 || s < 0) && (i < N - 2 || s > 0)) {
+        if((i > 0 || s < 0) && (i < N - 2 || s > 0) && (dx > 4 || dx < -4)) {
             _C.style.setProperty('--i', i -= s);
             dots[i].click();
             f = 1 - f

@@ -11,7 +11,7 @@ drawHead(); ?>
             <div>
                 <h2>Credits</h2>
             <div>
-                <p>Art Direcion:</p>
+                <p>Art Direction:</p>
                 <p>Catarina Freitas</p>
             </div>
             <div>

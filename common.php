@@ -148,7 +148,7 @@ function drawProjectPreview($project){ ?>
         <?php 
         $images1 = $project['projectId'] == 3 ? getMechaImages() : getProjectFirstImages($project['projectId']);
         foreach($images1 as $img){
-            if($project['projectId'] == 3){ ?>
+            if(($project['projectId'] == 3) ||(($project['projectId'] == 2) && ($img['imageOrder'] == 1))){ ?>
                 <video class="project_slide" loop autoplay muted>
                     <source src="images/projects/project<?=$project['projectId']?>/video<?=$img['imageOrder']?>.m4v">
                 </video>
@@ -201,12 +201,6 @@ function drawAbout(){ ?>
                             <div class="details_block">
                                 <h3>2017/2020</h3>
                                 <p>MA at ESAD</p>
-                            </div>
-                            <div class="details_block">
-                                <h3>Graduation</h3>
-                                <h2>2014/2020</h2>
-                                <p>BA/MA—ESAD</p>
-                                <p>ERASMUS—Kingston University, London, UK</p>
                             </div>
                             <div class="details_block" id="languages">
                                 <h3>Languages</h3>

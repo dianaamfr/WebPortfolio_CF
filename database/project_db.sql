@@ -36,7 +36,7 @@ INSERT INTO Project VALUES(
     'Graphic identity for Leslie Tynik, founder of LTC in NYC',
     'Leslie Tynik Consulting',
     'Leslie Tynik Consulting<br><span>Branding</span>',
-    '2020',
+    '2021',
     'Graphic Identity,Branding,NYC,Logo,Monogram',
     NULL
 );
@@ -379,7 +379,7 @@ INSERT INTO Credits VALUES(
     NULL,
     5,
     'Texts',
-    'Steven Heller-"The Education of a Graphic Designer",Collective-"Teaching for people who prefer not to teach"'
+    'Steven Heller-"The Education of a Graphic Designer",AND Collective-"Teaching for people who prefer not to teach"'
 );
 
 INSERT INTO Credits VALUES(
@@ -1171,7 +1171,7 @@ INSERT INTO Project VALUES(
     'Photography Analog Series',
     'Photography',
     'Complete Love<br><span>Photography Analog Series</span>',
-    '2017-Now',
+    'Ongoing',
     'Love,Analog Photography,Summer Bodies',
     'PT,2017—Present'
 );
