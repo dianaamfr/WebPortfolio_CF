@@ -21,7 +21,7 @@ drawHead(); ?>
 
         <div class="project_page_slider">
             <div>
-            <div class="project_slider_track">
+            <div class="project_slider_track" style="--n: <?= count($images);?>;">
                 <?php foreach($images as $img){
                     if(($project['projectId'] == 3) || (($project['projectId'] == 2) && (($img['imageOrder'] == 1) || ($img['imageOrder'] == 10)))){ ?>
                         <video class="project_page_slide" loop autoplay muted>
@@ -111,7 +111,7 @@ drawHead(); ?>
         <div class="project_page_line"></div>
         <div class="project_page_description">
             <p><?=$project['title']?><br>
-            <span class="italic"><?=$project['projectType'] ? $project['projectType']:null?></span></p>
+            <span><?=$project['projectType'] ? $project['projectType']:null?></span></p>
             <span class="icon_plus"><img alt="plus icon" src="items/plus.png"></span>
         </div>
     </div>

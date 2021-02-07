@@ -5,7 +5,9 @@ drawHead(); ?>
 <div id="about_page">
     <?php drawHeader(); ?>
     <div>
-    <?php drawAbout(); ?>
+        <div id="about_page_content">
+            <?php drawAbout(); ?>
+        </div>
     </div>
     <?php drawFooter(); ?>
 </div>

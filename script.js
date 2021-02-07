@@ -161,6 +161,8 @@ const educationButtons = document.querySelectorAll('.education_btn');
 function openAbout(event) {
     event.preventDefault();
 
+    window.history.pushState('about', 'Title', 'index.php?about=');
+
     if(!aboutCol.classList.contains('slide_in')){
         aboutCol.classList.add('slide_in'); 
     } 
@@ -168,6 +170,8 @@ function openAbout(event) {
 
 function closeAbout(event) {
     event.preventDefault();
+
+    window.history.pushState('projects', 'Title', 'index.php');
 
     // Lock scroll on projects and about
     projects.scrollTop = 0;
@@ -197,6 +201,9 @@ const educationDiv = document.querySelector('#education>div');
 
 function openCredits(event) {
     event.preventDefault();
+
+    window.history.pushState('credits', 'Title', 'education.php?credits=');
+
     if(!education.classList.contains('slide_out')){
         education.classList.add('slide_out'); 
     } 
@@ -204,6 +211,9 @@ function openCredits(event) {
 
 function closeCredits(event) {
     event.preventDefault();
+
+    window.history.pushState('education', 'Title', 'education.php');
+
     // Slide education column in
     education.classList.remove('slide_out'); 
 }
@@ -229,13 +239,8 @@ let closeAboutBtn = document.querySelector('#work_areas .icon_plus')
 
 if(wrapper){
 
-    // URL format
-    if(typeof window.history.pushState == 'function') {
-        window.history.pushState({}, "Hide", "index.php");
-    }
-
     // Draw Shapes
-    if(canvas && (window.screen.availWidth > 1199.98)){
+    if(canvas && (window.screen.availWidth > 1199.98) && window.location.search === ''){
         drawShapes();
     }
 
@@ -279,11 +284,6 @@ if(wrapper){
 let education_wrapper = document.getElementById('education_wrapper');
 if(education_wrapper) {
 
-    // URL format
-    if(typeof window.history.pushState == 'function') {
-        window.history.pushState({}, "Hide", "education.php");
-    }
-
     // Menu buttons
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
 
@@ -313,11 +313,9 @@ let rightArrow = document.querySelector('.arrows img:last-child');
 
 const _C = document.querySelector('.project_slider_track')
 
-let i = 0, x0 = null, locked = false, w;
+let i = 0, x0 = null, y0 = null, locked = false, w, h, ty = null;
 
 if(projectPage){
-
-    let N = _C.children.length;
     
     // Scroll up and down
     if(window.screen.availWidth > 1199.98){
@@ -337,7 +335,6 @@ if(projectPage){
 
     // touch slider
     size();
-    _C.style.setProperty('--n', N);
 
     addEventListener('resize', size, false);
 
@@ -353,21 +350,21 @@ if(projectPage){
 
 function projectContentScroll(event){
     
-    if (event.deltaY < 0 && activeSection === 1){
-        // Change to slider
+    if(horizontalMove(event.deltaX, event.deltaY)) return;
+    
+    if (event.deltaY > 0 && activeSection === 1){
+        // Change to info
         plus.classList.toggle('rotate');
         projectContent.style.bottom = '78px';
         activeSection = -activeSection;
     }
-    else if (event.deltaY > 0 && activeSection === -1){
-        // Change to info
+    else if (event.deltaY < 0 && activeSection === -1){
+        // Change to slider
         plus.classList.toggle('rotate');
         projectContent.style.bottom = 'calc(-100% + 158px)';
         activeSection = -activeSection;
     }
-    else{
-        console.log(event.deltaY)
-    }
+    
 }
 
 function dotsSlider(){
@@ -405,7 +402,6 @@ function rightArrowClick(){
 function plusButton(){
     
     // handle text overflow
-
     if(window.screen.availWidth > 1199.98){
         while(projectLeftText.scrollHeight > projectLeftText.clientHeight){
             let lastP = projectDesc.lastElementChild;       
@@ -445,21 +441,23 @@ if(videos.length > 0){
     videos.forEach(video => video.controls = false)
 }
 
-function size() { w = window.innerWidth };
+function size() { w = window.innerWidth; h = window.innerHeight; };
 
 function unify(e) {	return e.changedTouches ? e.changedTouches[0] : e };
 
 function lock(e) {
-  x0 = unify(e).clientX;
-	_C.classList.toggle('smooth', !(locked = true))
+    x0 = unify(e).clientX; y0 = unify(e).clientY;
+    _C.classList.toggle('smooth', !(locked = true))
 };
 
 function drag(e) {
-	e.preventDefault();
+	
     let N = _C.children.length;
     
-	if(locked && i < N - 2 && i > 0) 		
-		_C.style.setProperty('--tx', `${Math.round(unify(e).clientX - x0)}px`)
+	if(locked && i < N - 2 && i > 0) {
+        _C.style.setProperty('--tx', `${Math.round(unify(e).clientX - x0)}px`)
+        ty = Math.round(unify(e).clientY - y0)
+    }		
 };
 
 function move(e) {
@@ -467,11 +465,25 @@ function move(e) {
     if(locked) {
         let dx = unify(e).clientX - x0, s = Math.sign(dx), 
                     f = +(s*dx/w).toFixed(2);
+        let dy = unify(e).clientY - y0;
 
-        if((i > 0 || s < 0) && (i < N - 2 || s > 0) && (dx > 4 || dx < -4)) {
+        if((i > 0 || s < 0) && (i < N - 2 || s > 0) && horizontalMove(dx,dy)) {
             _C.style.setProperty('--i', i -= s);
             dots[i].click();
             f = 1 - f
+        }
+        else if(w  > 1199.98){
+            
+            if(dy < 0){
+                plus.classList.toggle('rotate');
+                projectContent.style.bottom = '78px';
+                activeSection = -activeSection;
+            }
+            else {
+                plus.classList.toggle('rotate');
+                projectContent.style.bottom = 'calc(-100% + 158px)';
+                activeSection = -activeSection;
+            }
         }
             
         _C.style.setProperty('--tx', '0px');
@@ -482,6 +494,13 @@ function move(e) {
 
     arrowVisibility();
 };
+
+function horizontalMove(dx, dy){
+    return ((dy > 0 && dx > 0 && dx > dy)||
+        (dy > 0 && dx < 0 && -dx > dy ) || 
+    (dy < 0 && dx < 0 && dy > dx) || 
+    (dx > 0 && dy < 0 && dx > -dy));
+}
 
 function arrowVisibility(){
     if(i === 0){
