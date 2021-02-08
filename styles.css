@@ -1077,6 +1077,8 @@ footer {
     background-position: center;
     background-size: cover;
     box-sizing: border-box;
+    pointer-events: none;
+    user-select: none;
 }
 
 .project_page_slide:last-child{
