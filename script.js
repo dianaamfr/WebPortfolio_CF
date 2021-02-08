@@ -230,9 +230,6 @@ function disableEducationScroll() {
 }
 
 
-// Load Header
-
-
 // Load projects/about
 let pair = document.getElementsByClassName('pair')[0];
 let closeAboutBtn = document.querySelector('#work_areas .icon_plus')
@@ -316,6 +313,7 @@ const _C = document.querySelector('.project_slider_track')
 let i = 0, x0 = null, y0 = null, locked = false, w, h, ty = null;
 
 if(projectPage){
+    let N = _C.children.length;
     
     // Scroll up and down
     if(window.screen.availWidth > 1199.98){
@@ -323,12 +321,12 @@ if(projectPage){
     }
 
     // dots
-    dots.forEach(dot => dot.addEventListener('click', dotsSlider))
+    dots.forEach(dot => dot.addEventListener('click', dotsSlider.bind(dot,N)))
 
     //arrows
-    leftArrow.addEventListener('click', leftArrowClick)
+    leftArrow.addEventListener('click', function(){leftArrowClick(N);})
 
-    rightArrow.addEventListener('click', rightArrowClick)
+    rightArrow.addEventListener('click', function(){rightArrowClick(N);})
 
     // plus
     plus.addEventListener('click', plusButton)
@@ -341,11 +339,11 @@ if(projectPage){
     _C.addEventListener('mousedown', lock, false);
     _C.addEventListener('touchstart', lock, false);
 
-    _C.addEventListener('mousemove', drag, false);
-    _C.addEventListener('touchmove', drag, false);
+    _C.addEventListener('mousemove', function(e){drag(e,N);}, false);
+    _C.addEventListener('touchmove', function(e){drag(e,N);}, false);
 
-    _C.addEventListener('mouseup', move, false);
-    _C.addEventListener('touchend', move, false);
+    _C.addEventListener('mouseup', function(e){move(e,N);}, false);
+    _C.addEventListener('touchend', function(e){move(e,N);}, false);
 }
 
 function projectContentScroll(event){
@@ -367,28 +365,27 @@ function projectContentScroll(event){
     
 }
 
-function dotsSlider(){
+function dotsSlider(N){
     if(i != parseInt(this.getAttribute('data-slide'))){
         i = parseInt(this.getAttribute('data-slide'))
         _C.style.setProperty('--i', i);
     }   
 
-    arrowVisibility()
+    arrowVisibility(N)
 }
 
-function leftArrowClick(){
+function leftArrowClick(N){
     if(i === 0) return;
 
     _C.style.setProperty('--i', i -= 1);
     
     dots[i].click();
 
-    arrowVisibility()
+    arrowVisibility(N)
 
 }
 
-function rightArrowClick(){
-    let N = _C.children.length;
+function rightArrowClick(N){
 
     if(i === (N - 2)) return;
 
@@ -396,7 +393,7 @@ function rightArrowClick(){
 
     dots[i].click();
 
-    arrowVisibility()
+    arrowVisibility(N)
 }
 
 function plusButton(){
@@ -427,7 +424,7 @@ function plusButton(){
 
 // Responsive menu
 
-let burger = document.getElementsByClassName('burger_container')[0];
+let burger = document.getElementsByClassName('burger')[0];
 let header = document.getElementById('header_slider').parentElement
     
 burger.addEventListener('click', function() {
@@ -450,9 +447,7 @@ function lock(e) {
     _C.classList.toggle('smooth', !(locked = true))
 };
 
-function drag(e) {
-	
-    let N = _C.children.length;
+function drag(e,N) {
     
 	if(locked && i < N - 2 && i > 0) {
         _C.style.setProperty('--tx', `${Math.round(unify(e).clientX - x0)}px`)
@@ -460,8 +455,8 @@ function drag(e) {
     }		
 };
 
-function move(e) {
-    let N = _C.children.length;
+function move(e,N) {
+    
     if(locked) {
         let dx = unify(e).clientX - x0, s = Math.sign(dx), 
                     f = +(s*dx/w).toFixed(2);
@@ -492,7 +487,7 @@ function move(e) {
         x0 = null
     }
 
-    arrowVisibility();
+    arrowVisibility(N);
 };
 
 function horizontalMove(dx, dy){
@@ -502,15 +497,13 @@ function horizontalMove(dx, dy){
     (dx > 0 && dy < 0 && dx > -dy));
 }
 
-function arrowVisibility(){
+function arrowVisibility(N){
     if(i === 0){
         leftArrow.style.visibility = 'hidden';
     }
     else{
         leftArrow.style.visibility = 'visible';
     }
-
-    let N = _C.children.length;
 
     if(i === N - 2){
         rightArrow.style.visibility = 'hidden';

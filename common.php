@@ -98,13 +98,7 @@ function drawHeaderSlide(){ ?>
 
             <div class="burger_container">
                 <div class="burger">
-                <span></span>
-                <span></span>
-                <span></span>
-                </div>
-                <div class="cross">
-                <span></span>
-                <span></span>
+                    <span></span>
                 </div>
             </div>
         </div>  

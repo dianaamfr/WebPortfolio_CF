@@ -1310,123 +1310,70 @@ footer {
     }
 
     .burger {
-        width: 25px;
-        -webkit-transition: .5s ease-in-out;
-        -o-transition: .5s ease-in-out;
-        transition: .5s ease-in-out;
-        cursor: pointer;
-        position: absolute;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-    }
-
-    .burger_container span{
+        width: 26px;
+        height: 20px;
+        position: relative;
         display: block;
+        float: left;
+        font-size: 0;
+        text-indent: -9999px;
+        appearance: none;
+        cursor: pointer;
+        transition: .5s ease-in-out;
+    }
+    
+    .burger_container span{
+        top: 8px;
         height: 2px;
-        width: 100%;
-        background:var(--grey);
-        opacity: 1;
-        left: 0;
-        margin-bottom: 6px;
-        -webkit-transition: .25s ease-in-out;
-        -o-transition: .25s ease-in-out;
-        transition: .25s ease-in-out;
-    }
-
-    .cross {
-        -webkit-transform:rotate(45deg);
-        -ms-transform:rotate(45deg);
-        transform:rotate(45deg);
-        width: 25px;
-        height: 25px;
-    }
-
-    .cross span:nth-child(1){
-        height: 0%;
-        width: 2px;
+        background: var(--grey);
         position: absolute;
+        display: block;
+        left: 0;
+        right: 0;
+        transition: .5s ease-in-out;
+        border-radius: 10px;
+    }
+
+    .burger span::before, .burger span::after {
+        height: 2px;
+        background-color: var(--grey);
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        content: "";
+        transition-duration: 0.3s, 0.3s;
+        transition-delay: 0.3s, 0s;
+        border-radius: 10px;
+    }
+
+    .burger span::before {
+        top: -8px;
+        transition-property: top, transform;
+    }
+
+    .burger span::after {
+        bottom: -8px;
+        transition-property: bottom, transform;
+    }
+
+    .burger.open span {
+        background-color: transparent;
+    }
+
+    .burger.open span::before {
+        transform: rotate(45deg);
         top: 0;
-        left: 11px;
-        -webkit-transition-delay: 0s;
-        -o-transition-delay: 0s;
-        transition-delay: 0s;
-        margin: 0;
     }
 
-    .cross span:nth-child(2){
-        width: 0%;
-        height: 2px;
-        position: absolute;
-        left: 0;
-        top: 11px;
-        -webkit-transition-delay: .25s;
-        -o-transition-delay: .25s;
-        transition-delay: .25s;
-        margin: 0;
+    .burger.open span::after {
+        transform: rotate(-45deg);
+        bottom: 0;
     }
 
-        
-    .burger span:nth-child(1) {
-        -webkit-transition-delay:.5s;
-        -o-transition-delay:.5s;
-        transition-delay:.5s;
-      }
-      
-      .burger span:nth-child(2) {
-        -webkit-transition-delay:.625s;
-        -o-transition-delay:.625s;
-        transition-delay:.625s;
-      }
-      
-      .burger span:nth-child(3) {
-        -webkit-transition-delay:.75s;
-        -o-transition-delay:.75s;
-        transition-delay:.75s;
-        margin-bottom: unset;
-      }
-      
-      .burger_container.open  .burger span:nth-child(1) {
-        width:0%;
-        -webkit-transition-delay:0s;
-        -o-transition-delay:0s;
-        transition-delay:0s;
-      }
-      
-      .burger_container.open .burger span:nth-child(2) {
-        width:0%;
-        -webkit-transition-delay:.125s;
-        -o-transition-delay:.125s;
-        transition-delay:.125s;
-      }
-      
-      .burger_container.open .burger span:nth-child(3) {
-        width:0%;
-        -webkit-transition-delay:.25s;
-        -o-transition-delay:.25s;
-        transition-delay:.25s;
-      }
-
-      .burger_container.open  .cross span:nth-child(1) {
-        height: 100%;
-        -webkit-transition-delay: .625s;
-        -o-transition-delay: .625s;
-        transition-delay: .625s;
-      }
-      
-      .burger_container.open .cross span:nth-child(2) {
-        width: 100%;
-        -webkit-transition-delay: .375s;
-        -o-transition-delay: .375s;
-        transition-delay: .375s;
-      } 
+    .burger.open span::before, .burger.open span::after {
+        transition-delay: 0s, 0.3s;
+    }
 
     #footer_slide_track {
         -webkit-animation: unset;
@@ -1700,12 +1647,6 @@ footer {
         -ms-flex: 0;
         flex: 0;
         position: relative;
-    }
-
-    .burger {
-        position: absolute;
-        display: inline-block;
-        top: 0;
     }
 
     .menu_responsive ul {
