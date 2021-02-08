@@ -1027,15 +1027,23 @@ footer {
 
 /*Project Page Slider*/
 .project_page_slider {
-    width: calc(100% - 40px);
+    width: 100%;
     height: calc(100% - 82px);
-    overflow: hidden;
     position: relative;
     margin: auto;
+    overflow: hidden;
+}
+
+.project_page_slider > div:first-child {
+    width: 100%;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
     border: 2px solid var(--stroke_grey);
     border-bottom: unset;
     border-top: unset;
-    box-sizing: border-box;
+    height: 100%;
+    overflow: hidden;
+    margin: auto;
 }
 
 .project_slider_track {
@@ -1046,8 +1054,8 @@ footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n,0)*-100% - var(--i,0)*10px));
-    -ms-transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n,0)*-50% - var(--i,0)*12px));
+    -webkit-transform: translate(calc(var(--tx, 0px) - 100% * var(--i, 0) / var(--n,0)));
+    -ms-transform: translate(calc(var(--tx, 0px) - 100% * var(--i, 0) / var(--n,0)));
     transform: translate(calc(var(--tx, 0px) - 100% * var(--i, 0) / var(--n,0)));
     -webkit-transition: all 1.0s ease-in-out;
     -o-transition: all 1.0s ease-in-out;
@@ -1058,7 +1066,7 @@ footer {
 
 .smooth { -webkit-transition: -webkit-transform  0.7s ease-out; transition: -webkit-transform  0.7s ease-out; -o-transition: transform  0.7s ease-out; transition: transform  0.7s ease-out; transition: transform  0.7s ease-out, -webkit-transform  0.7s ease-out }
 
-.project_page_slide{
+.project_page_slide {
     height: 100%;
     margin-left: 10px;
     margin-right: 10px;
@@ -1122,9 +1130,9 @@ footer {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    margin-right: 20px;
-    margin-left: 20px;
-    width: calc(100% - 40px);
+    margin-right: 40px;
+    margin-left: 40px;
+    width: calc(100% - 80px);
 }
 
 .arrows img {
@@ -1522,7 +1530,7 @@ footer {
     .project_page_slide {
         border-top: 2px solid var(--stroke_grey);
         border-bottom: 2px solid var(--stroke_grey);
-        height: calc(50vw - 80px);
+        height: calc(50vw - 76px);
     }
 
     .page_title{
@@ -1776,12 +1784,6 @@ footer {
         margin-bottom: 20px;
     }
 
-    .arrows {
-        margin-right: 0;
-        margin-left: 0;
-        width: 100%;
-    }
-
     .arrows img {
         width: 36px;
     }
@@ -1880,8 +1882,8 @@ footer {
     }
     
     .project_page_slide {
-        height: calc(100vw - 44px);
-        width: calc(100vw - 44px);
+        height: calc(100vw - 40px);
+        width: calc(100vw - 40px);
     }
 
     .project_slider_track {
@@ -1931,15 +1933,20 @@ footer {
         width: 100%;
     }
 
+    .project_page_slider > div:first-child {
+        width: 100%;
+        border: unset;
+    }
+
     .project_slider_track {
-        width: calc(var(--n,0)*(100vw + 22px));
-        -webkit-transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n,0)*-100% - var(--i,0)*2px));
-        -ms-transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n,0)*-100% - var(--i,0)*2px));
-        transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n,0)*-100% - var(--i,0)*2px));
+        width: calc(var(--n,0)*(100vw + 24px));
+        -webkit-transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n,0)*-100%));
+        -ms-transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n,0)*-100%));
+        transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n,0)*-100%));
     }
 
     .project_page_slide {
-        width: 100vw;
+        width: calc(100vw + 4px);
     }
     
     #catarina_description + img {

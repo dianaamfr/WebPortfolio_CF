@@ -20,19 +20,21 @@ drawHead(); ?>
         </header>
 
         <div class="project_page_slider">
-            <div class="project_slider_track" style="--n: <?= count($images);?>;">
-                <?php foreach($images as $img){
-                    if(($project['projectId'] == 3) || (($project['projectId'] == 2) && (($img['imageOrder'] == 1) || ($img['imageOrder'] == 10)))){ ?>
-                        <video class="project_page_slide" loop autoplay muted>
-                            <source src="images/projects/project<?=$project['projectId']?>/video<?=$img['imageOrder']?>.m4v">
-                        </video>
-                    <?php }
-                    else{ ?>
-                        <div style="background-image: url('images/projects/project<?=$project['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_page_slide"></div>
-                <?php } 
-                } ?>
+            <div>
+                <div class="project_slider_track" style="--n: <?= count($images);?>;">
+                    <?php foreach($images as $img){
+                        if(($project['projectId'] == 3) || (($project['projectId'] == 2) && (($img['imageOrder'] == 1) || ($img['imageOrder'] == 10)))){ ?>
+                            <video class="project_page_slide" loop autoplay muted>
+                                <source src="images/projects/project<?=$project['projectId']?>/video<?=$img['imageOrder']?>.m4v">
+                            </video>
+                        <?php }
+                        else{ ?>
+                            <div style="background-image: url('images/projects/project<?=$project['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_page_slide"></div>
+                    <?php } 
+                    } ?>
+                </div>
             </div>
-
+            
             <div class="arrows">
                 <img alt="plus icon" src="items/arrow.png">
                 <img alt="plus icon" src="items/arrow.png">
