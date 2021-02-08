@@ -361,7 +361,7 @@ function projectContentScroll(event){
     else if (event.deltaY < 0 && activeSection === -1){
         // Change to slider
         plus.classList.toggle('rotate');
-        projectContent.style.bottom = 'calc(-100% + 158px)';
+        projectContent.style.bottom = 'calc(-100% + 154px)';
         activeSection = -activeSection;
     }
     
@@ -419,7 +419,7 @@ function plusButton(){
         projectContent.style.bottom = '78px';
     }
     else{
-        projectContent.style.bottom = 'calc(-100% + 158px)';
+        projectContent.style.bottom = 'calc(-100% + 154px)';
     }
 
     activeSection = -activeSection;
@@ -481,7 +481,7 @@ function move(e) {
             }
             else {
                 plus.classList.toggle('rotate');
-                projectContent.style.bottom = 'calc(-100% + 158px)';
+                projectContent.style.bottom = 'calc(-100% + 154px)';
                 activeSection = -activeSection;
             }
         }

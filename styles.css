@@ -920,7 +920,7 @@ footer {
     -ms-flex-direction: row;
     flex-direction: row;
     height: calc(100% - 78px);
-    bottom: calc(-100% + 158px);
+    bottom: calc(-100% + 156px);
     left: 0;
     background-color: black;
     -webkit-transition: bottom 2s ease-in-out;
@@ -1032,30 +1032,28 @@ footer {
     overflow: hidden;
     position: relative;
     margin: auto;
-}
-
-.project_page_slider > div:first-child {
     border: 2px solid var(--stroke_grey);
     border-bottom: unset;
     border-top: unset;
-    height: 100%;
-    width: calc(100% - 4px);
-    /* overflow: hidden; */
+    box-sizing: border-box;
 }
 
 .project_slider_track {
+    position: relative;
+    left: -12px;
     height: 100%;
-    width: calc(var(--n,0)*100%);
+    width: calc(var(--n) * (50vw - 8px));
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n,0)*-50% - var(--i,0)*12px));
+    -webkit-transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n,0)*-100% - var(--i,0)*10px));
     -ms-transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n,0)*-50% - var(--i,0)*12px));
-    transform: translate(calc(var(--tx, 0px) + var(--i, 0)/var(--n,0)*-50% - var(--i,0)*12px));
+    transform: translate(calc(var(--tx, 0px) - 100% * var(--i, 0) / var(--n,0)));
     -webkit-transition: all 1.0s ease-in-out;
     -o-transition: all 1.0s ease-in-out;
     transition: all 1.0s ease-in-out;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .smooth { -webkit-transition: -webkit-transform  0.7s ease-out; transition: -webkit-transform  0.7s ease-out; -o-transition: transform  0.7s ease-out; transition: transform  0.7s ease-out; transition: transform  0.7s ease-out, -webkit-transform  0.7s ease-out }
@@ -1064,20 +1062,17 @@ footer {
     height: 100%;
     margin-left: 10px;
     margin-right: 10px;
-    width: calc(50vw - 34px);
+    width: calc(50vw - 28px);
     border: 2px solid var(--stroke_grey);
     border-bottom: none;
     border-top: none;
     background-position: center;
     background-size: cover;
-}
-
-.project_page_slide:first-child{
-    margin-left: -2px;
+    box-sizing: border-box;
 }
 
 .project_page_slide:last-child{
-    margin-right: unset;
+    margin-right: 0;
 }
 
 .dots {
@@ -1172,7 +1167,7 @@ footer {
 }
 
 .project_page_description {
-    width: calc(100vw - 44px);
+    width: calc(100vw - 40px);
     margin: auto;
     height: 80px;
     background-color: var(--black);
@@ -1190,6 +1185,7 @@ footer {
     align-items: center;
     z-index: 2;
     position: relative;
+    box-sizing: border-box;
 }
 
 .project_page_description p {
@@ -1932,11 +1928,6 @@ footer {
     /* Project Page */
 
     .project_page_slider {
-        width: 100%;
-    }
-
-    .project_page_slider > div:first-child {
-        border: unset;
         width: 100%;
     }
 
