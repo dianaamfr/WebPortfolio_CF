@@ -14,14 +14,18 @@ function nextSlide(slider) {
     
     slides.forEach(hideElement);
     
-    showElement(slides[activeSlide[sliderIdx]]);
+    slides[activeSlide[sliderIdx]].style.display = 'block';
 
     activeSlide[sliderIdx]++;
     (activeSlide[sliderIdx] === slides.length) ? (activeSlide[sliderIdx] = 0) : null;
 
-    const time = Math.floor(Math.random() * 4000) + 2000;
+    const time = ((sliderIdx === 2) || ((sliderIdx === 1) && (activeSlide[sliderIdx] === 0))) ? 6000 : (Math.floor(Math.random() * 4000) + 2000);
     setTimeout(function(){ nextSlide(slider) }, time);
     
+}
+
+function hideElement(el) {
+    el.style.display = 'none';
 }
 
 
@@ -42,7 +46,7 @@ function drawShapes() {
     wrapper.addEventListener('mousemove', function(e){
         let x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
         let y = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
-        let radius = 160;
+        let radius = 250;
         ctx.globalCompositeOperation = 'destination-out';
         ctx.beginPath(); 
         ctx.arc(x, y, radius, 0, 2 * Math.PI);  
@@ -122,9 +126,7 @@ function loadAlternativeShapes(shapesPattern, ctx) {
 }
 
 function randomWithProbability() {
-    let notRandomNumbers = [1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
-    let idx = Math.floor(Math.random() * notRandomNumbers.length);
-    return notRandomNumbers[idx];
+    return Math.floor(Math.random() * 5 + 1);
 }
 
 // Menu buttons
@@ -159,6 +161,8 @@ const educationButtons = document.querySelectorAll('.education_btn');
 function openAbout(event) {
     event.preventDefault();
 
+    window.history.pushState('about', 'Title', 'index.php?about=');
+
     if(!aboutCol.classList.contains('slide_in')){
         aboutCol.classList.add('slide_in'); 
     } 
@@ -166,6 +170,8 @@ function openAbout(event) {
 
 function closeAbout(event) {
     event.preventDefault();
+
+    window.history.pushState('projects', 'Title', 'index.php');
 
     // Lock scroll on projects and about
     projects.scrollTop = 0;
@@ -195,7 +201,9 @@ const educationDiv = document.querySelector('#education>div');
 
 function openCredits(event) {
     event.preventDefault();
-    console.log('here')
+
+    window.history.pushState('credits', 'Title', 'education.php?credits=');
+
     if(!education.classList.contains('slide_out')){
         education.classList.add('slide_out'); 
     } 
@@ -203,6 +211,9 @@ function openCredits(event) {
 
 function closeCredits(event) {
     event.preventDefault();
+
+    window.history.pushState('education', 'Title', 'education.php');
+
     // Slide education column in
     education.classList.remove('slide_out'); 
 }
@@ -219,164 +230,292 @@ function disableEducationScroll() {
 }
 
 
-// Hide/Show elements
-
-function hideElement(el) {
-    el.style.display = 'none';
-}
-
-function showElement(el) {
-    el.style.display = 'block';
-}
-
-// Content height
-
-function projectsHeight() {
-    const projectDescription = document.querySelectorAll('.description')[1];
-    const content = document.querySelector('#content');
-
-    sliders.forEach(projectSlider => projectSlider.style.height = (content.offsetHeight - projectDescription.offsetHeight) + 'px');
-}
-
+// Load Header
 
 
 // Load projects/about
+let pair = document.getElementsByClassName('pair')[0];
+let closeAboutBtn = document.querySelector('#work_areas .icon_plus')
 
 if(wrapper){
 
-    if(typeof window.history.pushState == 'function') {
-        window.history.pushState({}, "Hide", "index.php");
-    }
-
-    if(canvas){
+    // Draw Shapes
+    if(canvas && (window.screen.availWidth > 1199.98) && window.location.search === ''){
         drawShapes();
     }
 
+    // Activate Sliders
     sliders.forEach(nextSlide);
 
+    // Menu buttons
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
     homeButtons.forEach(homeBtn => homeBtn.addEventListener('click', function (event) {event.preventDefault(); projectButtons[0].click()}));
 
-    about.addEventListener('transitionstart',disableProjectsScroll);
-    about.addEventListener('transitionend',enableProjectsScroll);
-
-    aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',openAbout));
-    projectButtons.forEach(projectBtn => projectBtn.addEventListener('click',closeAbout));
-
-    projectsHeight();
+    // About movement
+    if(window.screen.availWidth > 1199.98) {
+        about.addEventListener('transitionstart',disableProjectsScroll);
+        about.addEventListener('transitionend',enableProjectsScroll);
+        aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',openAbout));
+        projectButtons.forEach(projectBtn => projectBtn.addEventListener('click',closeAbout));
+        closeAboutBtn.addEventListener('click', closeAbout)
+    }
+    
+    // Projects Scroll Sticky  
+    // TODO - improve
+    //projects.addEventListener('wheel', projectsStickyScroll);
 
  };
+
+ function projectsStickyScroll(event){
+    event.preventDefault();
+
+    if (event.deltaY < 0 && pair.previousElementSibling){
+        pair = pair.previousElementSibling
+        pair.scrollIntoView({behavior: "smooth"});
+    }
+    else if (event.deltaY > 0 && pair.nextElementSibling){
+        pair = pair.nextElementSibling
+        pair.scrollIntoView({ behavior: "smooth"});
+    }
+ }
 
 // Load education/credits
  
 let education_wrapper = document.getElementById('education_wrapper');
 if(education_wrapper) {
 
-    if(typeof window.history.pushState == 'function') {
-        window.history.pushState({}, "Hide", "education.php");
-    }
-
+    // Menu buttons
     menuButtons.forEach(btn => btn.addEventListener('click', activeMenuButtons));
 
-    //aboutButtons.forEach(aboutBtn => aboutBtn.addEventListener('click',activateAbout));
-
+    // Credits movement
     education.addEventListener('transitionstart',disableEducationScroll);
     education.addEventListener('transitionend',enableEducationScroll);
-
     creditsButtons.forEach(creditsBtn => creditsBtn.addEventListener('click',openCredits));
     educationButtons.forEach(educationBtn => educationBtn.addEventListener('click',closeCredits));
 }
 
 
 // Project Page Slider
-let actualSlide = 0;
 let projectPage = document.getElementsByClassName('project_page')[0];
 let dots = document.querySelectorAll("input[name='dot']");
 let slides = document.getElementsByClassName('project_slider_track')[0];
 let plus = document.querySelector('.project_page .icon_plus');
 
 let projectContent = document.getElementsByClassName('project_content')[0];
+let projectLeftText = document.querySelector('.project_content > div:first-child');
+let projectRightText = document.querySelector('.project_content > div:last-child');
+let projectDesc = document.querySelector('.project_description');
+let projectInfo = document.querySelector('.project_info');
 let activeSection = 1;
 
 let leftArrow = document.querySelector('.arrows img');
 let rightArrow = document.querySelector('.arrows img:last-child');
 
-let nSlides = dots.length;
+const _C = document.querySelector('.project_slider_track')
+
+let i = 0, x0 = null, y0 = null, locked = false, w, h, ty = null;
 
 if(projectPage){
+    
+    // Scroll up and down
+    if(window.screen.availWidth > 1199.98){
+        window.addEventListener('wheel', projectContentScroll);
+    }
+
     // dots
-    dots.forEach(dot => dot.addEventListener('click', function(event){
-        let newSlide = parseInt(dot.getAttribute('data-slide'));
-        
-        if(actualSlide != newSlide){
-            let move = newSlide * 50;
-            let offset = 10 * newSlide;
-
-            slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
-
-            actualSlide = newSlide;
-            
-            if(actualSlide === 0){
-                leftArrow.style.visibility = 'hidden';
-            }
-            else if(actualSlide === (nSlides - 1)){
-                rightArrow.style.visibility = 'hidden';
-            }
-            else{
-                leftArrow.style.visibility = 'visible';
-                rightArrow.style.visibility = 'visible';
-            }
-        }
-    }))
+    dots.forEach(dot => dot.addEventListener('click', dotsSlider))
 
     //arrows
-    leftArrow.addEventListener('click', function(event){
-        if(actualSlide === 0) return;
+    leftArrow.addEventListener('click', leftArrowClick)
 
-        actualSlide--;
-        let move = actualSlide * 50;
-        let offset = 10 * actualSlide;
-        
-        dots[actualSlide].click();
-        slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
-
-        if(actualSlide === 0){
-            leftArrow.style.visibility = 'hidden';
-        }
-        else if(actualSlide === nSlides - 2){
-            rightArrow.style.visibility = 'visible';
-        }
-    })
-
-    rightArrow.addEventListener('click', function(event){
-        if(actualSlide === (nSlides - 1)) return;
-
-        actualSlide++;
-        let move = actualSlide * 50;
-        let offset = 10 * actualSlide;
-
-        dots[actualSlide].click();
-        slides.style.transform = "translateX(calc(-" + move.toString() + "vw + " + offset.toString() + "px))";
-
-        if(actualSlide === nSlides - 1){
-            rightArrow.style.visibility = 'hidden';
-        }
-        else if(actualSlide === 1){
-            leftArrow.style.visibility = 'visible';
-        }
-    })
+    rightArrow.addEventListener('click', rightArrowClick)
 
     // plus
-    plus.addEventListener('click', function(){
+    plus.addEventListener('click', plusButton)
+
+    // touch slider
+    size();
+
+    addEventListener('resize', size, false);
+
+    _C.addEventListener('mousedown', lock, false);
+    _C.addEventListener('touchstart', lock, false);
+
+    _C.addEventListener('mousemove', drag, false);
+    _C.addEventListener('touchmove', drag, false);
+
+    _C.addEventListener('mouseup', move, false);
+    _C.addEventListener('touchend', move, false);
+}
+
+function projectContentScroll(event){
+    
+    if(horizontalMove(event.deltaX, event.deltaY)) return;
+    
+    if (event.deltaY > 0 && activeSection === 1){
+        // Change to info
         plus.classList.toggle('rotate');
-
-        if(activeSection === 1){
-            projectContent.style.transform = `translateY(-2px)`;
-        }
-        else{
-            projectContent.style.transform = `translateY(100%)`;
-        }
-
+        projectContent.style.bottom = '78px';
         activeSection = -activeSection;
-    })
+    }
+    else if (event.deltaY < 0 && activeSection === -1){
+        // Change to slider
+        plus.classList.toggle('rotate');
+        projectContent.style.bottom = 'calc(-100% + 154px)';
+        activeSection = -activeSection;
+    }
+    
+}
+
+function dotsSlider(){
+    if(i != parseInt(this.getAttribute('data-slide'))){
+        i = parseInt(this.getAttribute('data-slide'))
+        _C.style.setProperty('--i', i);
+    }   
+
+    arrowVisibility()
+}
+
+function leftArrowClick(){
+    if(i === 0) return;
+
+    _C.style.setProperty('--i', i -= 1);
+    
+    dots[i].click();
+
+    arrowVisibility()
+
+}
+
+function rightArrowClick(){
+    let N = _C.children.length;
+
+    if(i === (N - 2)) return;
+
+    _C.style.setProperty('--i', i += 1);
+
+    dots[i].click();
+
+    arrowVisibility()
+}
+
+function plusButton(){
+    
+    // handle text overflow
+    if(window.screen.availWidth > 1199.98){
+        while(projectLeftText.scrollHeight > projectLeftText.clientHeight){
+            let lastP = projectDesc.lastElementChild;       
+            lastP.style.flex = '1';     
+            projectRightText.insertBefore(lastP, projectInfo);
+            projectDesc.removeChild(projectDesc.lastChild);
+        }
+    }
+
+    // Rotate plus button
+    plus.classList.toggle('rotate');
+
+    // Open/Close project info
+    if(activeSection === 1){
+        projectContent.style.bottom = '78px';
+    }
+    else{
+        projectContent.style.bottom = 'calc(-100% + 154px)';
+    }
+
+    activeSection = -activeSection;
+}
+
+// Responsive menu
+
+let burger = document.getElementsByClassName('burger_container')[0];
+let header = document.getElementById('header_slider').parentElement
+    
+burger.addEventListener('click', function() {
+    burger.classList.toggle('open');
+    header.classList.toggle('open')
+})
+
+// Hide video controls
+let videos = document.getElementsByClassName("video")
+if(videos.length > 0){
+    videos.forEach(video => video.controls = false)
+}
+
+function size() { w = window.innerWidth; h = window.innerHeight; };
+
+function unify(e) {	return e.changedTouches ? e.changedTouches[0] : e };
+
+function lock(e) {
+    x0 = unify(e).clientX; y0 = unify(e).clientY;
+    _C.classList.toggle('smooth', !(locked = true))
+};
+
+function drag(e) {
+	
+    let N = _C.children.length;
+    
+	if(locked && i < N - 2 && i > 0) {
+        _C.style.setProperty('--tx', `${Math.round(unify(e).clientX - x0)}px`)
+        ty = Math.round(unify(e).clientY - y0)
+    }		
+};
+
+function move(e) {
+    let N = _C.children.length;
+    if(locked) {
+        let dx = unify(e).clientX - x0, s = Math.sign(dx), 
+                    f = +(s*dx/w).toFixed(2);
+        let dy = unify(e).clientY - y0;
+
+        if((i > 0 || s < 0) && (i < N - 2 || s > 0) && horizontalMove(dx,dy)) {
+            _C.style.setProperty('--i', i -= s);
+            dots[i].click();
+            f = 1 - f
+        }
+        else if(w  > 1199.98){
+            
+            if(dy < 0){
+                plus.classList.toggle('rotate');
+                projectContent.style.bottom = '78px';
+                activeSection = -activeSection;
+            }
+            else {
+                plus.classList.toggle('rotate');
+                projectContent.style.bottom = 'calc(-100% + 154px)';
+                activeSection = -activeSection;
+            }
+        }
+            
+        _C.style.setProperty('--tx', '0px');
+        _C.style.setProperty('--f', f);
+        _C.classList.toggle('smooth', !(locked = false));
+        x0 = null
+    }
+
+    arrowVisibility();
+};
+
+function horizontalMove(dx, dy){
+    return ((dy > 0 && dx > 0 && dx > dy)||
+        (dy > 0 && dx < 0 && -dx > dy ) || 
+    (dy < 0 && dx < 0 && dy > dx) || 
+    (dx > 0 && dy < 0 && dx > -dy));
+}
+
+function arrowVisibility(){
+    if(i === 0){
+        leftArrow.style.visibility = 'hidden';
+    }
+    else{
+        leftArrow.style.visibility = 'visible';
+    }
+
+    let N = _C.children.length;
+
+    if(i === N - 2){
+        rightArrow.style.visibility = 'hidden';
+    }
+    else{
+        rightArrow.style.visibility = 'visible';
+    }
 }

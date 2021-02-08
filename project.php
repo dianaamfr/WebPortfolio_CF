@@ -13,13 +13,28 @@ drawHead(); ?>
 <div class="project_page">
     <?php drawHeader(); ?>
     <div class="project_sections">  
-        <div class="project_page_slider">
-            <div class="project_slider_track" style="width:<?=count($images)*100?>%">
-                <?php foreach($images as $img){?>
-                    <div style="background-image: url('images/projects/project<?=$project['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_page_slide"></div>
-                <?php } ?>
-            </div>
 
+        <header class="responsive_project_header">
+            <span class="year"><?=$project['year']?></span>
+            <h2 class="title"><?=$project['tabletTitle']?></h2>
+        </header>
+
+        <div class="project_page_slider">
+            <div>
+                <div class="project_slider_track" style="--n: <?= count($images);?>;">
+                    <?php foreach($images as $img){
+                        if(($project['projectId'] == 3) || (($project['projectId'] == 2) && (($img['imageOrder'] == 1) || ($img['imageOrder'] == 10)))){ ?>
+                            <video class="project_page_slide" loop autoplay muted>
+                                <source src="images/projects/project<?=$project['projectId']?>/video<?=$img['imageOrder']?>.m4v">
+                            </video>
+                        <?php }
+                        else{ ?>
+                            <div style="background-image: url('images/projects/project<?=$project['projectId']?>/image<?=$img['imageOrder']?>.jpg');" class="project_page_slide"></div>
+                    <?php } 
+                    } ?>
+                </div>
+            </div>
+            
             <div class="arrows">
                 <img alt="plus icon" src="items/arrow.png">
                 <img alt="plus icon" src="items/arrow.png">
@@ -96,7 +111,7 @@ drawHead(); ?>
         <div class="project_page_line"></div>
         <div class="project_page_description">
             <p><?=$project['title']?><br>
-            <span class="italic"><?=$project['projectType'] ? $project['projectType']:null?></span></p>
+            <span><?=$project['projectType'] ? $project['projectType']:null?></span></p>
             <span class="icon_plus"><img alt="plus icon" src="items/plus.png"></span>
         </div>
     </div>
