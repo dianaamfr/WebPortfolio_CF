@@ -1320,8 +1320,6 @@ footer {
         display: block;
         float: left;
         font-size: 0;
-        text-indent: -9999px;
-        appearance: none;
         cursor: pointer;
         transition: .5s ease-in-out;
     }
@@ -1636,13 +1634,6 @@ footer {
 
     .page_description_mobile{
         display: block;
-    }
-
-    .burger_container {
-        -webkit-box-flex: 0;
-        -ms-flex: 0;
-        flex: 0;
-        position: relative;
     }
 
     .menu_responsive ul {

@@ -1,27 +1,25 @@
 "use strict";
 
-document.addEventListener('DOMContentLoaded', function(){
-    if(document.getElementById('canvas')){
-        // Draw Shapes
-        const canvas = document.getElementsByTagName('canvas')[0];
-        const wrapper = document.getElementById('wrapper');
+const canvas = document.getElementsByTagName('canvas')[0];
+const home = document.getElementById('wrapper');
 
-        if(canvas && (window.screen.availWidth > 1199.98) && window.location.search === ''){
-            drawShapes(wrapper,canvas);
-        }
+if(home){
+    // Draw Shapes
+    if(canvas && (window.screen.availWidth > 1199.98) && window.location.search === ''){
+        drawShapes();
     }
-})
+}
 
-function drawShapes(wrapper,canvas) {
-    fix_dpi(canvas);
+function drawShapes() {
+    fix_dpi();
 
     let ctx = canvas.getContext('2d');
     let shapesPattern = randomWithProbability();
     let rect = canvas.getBoundingClientRect();
     
-    loadShapes(shapesPattern, ctx, canvas);
+    loadShapes(shapesPattern, ctx);
     
-    wrapper.addEventListener('mousemove', function(e){
+    home.addEventListener('mousemove', function(e){
         let x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
         let y = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
         let radius = 250;
@@ -36,7 +34,7 @@ function drawImageWithSize(ctx, img, x, y, width, height) {
     ctx.drawImage(img, x, y, width, height);
 }
 
-function fix_dpi(canvas) {
+function fix_dpi() {
     const dpi = window.devicePixelRatio;
     let style_height = +getComputedStyle(canvas).getPropertyValue('height').slice(0, -2);
     let style_width = +getComputedStyle(canvas).getPropertyValue('width').slice(0, -2);
@@ -45,18 +43,18 @@ function fix_dpi(canvas) {
     canvas.setAttribute('width', style_width * dpi);
 }
 
-function loadShapes(shapesPattern, ctx, canvas){
+function loadShapes(shapesPattern, ctx){
     switch(shapesPattern){
         case 1:
-            loadMainShapes(ctx,canvas);
+            loadMainShapes(ctx);
             break;
         default:
-            loadAlternativeShapes(shapesPattern,ctx,canvas);
+            loadAlternativeShapes(shapesPattern,ctx);
             break;
     }
 }
 
-function loadMainShapes(ctx,canvas) {
+function loadMainShapes(ctx) {
     const redShape = new Image(), blueShape = new Image(), yellowShape = new Image();
     redShape.src = 'items/redShape.png';
     yellowShape.src = 'items/yellowShape.png';
@@ -95,7 +93,7 @@ function loadMainShapes(ctx,canvas) {
     }
 }
 
-function loadAlternativeShapes(shapesPattern, ctx,canvas) {
+function loadAlternativeShapes(shapesPattern, ctx) {
     const shape = new Image();
     shape.src = 'items/shape' + shapesPattern.toString() + '.png';
 

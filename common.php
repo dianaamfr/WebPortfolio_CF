@@ -36,7 +36,7 @@ function drawHead(){?>
                     window.location.href = "index.php?about=";
                 }
             </script>
-            <script src="shapes_script.js"></script>
+            <script src="shapes_script.js" defer></script>
             <script src="script.js" defer></script>
         </head>
         <body>
