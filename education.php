@@ -27,7 +27,7 @@ drawHead(); ?>
                 <p>Catarina Freitas</p>
             </div>
             <div>
-                <p>Code:</p>
+                <p>Web Developer:</p>
                 <p>Diana Freitas</p>
             </div>
             <div>

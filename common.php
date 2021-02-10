@@ -11,7 +11,9 @@ function drawHead(){?>
     <!DOCTYPE html>
     <html lang="en-US">
         <head>
-            <title>Catarina Freitas - Portfolio</title>
+            <title>Catarina Freitas</title>
+            <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+            <link rel="icon" href="favicon.ico" type="image/x-icon">
             <link href="styles.css" rel="stylesheet" type="text/css">
             <meta charset="utf-8">
             <meta name="author" content="Diana Freitas">
@@ -34,6 +36,7 @@ function drawHead(){?>
                     window.location.href = "index.php?about=";
                 }
             </script>
+            <script src="shapes_script.js"></script>
             <script src="script.js" defer></script>
         </head>
         <body>
