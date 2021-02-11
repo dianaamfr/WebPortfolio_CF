@@ -8,17 +8,20 @@ drawHead(); ?>
 
 <div id="wrapper">
     <?php 
-    if (!isset($_SESSION['lastPage']) || ($_SESSION['lastPage'] === '')) { ?> 
+    if(!isset($_SESSION['lastPage']) || ($_SESSION['lastPage'] === '')) { ?> 
         <div id="canvas">
             <canvas></canvas>
         </div>
-    <?php }
-    unset($_SESSION['lastPage']);
-    ?>
+    <?php } ?>
 
     <div id="canvas_under">
-        <?php drawHeader(); ?>
-        <div id="content">
+        <?php drawHeader(); 
+
+        if(!isset($_SESSION['lastPage']) || ($_SESSION['lastPage'] === '')) { ?>
+            <div class="loader"></div>
+        <?php } ?>
+
+        <div id="content" style="<?php if(!isset($_SESSION['lastPage'])||($_SESSION['lastPage'] === '')){echo "visibility: hidden;";}?>"">
             <div id="projects">
                 <?php for($i = 0; $i < count($projects); $i+=2){?>
                     <div class="pair">
@@ -37,7 +40,9 @@ drawHead(); ?>
                 </div>
             </div> 
         </div>    
-        <?php drawFooter(); ?>
+        <?php drawFooter(); 
+        unset($_SESSION['lastPage']);
+        ?>
     </div>
 </div>
 
