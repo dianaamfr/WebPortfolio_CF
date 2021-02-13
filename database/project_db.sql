@@ -261,7 +261,6 @@ INSERT INTO Image VALUES(NULL,3,2,"Mecha Studio Website");
 INSERT INTO Image VALUES(NULL,3,3,"Mecha Studio Website");
 INSERT INTO Image VALUES(NULL,3,4,"Mecha Studio Website");
 INSERT INTO Image VALUES(NULL,3,5,"Mecha Studio Website");
-INSERT INTO Image VALUES(NULL,3,6,"Mecha Studio Website");
 
 
 /*Project 4*/

@@ -19,7 +19,8 @@ function nextSlide(slider) {
     activeSlide[sliderIdx]++;
     (activeSlide[sliderIdx] === slides.length) ? (activeSlide[sliderIdx] = 0) : null;
 
-    const time = ((sliderIdx === 2) || ((sliderIdx === 1) && (activeSlide[sliderIdx] === 0))) ? 6000 : (Math.floor(Math.random() * 4000) + 2000);
+    const time = ((sliderIdx === 2) || ((sliderIdx === 1) && (activeSlide[sliderIdx] === 1))) ? 6000 : (Math.floor(Math.random() * 4000) + 2000);
+    if(sliderIdx == 2) console.log(time)
     setTimeout(function(){ nextSlide(slider) }, time);
     
 }

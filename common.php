@@ -149,7 +149,7 @@ function drawProjectPreview($project){ ?>
         foreach($images1 as $img){
             if(($project['projectId'] == 3) ||(($project['projectId'] == 2) && ($img['imageOrder'] == 1))){ ?>
                 <video class="project_slide" loop autoplay muted>
-                    <source src="images/projects/project<?=$project['projectId']?>/video<?=$img['imageOrder']?>.m4v">
+                    <source src="images/projects/project<?=$project['projectId']?>/video_prev<?=$img['imageOrder']?>.mp4">
                 </video>
             <?php }
             else{ ?>

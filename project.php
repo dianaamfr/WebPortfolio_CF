@@ -25,7 +25,7 @@ drawHead(); ?>
                     <?php foreach($images as $img){
                         if(($project['projectId'] == 3) || (($project['projectId'] == 2) && (($img['imageOrder'] == 1) || ($img['imageOrder'] == 10)))){ ?>
                             <video class="project_page_slide" loop autoplay muted>
-                                <source src="images/projects/project<?=$project['projectId']?>/video<?=$img['imageOrder']?>.m4v">
+                                <source src="images/projects/project<?=$project['projectId']?>/video<?=$img['imageOrder']?>.mp4">
                             </video>
                         <?php }
                         else{ ?>
