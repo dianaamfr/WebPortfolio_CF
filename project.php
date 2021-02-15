@@ -8,12 +8,18 @@ $project  = getProjectById($_GET['id']);
 $description = getProjectDescription($_GET['id']);
 $credits = getProjectCredits($_GET['id']);
 $images = getProjectImages($_GET['id']);
+$showLoader = ($_GET['id'] == 2) || ($_GET['id'] == 3);
 
 drawHead(); ?>
 <div class="project_page">
-    <?php drawHeader(); ?>
-    <div class="project_sections">  
+    <?php drawHeader();
 
+    if($showLoader) { ?>
+        <div class="loader"></div>
+    <?php } ?>
+
+    <div class="project_sections" style="<?php if($showLoader){echo "visibility: hidden;";}?>"">
+ 
         <header class="responsive_project_header">
             <span class="year"><?=$project['year']?></span>
             <h2 class="title"><?=$project['tabletTitle']?></h2>

@@ -20,7 +20,7 @@ function nextSlide(slider) {
     (activeSlide[sliderIdx] === slides.length) ? (activeSlide[sliderIdx] = 0) : null;
 
     const time = ((sliderIdx === 2) || ((sliderIdx === 1) && (activeSlide[sliderIdx] === 1))) ? 6000 : (Math.floor(Math.random() * 4000) + 2000);
-    if(sliderIdx == 2) console.log(time)
+    
     setTimeout(function(){ nextSlide(slider) }, time);
     
 }
@@ -209,8 +209,17 @@ const _C = document.querySelector('.project_slider_track')
 
 let i = 0, x0 = null, y0 = null, locked = false, w, h, ty = null;
 
+// Project Page
+
 if(projectPage){
     let N = _C.children.length;
+
+    // Remove loader
+    let loader = document.getElementsByClassName('loader')[0]
+    if(loader){
+        loader.style.display = 'none'
+        document.getElementsByClassName('project_sections')[0].style.visibility = 'visible'
+    }
     
     // Scroll up and down
     if(window.screen.availWidth > 1199.98){
@@ -222,7 +231,6 @@ if(projectPage){
 
     //arrows
     leftArrow.addEventListener('click', function(){leftArrowClick(N);})
-
     rightArrow.addEventListener('click', function(){rightArrowClick(N);})
 
     // plus
