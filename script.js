@@ -74,9 +74,6 @@ function closeAbout(event) {
 
     window.history.pushState('projects', 'Title', 'index.php');
 
-    // Lock scroll on projects and about
-    projects.scrollTop = 0;
-
     // Slide about column out
     aboutCol.classList.remove('slide_in'); 
     

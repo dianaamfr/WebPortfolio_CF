@@ -1152,6 +1152,7 @@ footer {
     margin-right: 40px;
     margin-left: 40px;
     width: calc(100% - 80px);
+    align-items: flex-start;
 }
 
 .arrows img {
