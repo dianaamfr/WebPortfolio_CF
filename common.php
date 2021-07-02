@@ -177,8 +177,8 @@ function drawAbout(){ ?>
     </div>
     <div id="catarina_description">
         <p>My name is <span class="highlight">Catarina</span>,</p>
-        <p>I like plants, but I do not know much about any of them. Currently working on a self initiated project to discover some more about those wonderful beings. I don´t like pizza, as I do not like flavour that much. I love vegetables and yogurt is my favourite food of all the time. I always drink orange juice in the morning, ice cream is amazing, and I´ve recently discovered avocato. I made myself a club (“ColorClub”), and I am a dedicated member.</p>
-        <p>In other subjects, I love my job. I’m interested in <span class="highlight">Graphic Design</span>, <span class="highlight"></span>Visual Culture, <span class="highlight">Education</span> and <span class="highlight">Values</span>, as well as <span class="highlight">Analog Photography</span> and Travelling. I have the opinion that our knowledge of the world has no value, except when we act to transform it. </p>
+        <p>I like plants, but I do not know much about any of them. I don't like pizza, as I do not like flavour that much. I love vegetables and Açai is my favourite food of all the time. I always drink orange juice in the morning, ice cream is amazing, and I've recently discovered avocado. I made myself a club ("Color Club"), and I am a dedicated member.</p>
+        <p>In other subjects, I love my job. I'm interested in <span class="highlight">Graphic Design</span>, <span class="highlight">Visual Culture</span>, <span class="highlight">Education</span> and <span class="highlight">Values</span>, as well as <span class="highlight">Analog Photography</span> and <span class="highlight">Travelling</span>. I have the opinion that our knowledge of the world has no value, except when we act to transform it. </p>
         <p>Beyond this, I believe in genuine and engaged creation, not falling into cynicism or arrogance, and I wonder if our over-saturation of knowledge has made us feel less. I hope not. Also, I am addicted to books.</p>
         <p>Thank you so much for taking the time to get to know me.</p>
     </div> 

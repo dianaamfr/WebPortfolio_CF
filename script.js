@@ -20,7 +20,6 @@ function nextSlide(slider) {
     (activeSlide[sliderIdx] === slides.length) ? (activeSlide[sliderIdx] = 0) : null;
 
     const time = ((sliderIdx === 2) || ((sliderIdx === 1) && (activeSlide[sliderIdx] === 1))) ? 6000 : (Math.floor(Math.random() * 4000) + 2000);
-    
     setTimeout(function(){ nextSlide(slider) }, time);
     
 }
@@ -151,24 +150,8 @@ if(wrapper){
         closeAboutBtn.addEventListener('click', closeAbout)
     }
     
-    // Projects Scroll Sticky  
-    // TODO - improve
-    //projects.addEventListener('wheel', projectsStickyScroll);
-
 };
 
- function projectsStickyScroll(event){
-    event.preventDefault();
-
-    if (event.deltaY < 0 && pair.previousElementSibling){
-        pair = pair.previousElementSibling
-        pair.scrollIntoView({behavior: "smooth"});
-    }
-    else if (event.deltaY > 0 && pair.nextElementSibling){
-        pair = pair.nextElementSibling
-        pair.scrollIntoView({ behavior: "smooth"});
-    }
- }
 
 // Load education/credits
  
@@ -206,7 +189,7 @@ const _C = document.querySelector('.project_slider_track')
 
 let i = 0, x0 = null, y0 = null, locked = false, w, h, ty = null;
 
-// Project Page
+// Project page
 
 if(projectPage){
     let N = _C.children.length;
@@ -228,6 +211,7 @@ if(projectPage){
 
     //arrows
     leftArrow.addEventListener('click', function(){leftArrowClick(N);})
+
     rightArrow.addEventListener('click', function(){rightArrowClick(N);})
 
     // plus
@@ -253,6 +237,7 @@ function projectContentScroll(event){
     if(horizontalMove(event.deltaX, event.deltaY)) return;
     
     if (event.deltaY > 0 && activeSection === 1){
+        textOverflow()
         // Change to info
         plus.classList.toggle('rotate');
         projectContent.style.bottom = '78px';
@@ -301,14 +286,7 @@ function rightArrowClick(N){
 function plusButton(){
     
     // handle text overflow
-    if(window.screen.availWidth > 1199.98){
-        while(projectLeftText.scrollHeight > projectLeftText.clientHeight){
-            let lastP = projectDesc.lastElementChild;       
-            lastP.style.flex = '1';     
-            projectRightText.insertBefore(lastP, projectInfo);
-            projectDesc.removeChild(projectDesc.lastChild);
-        }
-    }
+    textOverflow()
 
     // Rotate plus button
     plus.classList.toggle('rotate');
@@ -322,6 +300,18 @@ function plusButton(){
     }
 
     activeSection = -activeSection;
+}
+
+function textOverflow(){
+    // handle text overflow
+    if(window.screen.availWidth > 1199.98){
+        while(projectLeftText.scrollHeight > projectLeftText.clientHeight){
+            let lastP = projectDesc.lastElementChild;       
+            lastP.style.flex = '1';     
+            projectRightText.insertBefore(lastP, projectInfo);
+            projectDesc.removeChild(projectDesc.lastChild);
+        }
+    }
 }
 
 // Responsive menu

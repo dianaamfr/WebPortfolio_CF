@@ -1,5 +1,4 @@
-## [Catarina's Portfolio Website](https://catarina-freitas.000webhostapp.com/index.php) 
-*(in development)*
+## [Catarina's Portfolio Website](https://www.catarina-freitas.com/) 
 
 A portfolio website for graphic designer Catarina Freitas.
 
