@@ -1,11 +1,13 @@
 <?php
 include_once('database/db_connection.php');
 
-function getProjects(){
+function getProjects($offset, $limit){
     $db = Database::instance()->db();
     $stmt = $db->prepare("SELECT projectId, title, projectType, tabletTitle 
-                          FROM Project");
-    $stmt->execute();
+                          FROM Project
+                          LIMIT ?
+                          OFFSET ?");
+    $stmt->execute([$limit, $offset]);
     return $stmt->fetchAll();
 }
 

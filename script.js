@@ -1,5 +1,13 @@
 "use strict";
 
+function encodeForAjax(data) {
+    if (data == null) return null;
+    return Object.keys(data).map(function(k){
+        return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+    }).join('&');
+}
+
+
 // Project Sliders
 
 let activeSlide;
@@ -27,7 +35,6 @@ function nextSlide(slider) {
 function hideElement(el) {
     el.style.display = 'none';
 }
-
 
 // Menu buttons
 
@@ -86,6 +93,88 @@ function enableProjectsScroll() {
 function disableProjectsScroll() {
     projects.classList.add('unscrollable');
     about_content.classList.add('unscrollable');
+}
+
+// Load next slides
+let lastScroll = 0;
+let loadedPairs = 1;
+let allProjectsLoaded = false;
+let loadHeight;
+let pairTotalHeight;
+if(projects){
+    loadHeight = document.querySelector('#projects .pair_right').offsetHeight*2/3;
+    pairTotalHeight = document.querySelector('#projects .pair_right').offsetHeight;
+    projects.addEventListener('scroll', loadProjects);
+}
+
+function loadProjects(){
+    if(projectOffset() && !allProjectsLoaded){
+        lastScroll = projects.scrollTop;
+        loadedPairs++;
+
+        let request = new XMLHttpRequest();
+        let data = {'offset': loadedPairs * 2 + 2, 'limit': 2};
+        request.open('get', '../api_load_projects.php?' + encodeForAjax(data), true);        
+        request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        request.addEventListener('load', appendProjects);
+        request.send();
+    }
+}
+
+function projectOffset(){
+    return projects.scrollTop > (loadedPairs - 1) * pairTotalHeight + loadHeight && projects.scrollTop < loadedPairs * pairTotalHeight + loadHeight;
+}
+
+function appendProjects(){
+    let response = JSON.parse(this.responseText);
+    
+    if(response.length == 0){
+        allProjectsLoaded = true;
+        return;
+    }
+
+    // Create new pair elements
+    let newPair = document.createElement('div');
+    newPair.classList.add('pair');
+    let rightProj = document.createElement('div');
+    let leftProj = document.createElement('div');
+    rightProj.classList.add('pair_right');
+    leftProj.classList.add('pair_left');
+
+    // Build new pair structure
+    leftProj.innerHTML = newProject(response[0]);
+    rightProj.innerHTML = newProject(response[1])
+
+    newPair.appendChild(leftProj);
+    newPair.appendChild(rightProj);
+    projects.appendChild(newPair);
+
+}
+
+function newProject(proj){
+    let projImages = '';
+
+    for(let image of proj.images){
+        if((proj.data.projectId == 3) ||((proj.data.projectId == 2) && (image.imageOrder == 1))){
+            projImages = `<video class="project_slide" loop autoplay muted>
+                <source src="images/projects/project${proj.data.projectId}/video_prev${image.imageOrder}.mp4">
+            </video>`;
+        }
+        else{
+            projImages = `<div style="background-image: url('images/projects/project${proj.data.projectId}/image${image.imageOrder}.jpg');" class="project_slide"></div>`;
+        } 
+    }
+
+    let description = `</div>
+    <div class="line"></div>
+    <div class="description">
+        <p>${proj.data.title}><br>
+        <span>${proj.data.projectType ? proj.data.projectType:''}</span></p>
+        <p>${proj.data.tabletTitle}</p>
+        <a class="icon_plus" href="project.php?id=${proj.data.projectId}"><img alt="plus icon" src="items/plus.png"></a>
+    </div>`
+
+    return `<div class="project_slider">` + projImages + description;
 }
 
 

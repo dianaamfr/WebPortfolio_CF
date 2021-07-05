@@ -176,11 +176,11 @@ function drawAbout(){ ?>
         <span class="icon_plus"><img alt="plus icon" src="items/plus.png"></span>
     </div>
     <div id="catarina_description">
-        <p>My name is <span class="highlight">Catarina</span>,</p>
-        <p>I like plants, but I do not know much about any of them. I don't like pizza, as I do not like flavour that much. I love vegetables and Açai is my favourite food of all the time. I always drink orange juice in the morning, ice cream is amazing, and I've recently discovered avocado. I made myself a club ("Color Club"), and I am a dedicated member.</p>
-        <p>In other subjects, I love my job. I'm interested in <span class="highlight">Graphic Design</span>, <span class="highlight">Visual Culture</span>, <span class="highlight">Education</span> and <span class="highlight">Values</span>, as well as <span class="highlight">Analog Photography</span> and <span class="highlight">Travelling</span>. I have the opinion that our knowledge of the world has no value, except when we act to transform it. </p>
-        <p>Beyond this, I believe in genuine and engaged creation, not falling into cynicism or arrogance, and I wonder if our over-saturation of knowledge has made us feel less. I hope not. Also, I am addicted to books.</p>
-        <p>Thank you so much for taking the time to get to know me.</p>
+        <p>Catarina Freitas, born in 1996, is a Communication Designer and Art Director, that believes in genuine and engaged creation. For the last years, she has worked in <span class="highlight">ESAD—idea (PT)</span>, <span class="highlight">Mecha Studio (PT)</span>, <span class="highlight">Brutus Studio (NYC)</span>, <span class="highlight">Metyis (AMST)</span>, while also taking a side interest in the fiel of Education on Graphic Design and Critical Writing.</p>
+        <p>She has a Master Degree on Graphic Design, currently works as a Freelancer for a variety of studios worldwide - <span class="highlight">The Normal Studio (Chicago)</span>, <span class="highlight">Non-Verbal Club (PT)</span>, <span class="highlight">BUCK (LA)</span>, among others - and has recently decided to start her own practice as a Studio, <span class="highlight">Yucca Studio</span>, yet to launch.</p>
+        <p>Catarina has the opinion that our knowledge of the world has no value, except when we act to transform it.</p>
+        <p>Beyond this, she believe in not falling into cynicism or arrogance, and wonders if our over-saturation of knowledge has made us feel less. She hopes not.</p>
+        <p>She likes plants, but does not know much about them. She is one of those weird beings who do not like pizza. Açai is her favourite food, she always drinks orange juice in the morning, and she is a dedicate member of “Color Club”, as you can see, everywhere!</p>
     </div> 
     <img src="images/catarina.JPG" alt="Catarina's picture">      
     <div id="details">
@@ -237,61 +237,49 @@ function drawAbout(){ ?>
                 <p>Brutus Studio</p>
                 <p>Mecha Studio</p>
             </div>
+            <div class="details_block">
+                <h2>2021</h2>
+                <section class="experience-with-title">
+                    <h3>METYIS</h3>
+                    <p>Partners for Impact</p>
+                    <p>Mid-weight Graphic Designer</p>
+                </section>
+                <section class="experience-with-title">
+                    <h3>The Normal Studio</h3>
+                    <p>Freelancer Graphic Designer</p>
+                </section>
+                <section class="experience-with-title">
+                    <h3>Buck</h3>
+                    <p>Freelancer Graphic Designer</p>
+                </section>
+                <section class="experience-with-title">
+                    <h3>Buck</h3>
+                    <p>Freelancer Graphic Designer</p>
+                </section>
+                <section class="experience-with-title">
+                    <h3>Non-Verbal Club</h3>
+                    <p>Freelancer Graphic Designer</p>
+                </section>
+                <section class="experience-with-title">
+                    <h3>Yucca Studio</h3>
+                    <p>Founder</p>
+                </section>
+            </div>
         </div>
         <div>
-            <h2>Featured</h2>
+            <h2>Selected Clients</h2>
             <div class="details_block">
-                <h2>01</h2>
                 <p>Graphic Fearless Woman</p>
-            </div>
-            <div class="details_block">
-                <h2>02</h2>
-                <p>States of Change,</p>
-                <p class="italic">Exhibition in Hoxton (UK)</p>
-            </div>
-            <div class="details_block">
-                <h2>03</h2>
-                <p>6 Faces da mesma Moeda</p>
-                <p class="italic">Gerador Magazine</p>
-            </div>
-            <div class="details_block">
-                <h2>04</h2>
-                <p>Student Show, Editorial, Indesign Gallery</p>
-                <p class="italic">Behance</p>
-            </div>
-            <div class="details_block">
-                <h2>05</h2>
-                <p>womenofksa.com</p>
-            </div>
-            <div class="details_block">
-                <h2>06</h2>
-                <p>Brand Magazine Issue 39</p>
-            </div>
-            <div class="details_block">
-                <h2>07</h2>
-                <p>Risography Exhibition</p>
-                <p class="italic">Universidade de Aveiro</p>
-            </div>
-            <div class="details_block">
-                <h2>08</h2>
-                <p>Stunning Books</p>
-            </div>
-            <div class="details_block">
-                <h2>09</h2>
-                <p>anothergraphic.org</p>
-            </div>
-            <div class="details_block">
-                <h2>10</h2>
-                <p>Edições Um Por Um</p>
-            </div>
-            <div class="details_block">
-                <h2>11</h2>
-                <p>“Be My Quarantine” 2021</p>
-                <p class="italic">Museu Nogueira Da Silva Exhibition</p>
-            </div>
-            <div class="details_block">
-                <h2>12</h2>
-                <p>Risography Exhibition</p>
+                <p>Grace Hartnett</p>
+                <p>Leslie Tynik</p>
+                <p>Betina Du Toit</p>
+                <p>Lena Pogrebnaya</p>
+                <p>PVH</p>
+                <p>Hugo Boss</p>
+                <p>Tommy Hilfiger</p>
+                <p>Calvin Klein</p>
+                <p>Paradise Productions</p>
+                <p>WeTransfer</p>
             </div>
         </div>
     </div> 

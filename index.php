@@ -2,7 +2,7 @@
 include_once('common.php');
 include_once('database/db_content.php');
 
-$projects  = getProjects();
+$projects  = getProjects(0, 6);
 
 drawHead(); ?>
 
@@ -21,7 +21,7 @@ drawHead(); ?>
             <div class="loader"></div>
         <?php } ?>
 
-        <div id="content" style="<?php if(!isset($_SESSION['lastPage'])||($_SESSION['lastPage'] === '')){echo "visibility: hidden;";}?>"">
+        <div id="content" style="<?php if(!isset($_SESSION['lastPage'])||($_SESSION['lastPage'] === '')){echo "visibility: hidden;";}?>">
             <div id="projects">
                 <?php for($i = 0; $i < count($projects); $i+=2){?>
                     <div class="pair">
